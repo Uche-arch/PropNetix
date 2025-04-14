@@ -33,13 +33,16 @@ loginForm.addEventListener("submit", async (e) => {
   const password = document.getElementById("password").value;
 
   // Send only username and password in the body
-  const response = await fetch("http://127.0.0.1:5000/api/login", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ username, password }), // Corrected here
-  });
+  const response = await fetch(
+    "https://propnetixbackend.onrender.com/api/login",
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ username, password }), // Corrected here
+    }
+  );
 
   const data = await response.json();
 

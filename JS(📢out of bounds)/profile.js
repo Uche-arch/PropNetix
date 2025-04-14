@@ -48,12 +48,15 @@ document.addEventListener("DOMContentLoaded", async function () {
 
 // Fetch user data to get the username
 async function fetchUserData(token) {
-  const response = await fetch("http://127.0.0.1:5000/api/user", {
-    method: "GET",
-    headers: {
-      Authorization: token,
-    },
-  });
+  const response = await fetch(
+    "https://propnetixbackend.onrender.com/api/user",
+    {
+      method: "GET",
+      headers: {
+        Authorization: token,
+      },
+    }
+  );
 
   const data = await response.json();
 
@@ -125,13 +128,16 @@ postForm.addEventListener("submit", async (e) => {
   }
 
   try {
-    const response = await fetch("http://127.0.0.1:5000/api/create-post", {
-      method: "POST",
-      headers: {
-        Authorization: token,
-      },
-      body: formData,
-    });
+    const response = await fetch(
+      "https://propnetixbackend.onrender.com/api/create-post",
+      {
+        method: "POST",
+        headers: {
+          Authorization: token,
+        },
+        body: formData,
+      }
+    );
     // showLoadingModal();
     const data = await response.json();
     console.log("Post created data:", data);
@@ -179,12 +185,15 @@ async function fetchUserPosts(token) {
   // Show the loading modal when data is being fetched
   showLoadingModal();
 
-  const response = await fetch("http://127.0.0.1:5000/api/posts/user", {
-    method: "GET",
-    headers: {
-      Authorization: token,
-    },
-  });
+  const response = await fetch(
+    "https://propnetixbackend.onrender.com/api/posts/user",
+    {
+      method: "GET",
+      headers: {
+        Authorization: token,
+      },
+    }
+  );
 
   const data = await response.json();
 
@@ -293,7 +302,7 @@ async function deletePost(postId) {
 
   try {
     const response = await fetch(
-      `http://127.0.0.1:5000/api/delete-post/${postId}`,
+      `https://propnetixbackend.onrender.com/api/delete-post/${postId}`,
       {
         method: "DELETE",
         headers: {

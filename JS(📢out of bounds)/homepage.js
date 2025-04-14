@@ -51,9 +51,12 @@ document.addEventListener("DOMContentLoaded", async function () {
 
   // Fetch posts from the backend to display on the homepage
   try {
-    const response = await fetch("http://127.0.0.1:5000/api/posts", {
-      method: "GET", // GET request to fetch posts
-    });
+    const response = await fetch(
+      "https://propnetixbackend.onrender.com/api/posts",
+      {
+        method: "GET", // GET request to fetch posts
+      }
+    );
 
     if (!response.ok) {
       throw new Error("Failed to fetch posts from server.");
