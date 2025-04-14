@@ -206,7 +206,7 @@ document.addEventListener("DOMContentLoaded", async function () {
           <p id="post-time">Posted ${timeAgo}</p>
           <h3 id="post-title">${title}</h3>
           <p id="post-description">${post.description}</p>
-          <p id="post-category">Category: ${post.category}</p>
+          <p id="post-category">Category: <b>${post.category}</b></p>
           <p id="post-price">Price: ₦${post.price.toLocaleString()}</p>
           <p  id="post-negotiable">Negotiable: ${post.negotiable}</p>
           <p id="post-location">Location: ${post.location}</p>

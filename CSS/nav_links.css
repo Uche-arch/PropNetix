@@ -4,7 +4,7 @@
   align-items: center;
   gap: 10px;                /* Space between icon and text */
   font-size: 16px;
-  color: #000;
+  color: #ffff;
   font-weight: 600;
   padding: 10px 16px;
   text-decoration: none;
@@ -13,7 +13,7 @@
 }
 
 #home:hover {
-  background-color: #e6f0fc;
+  background-color: #2367;
   color: #2c6ecb;
 }
 
@@ -28,11 +28,13 @@
 /* Normal navigation links */
 .nav_links a {
   text-decoration: none;
-  color: #222;
+  color: #f3e9e9;
   padding: 10px 15px;
   font-size: 16px;
   transition: all 0.3s ease;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
 
 /* Hover effect for nav links */
 .nav_links a:hover {

@@ -5,13 +5,18 @@
   box-sizing: border-box;
 }
 
+body {
+  background-color: #2c2929;
+}
+
 header {
   width: 100%;
-  background-color: #f5f5f5;
+  background-color: #0c0c0cd8;
   padding: 10px 20px;
   position: fixed;
   top: 0;
   border-bottom: 2px solid black;
+  color: white;
 }
 
 nav {

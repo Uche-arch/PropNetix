@@ -2,7 +2,7 @@
   padding: 8px 16px;
   border: none;
   border-radius: 50px;
-  background-color: #4a90e2;
+  background-color: rgb(228, 9, 9);
   color: white;
   font-size: 14px;
   cursor: pointer;
@@ -10,12 +10,16 @@
 }
 
 .nav_buttons button:hover {
-  background-color: #357ab8;
+  background-color: rgb(139, 27, 27);
   transform: translateY(-2px);
 }
 
 .nav_buttons button:active {
   transform: scale(0.98);
+}
+
+#loginButton {
+  background-color: rgb(36, 30, 30);
 }
 
 #profileButton {
