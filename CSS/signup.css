@@ -1,0 +1,195 @@
+/* Reset margin for body and make sure it doesn't interfere with header */
+/* body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+} */
+
+/* Form section takes full screen (minus header) and centers form */
+/* main { */
+/* min-height: calc(100vh - 80px); adjust 80px to match your header height */
+/* display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+} */
+
+/* Glassmorphism style */
+/* .signUpForm_container {
+  background: rgba(255, 255, 255, 0.15);
+  padding: 40px 30px;
+  border-radius: 15px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+} */
+
+/* Input styling */
+/* .signUpForm_container input {
+  width: 100%;
+  padding: 12px 15px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.9);
+  font-size: 16px;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.signUpForm_container input:focus {
+  box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+  border: 1px solid rgba(81, 203, 238, 1);
+} */
+
+/* Button styling */
+/* .signUpForm_container button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 15px;
+  border: none;
+  border-radius: 8px;
+  background-color: #4a90e2;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.signUpForm_container button:hover {
+  background-color: #357ab8;
+} */
+
+/* General reset and background */
+body {
+  margin: 0;
+  padding: 0;
+  /* font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; */
+  /* background: linear-gradient(120deg, #f093fb, #f5576c, #4facfe); */
+  background: linear-gradient(120deg, #08161b, #245261, #247a9e);
+  background-size: 400% 400%;
+  animation: backgroundFlow 20s ease infinite;
+  color: #fff;
+}
+
+@keyframes backgroundFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Center the form below the header */
+main {
+  min-height: calc(100vh - 80px); /* header height offset */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 200px 20px;
+}
+
+/* Signup form container */
+.signUpForm_container {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 50px 35px;
+  border-radius: 20px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  max-width: 420px;
+  width: 100%;
+  text-align: center;
+  animation: floatUp 1.5s ease-out;
+  color: #fff;
+}
+
+@keyframes floatUp {
+  from {
+    transform: translateY(120px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Input fields */
+.signUpForm_container input {
+  width: 100%;
+  padding: 14px 16px;
+  margin: 12px 0;
+  border: none;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.95);
+  font-size: 15px;
+  color: #333;
+  outline: none;
+  transition: box-shadow 0.3s ease, border 0.3s ease;
+}
+
+.signUpForm_container input:focus {
+  box-shadow: 0 0 8px rgba(74, 144, 226, 0.6);
+  border: 1px solid #4a90e2;
+}
+
+/* Button */
+.signUpForm_container button {
+  width: 100%;
+  padding: 14px;
+  margin-top: 20px;
+  border: none;
+  border-radius: 50px;
+  background: linear-gradient(to right, #4facfe, #00f2fe);
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.4s ease;
+}
+
+.signUpForm_container button:hover {
+  background: linear-gradient(to right, #43e97b, #38f9d7);
+}
+
+@media screen and (max-width: 400px) {
+  /* Input fields */
+  .signUpForm_container input {
+    width: 100%;
+    padding: 10px 12px;
+    margin: 12px 0;
+    border: none;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.95);
+    font-size: 15px;
+    color: #333;
+    outline: none;
+    transition: box-shadow 0.3s ease, border 0.3s ease;
+  }
+
+  /* Button */
+  .signUpForm_container button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 50px;
+    background: linear-gradient(to right, #4facfe, #00f2fe);
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.4s ease;
+  }
+}

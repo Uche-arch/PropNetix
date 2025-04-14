@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./CSS/header.css" />
+    <link rel="stylesheet" href="./CSS/buttons.css" />
+    <link rel="stylesheet" href="./CSS/login.css" />
+    <link rel="stylesheet" href="./CSS/modals.css" />
+    <link rel="stylesheet" href="./CSS/nav_links.css" />
+    <link rel="stylesheet" href="./CSS/feedbackBtn.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+
+    <title>PropNetix | Log In</title>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="logo">
+          <h2>PropNetix</h2>
+          <p>
+            <a href="index.html" id="home"
+              ><i class="fa-solid fa-layer-group"></i> All Posts
+            </a>
+          </p>
+        </div>
+        <div class="nav_links">
+          <a href="realEstate.html?category=housing">Housing</a>
+          <a href="lands.html?category=land">Land</a>
+          <a href="shops.html?category=shops">Shops</a>
+          <a href="props.html?category=props">Props</a>
+          <a href="others.html?category=others">Others</a>
+        </div>
+        <div class="nav_buttons">
+          <button
+            id="signupButton"
+            onclick="window.location.href='signup.html'"
+          >
+            Sign Up
+          </button>
+          <button id="LoginButton" onclick="window.location.href='login.html'">
+            Log In
+          </button>
+          <button
+            id="profileButton"
+            style="display: none"
+            onclick="window.location.href='profile.html'"
+          >
+            Profile
+          </button>
+          <button id="logoutButton" style="display: none" onclick="logout()">
+            Log Out
+          </button>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <div class="login_container">
+        <h2>Login</h2>
+        <form id="loginForm">
+          <label for="loginEmail">Username:</label>
+          <input
+            type="text"
+            id="username"
+            placeholder="Username"
+            required
+          /><br />
+
+          <label for="loginPassword">Password:</label>
+          <input type="password" id="password" required />
+
+          <button type="submit">Login</button>
+        </form>
+        <p>Don't have an account? <a href="signup.html">Sign up</a></p>
+      </div>
+
+      <div id="invalidModal" class="modal">
+        <div class="modal-content">
+          <h2 id="modalMessage" style="color: black"></h2>
+        </div>
+      </div>
+      <!-- Feedback Button -->
+      <a
+        id="feedback-button"
+        href="https://forms.gle/ejc1CS8h1pT7wE2a7"
+        target="_blank"
+      >
+        <i class="fa-solid fa-comment-dots"></i>Give Feedback</a
+      >
+    </main>
+
+    <script src="./JS(📢out of bounds)/login.js"></script>
+    <script src="./JS(📢out of bounds)/feedbackBtn.js"></script>
+  </body>
+</html>
