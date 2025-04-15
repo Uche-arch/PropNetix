@@ -12,7 +12,7 @@
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
   opacity: 0;
   transition: opacity 4s ease;
-  z-index: 1000;
+  z-index: 100000000000;
   pointer-events: none; /* Prevent click when invisible */
 }
 
@@ -40,10 +40,11 @@
 }
 
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 992px) {
   #feedback-button {
-    bottom: 50px;
+    bottom: 36px;
     right: 20px;
-    padding: 10px 15px;
+    padding: 5px 13px;
+    font-size: 14px;
   }
 }

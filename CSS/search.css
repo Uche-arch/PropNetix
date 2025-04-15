@@ -18,6 +18,7 @@
   outline: none;
   transition: border-color 0.3s ease, box-shadow 0.2s ease;
   background-color: transparent;
+  color: white;
 }
 
 .search_index input:focus {
@@ -25,10 +26,9 @@
   box-shadow: 0 0 5px rgba(74, 144, 226, 0.4);
 }
 
-
 @media screen and (max-width: 992px) {
   .search_index {
-    padding-top: 135px;
+    padding-top: 47px;
     width: 60%;
     margin: 20px 10px 0 auto;
     display: flex;
@@ -38,21 +38,21 @@
   }
 }
 
-
 @media screen and (max-width: 600px) {
   .search_index {
-    padding-top: 80px;
-    width: 80%;
+    padding-top: 38px;
+    width: 60%;
     margin: 20px 10px 0 auto;
     display: flex;
   }
   .search_index input {
     border-radius: 50px;
+    font-size: 14px;
+    padding: 8px 14px;
   }
 }
 
-
-@media screen and (max-width: 415px) {
+/* @media screen and (max-width: 415px) {
   .search_index {
     padding-top: 65px;
     width: 60%;
@@ -64,4 +64,4 @@
     font-size: 15px;
     padding: 8px;
   }
-}
+} */
