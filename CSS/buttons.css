@@ -17,6 +17,8 @@
 .nav_buttons button:active {
   transform: scale(0.98);
 } */
+@import url("https://fonts.googleapis.com/css?family=Poppins:200,200i,300,300i,400,400i,500,500i,600,600i,700,700i");
+
 .nav_buttons {
   display: flex;
   align-items: center;
@@ -24,12 +26,14 @@
 }
 #LoginButton {
   /* background-color: rgb(36, 30, 30); */
-  color: white;
+  /* color: white; */
   padding: 8px 16px;
   font-size: 14px;
   cursor: pointer;
-  background: orange;
+  background: rgb(231, 225, 225);
   border-radius: 50px;
+  color: black;
+  font-family: 'Poppins', sans-serif;
   /* border: none; */
 }
 #signupButton {
@@ -38,8 +42,8 @@
   padding: 8px 16px;
   font-size: 14px;
   cursor: pointer;
-  /* background: transparent; */
   border-radius: 50px;
+  font-family: 'Poppins', sans-serif;
 }
 
 #profileButton {
@@ -98,6 +102,8 @@
 @media screen and (max-width: 600px) {
   #LoginButton, #signupButton {
     padding: 7px 10px;
-    font-size: 12px;
+    font-size: 13px;
+    font-family: 'Poppins', sans-serif;
+
   }
 }
