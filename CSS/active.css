@@ -1,7 +1,10 @@
 .active {
     background-color: rgb(83, 81, 81);
 }
-
+.activeUser {
+    color: black;
+    border-bottom: 1px dashed white;
+}
 /* @media screen and (max-width: 992px) {
     .active {
         font-weight: bolder;

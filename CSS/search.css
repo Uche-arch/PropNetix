@@ -1,9 +1,9 @@
 .search_index {
   display: flex;
   justify-content: center;
-  margin: 20px auto;
+  margin: 20px auto 0px auto;
   padding-top: 50px;
-  padding-bottom: 15px;
+  padding-bottom: 5px;
   max-width: 100%;
   gap: 1rem;
 }
@@ -32,6 +32,7 @@
     width: 60%;
     margin: 20px 10px 0 auto;
     display: flex;
+    /* border: 1px solid; */
   }
   .search_index input {
     border-radius: 50px;

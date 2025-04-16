@@ -18,6 +18,7 @@ header {
   border-bottom: 2px solid black;
   color: white;
   z-index: 222222222;
+  /* backdrop-filter: blur(10px); */
 }
 nav {
   display: flex;

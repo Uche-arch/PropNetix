@@ -47,15 +47,31 @@
 }
 
 #profileButton {
-  background-color: #5cb85c;
+  /* background-color: #5cb85c;
+  padding: 8px 16px;
+  border-radius: ; */
+  color: white;
+  font-size: 20px;
+  background: transparent;
+  padding: 6px 10px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
 }
 
 #profileButton:hover {
-  background-color: #449d44;
+  /* background-color: #449d44; */
+    background-color: rgb(36, 33, 33);
 }
 
 #logoutButton {
   background-color: #d9534f;
+  padding: 8px 16px;
+  font-size: 14px;
+  cursor: pointer;
+   border-radius: 50px;
+   border: none;
+   color: white;
 }
 
 #logoutButton:hover {
@@ -63,10 +79,10 @@
 }
 
 .delete-button {
-  background-color: #e63946;  /* Deep red */
+  background-color: rgb(236, 43, 43);  /* Deep red */
   color: white;
   border: none;
-  padding: 7px 12px;
+  padding: 5px 10px;
   font-size: 14px;
   border-radius: 9px;
   cursor: pointer;
@@ -100,9 +116,9 @@
 } */
 
 @media screen and (max-width: 600px) {
-  #LoginButton, #signupButton {
-    padding: 7px 10px;
-    font-size: 13px;
+  #LoginButton, #signupButton, #logoutButton {
+    padding: 6px 9px;
+    font-size: 11px;
     font-family: 'Poppins', sans-serif;
 
   }
