@@ -118,16 +118,16 @@ document.addEventListener("DOMContentLoaded", async function () {
       const keywordQuery = document
         .getElementById("keywordSearch")
         .value.toLowerCase();
-    //   const userQuery = document
-    //     .getElementById("userSearch")
-    //     .value.toLowerCase();
+      //   const userQuery = document
+      //     .getElementById("userSearch")
+      //     .value.toLowerCase();
 
       const filteredPosts = posts.filter((post) => {
         const matchesKeyword = post.title.toLowerCase().includes(keywordQuery);
         // const matchesUser = post.user.username
         //   .toLowerCase()
         //   .includes(userQuery);
-        return matchesKeyword ;
+        return matchesKeyword;
       });
 
       const homepageFeed = document.getElementById("homepageFeed");
@@ -202,20 +202,25 @@ document.addEventListener("DOMContentLoaded", async function () {
         // }
 
         postDiv.innerHTML = `
-           <p class="post-username">Posted by: ${username}</p> <!-- Display username -->
-          <p id="post-time">Posted ${timeAgo}</p>
-          <h3 id="post-title">${title}</h3>
-          <p id="post-description">${post.description}</p>
-          <p id="post-category">Category: <b>${post.category}</b></p>
-          <p id="post-price">Price: ₦${post.price.toLocaleString()}</p>
-          <p  id="post-negotiable">Negotiable: ${post.negotiable}</p>
-          <p id="post-location">Location: ${post.location}</p>
-          <p id="post-phone">Phone: ${post.phone}</p>
+            <p class="post-username">Posted by: ${username}</p> <!-- Display username -->
+            <p id="post-time">Posted ${timeAgo}</p>
+            <h3 id="post-title">${title}</h3>
+            <p id="post-description">${post.description}</p>
+            <p id="post-category">Category: <b>${post.category}</b></p>
+            <p id="post-price">Price: ₦${post.price.toLocaleString()}</p>
+            <p  id="post-negotiable">Negotiable: ${post.negotiable}</p>
+            <p id="post-location">Location: ${post.location}</p>
+            <p id="post-phone">Phone: ${post.phone}</p>
           <div id="post-images">
-            ${post.images
-              .map((image) => `<img src="${image}" alt="Post Image" />`)
-              .join("")}
-          </div>
+      ${post.images
+        .map(
+          (image) => `
+        <a href="${image}" data-lightbox="post-gallery">
+        <img src="${image}" alt="Post Image"  loading="lazy"/>
+        </a>`
+        )
+        .join("")}
+    </div>
         `;
 
         homepageFeed.appendChild(postDiv); // Append the post to the homepage feed

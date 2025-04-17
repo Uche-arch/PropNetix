@@ -2,8 +2,8 @@
     background-color: rgb(83, 81, 81);
 }
 .activeUser {
-    color: black;
-    border-bottom: 1px dashed white;
+    color: rgb(36, 34, 34);
+    /* border: 1px solid white; */
 }
 /* @media screen and (max-width: 992px) {
     .active {

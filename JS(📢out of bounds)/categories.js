@@ -154,10 +154,15 @@ document.addEventListener("DOMContentLoaded", async function () {
           <p id="post-phone">Phone: ${post.phone}</p>
           <p id="post-time">Posted ${timeAgo}</p> <!-- Display the formatted date here -->
           <div id="post-images">
-            ${post.images
-              .map((image) => `<img src="${image}" alt="Post Image" />`)
-              .join("")}
-          </div>
+      ${post.images
+        .map(
+          (image) => `
+        <a href="${image}" data-lightbox="post-gallery">
+        <img src="${image}" alt="Post Image" loading="lazy"/>
+        </a>`
+        )
+        .join("")}
+    </div>
         `;
 
         postsContainer.appendChild(postDiv); // Append the post to the posts container

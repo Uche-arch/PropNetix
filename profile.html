@@ -15,8 +15,9 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
     />
+    <!-- Lightbox2 CSS -->
+<link href="https://cdn.jsdelivr.net/npm/lightbox2@2/dist/css/lightbox.min.css" rel="stylesheet" />
 
-    <link rel="stylesheet" href="style.css" />
     <title>PropNetix | Your Profile</title>
   </head>
   <body>
@@ -89,11 +90,11 @@
             <!-- Category Dropdown -->
             <label for="">Category</label>
             <select id="category" required>
-              <option value="props">Props</option>
-              <option value="housing">Housing</option>
-              <option value="shops">Shops</option>
-              <option value="land">Land</option>
-              <option value="others">Others</option></select
+              <option value="Props">Props</option>
+              <option value="Apartments">Apartments</option>
+              <option value="Shops">Shops</option>
+              <option value="Land">Land</option>
+              <option value="Others">Others</option></select
             ><br />
 
             <!-- Land Measurement Input (Initially hidden) -->
@@ -162,7 +163,7 @@
 
     <div id="postingModal" class="modal">
       <div class="modal-content">
-        <h2><i class="fa-solid fa-circle-check"></i> Posted successful</h2>
+        <h2><i class="fa-solid fa-circle-check"></i> Posted</h2>
       </div>
     </div>
 
@@ -175,5 +176,7 @@
     <script src="./JS(📢out of bounds)/profileForm.js"></script>
     <script src="./JS(📢out of bounds)/profile.js"></script>
     <script src="./JS(📢out of bounds)/feedbackBtn.js"></script>
+    <!-- Lightbox2 JS -->
+<script src="https://cdn.jsdelivr.net/npm/lightbox2@2/dist/js/lightbox-plus-jquery.min.js"></script>
   </body>
 </html>

@@ -10,10 +10,15 @@
     <link rel="stylesheet" href="./CSS/modals.css" />
     <link rel="stylesheet" href="./CSS/feed.css" />
     <link rel="stylesheet" href="./CSS/feedbackBtn.css" />
-    <link rel="stylesheet" href="./CSS/active.css">
+    <link rel="stylesheet" href="./CSS/active.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+    <!-- Lightbox2 CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/lightbox2@2/dist/css/lightbox.min.css"
+      rel="stylesheet"
     />
     <title>PropNetix</title>
   </head>
@@ -51,7 +56,7 @@
             id="profileButton"
             onclick="window.location.href='profile.html'"
           >
-            Profile
+            <i class="fas fa-user"></i>
           </button>
           <!-- Remember that it was styled to not be displayed -->
           <button id="logoutButton" style="display: none" onclick="logout()">
@@ -71,13 +76,12 @@
       <div id="loadingModal" class="modal">
         <div class="modal-content">
           <h2 id="loading">
-            <i class="fa-solid fa-sync fa-spin"></i> Loading...
+            <i class="fa-solid fa-sync fa-spin"></i> Loading... Please wait
           </h2>
         </div>
       </div>
       <div class="feed_container">
-        <div id="homepageFeed" class="feed">
-        </div>
+        <div id="homepageFeed" class="feed"></div>
 
         <!-- Feedback Button -->
         <a
@@ -92,5 +96,7 @@
     <script src="./JS(📢out of bounds)/navLinks.js"></script>
     <script src="./JS(📢out of bounds)/homepage.js"></script>
     <script src="./JS(📢out of bounds)/feedbackBtn.js"></script>
+    <!-- Lightbox2 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/lightbox2@2/dist/js/lightbox-plus-jquery.min.js"></script>
   </body>
 </html>

@@ -74,7 +74,7 @@ async function fetchUserData(token) {
 const postForm = document.getElementById("postForm");
 postForm.addEventListener("submit", async (e) => {
   e.preventDefault();
-  showLoadingModal()
+  showLoadingModal();
 
   // function showTemporaryModal(modalId, duration = 2000) {
   //   const modal = document.getElementById(modalId);
@@ -97,7 +97,22 @@ postForm.addEventListener("submit", async (e) => {
   const token = localStorage.getItem("token");
   const title = document.getElementById("title").value;
   const description = document.getElementById("description").value;
-  const price = document.getElementById("price").value;
+  // const price = document.getElementById("price").value;
+
+  // Handle price formatting
+  let rawPriceInput = document.getElementById("price").value;
+  const match = rawPriceInput.match(/^([\d,\.]+)(.*)$/);
+
+  let formattedPrice = rawPriceInput; // Default to raw input
+  if (match) {
+    let numberPart = match[1].replace(/[^0-9]/g, ""); // Clean the number
+    let textPart = match[2].trim(); // Keep the text (e.g., "per year")
+    if (numberPart) {
+      let withCommas = Number(numberPart).toLocaleString(); // Add commas
+      formattedPrice = `${withCommas}${textPart ? " " + textPart : ""}`; // Reassemble with text
+    }
+  }
+
   const location = document.getElementById("location").value;
   const phone = document.getElementById("phone").value;
   const images = document.getElementById("images").files;
@@ -113,7 +128,7 @@ postForm.addEventListener("submit", async (e) => {
 
   formData.append("title", title);
   formData.append("description", description);
-  formData.append("price", price);
+  formData.append("price", formattedPrice);
   formData.append("location", location);
   formData.append("phone", phone);
   formData.append("category", category);
@@ -252,10 +267,19 @@ function appendPostToFeed(post, feedId) {
     <p id="post-phone">Phone: ${post.phone}</p>
     <p id="post-category">Category: ${post.category}</p>
     <p id="post-negotiable">Negotiable: ${post.negotiable}</p>
-    ${post.measurement ? `<p>Measurement: ${post.measurement}</p>` : ""}
+    ${
+      post.measurement
+        ? `<p id="post-measurement">Measurement: ${post.measurement}</p>`
+        : ""
+    }
     <div id="post-images">
       ${post.images
-        .map((image) => `<img src="${image}" alt="Post Image" />`)
+        .map(
+          (image) => `
+        <a href="${image}" data-lightbox="post-gallery">
+        <img src="${image}" alt="Post Image" loading="lazy"/>
+        </a>`
+        )
         .join("")}
     </div>
     <button class="delete-button" data-post-id="${
