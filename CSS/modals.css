@@ -7,7 +7,7 @@
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.5); /* Dark transparent background */
-  z-index: 9999; /* Ensure it's on top */
+  z-index: 9999222222222222222; /* Ensure it's on top */
   overflow: auto; /* Allow scrolling */
   transition: all 0.3s ease; /* Smooth transition for modal appearing */
   backdrop-filter: blur(10px); /* Blurred background for modern effect */

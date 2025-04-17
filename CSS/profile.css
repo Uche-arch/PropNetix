@@ -17,6 +17,7 @@
   align-items: center;
   justify-content: center;
   /* z-index: 999999999999999999999999999999999999999999999999999999; */
+  z-index: 222222222222222;
   animation: fadeInOverlay 0.3s ease forwards;
 }
 
