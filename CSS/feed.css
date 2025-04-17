@@ -61,7 +61,7 @@
 }
 
 #post-description {
-  line-height: 1.6;
+  /* line-height: 1.6; */
   margin-bottom: 15px;
   color: #e0e0e0;
 }
@@ -180,5 +180,20 @@
   padding: 15px;
   /* font-family: 'Courier New', Courier, monospace; */
   font-family: sans-serif;
+}
+#post-category,
+#post-price,
+#post-negotiable,
+#post-location,
+#post-phone,
+#post-measurement,
+#post-time {
+  font-size: 11px;
+}
+#post-description, .post-username {
+  font-size: 12.5px;
+}
+#post-title {
+  font-size: 17px;
 }
 }
