@@ -65,37 +65,72 @@
         </div>
       </nav>
     </header>
-    <div class="search_index">
-      <input
-        type="text"
-        id="keywordSearch"
-        placeholder="Search title (keywords)"
-      />
-    </div>
-    <main>
-      <div id="loadingModal" class="modal">
-        <div class="modal-content">
-          <h2 id="loading">
-            <i class="fa-solid fa-sync fa-spin"></i> Loading... Please wait
-          </h2>
+
+    <!-- Carousel Section -->
+    <div class="carousel-container">
+      <div class="carousel-slide">
+        <img src="./img/good one.jpg" alt="Modern Property" />
+        <div class="text-overlay">
+          <h1>PropNetix</h1>
+          <p>Find your next property. Buy, rent, or sell.</p>
         </div>
       </div>
-      <div class="feed_container">
-        <div id="homepageFeed" class="feed"></div>
-
-        <!-- Feedback Button -->
-        <a
-          id="feedback-button"
-          href="https://forms.gle/ejc1CS8h1pT7wE2a7"
-          target="_blank"
-        >
-          <i class="fa-solid fa-comment-dots"></i> Give Feedback</a
-        >
+      <div class="carousel-slide">
+        <img src="./img/products.jpg" alt="Lifestyle Products" />
+        <div class="text-overlay">
+          <h1>PropNetix</h1>
+          <p>List anything — from homes to gadgets.</p>
+        </div>
       </div>
-    </main>
+      <div class="carousel-slide">
+        <!-- <img src="./img/baby.avif" alt="User Listing" /> -->
+        <div class="text-overlay">
+          <h1>PropNetix</h1>
+          <p>Start selling in minutes. It’s free!</p>
+          <!-- 🔘 CTA Button -->
+          <a href="./signup.html" class="cta-button">Get Started</a>
+        </div>
+      </div>
+
+      <!-- Scroll Down Indicator -->
+      <div class="scroll-indicator">
+        <p>Scroll down ⌄⌄</p>
+      </div>
+    </div>
+    <div class="content-section">
+      <div class="search_index">
+        <input
+          type="text"
+          id="keywordSearch"
+          placeholder="Search title (keywords)"
+        />
+      </div>
+      <main>
+        <div id="loadingModal" class="modal">
+          <div class="modal-content">
+            <h2 id="loading">
+              <i class="fa-solid fa-sync fa-spin"></i> Loading... Please wait
+            </h2>
+          </div>
+        </div>
+        <div class="feed_container">
+          <div id="homepageFeed" class="feed"></div>
+
+          <!-- Feedback Button -->
+          <a
+            id="feedback-button"
+            href="https://forms.gle/ejc1CS8h1pT7wE2a7"
+            target="_blank"
+          >
+            <i class="fa-solid fa-comment-dots"></i> Give Feedback</a
+          >
+        </div>
+      </main>
+    </div>
     <script src="./JS(📢out of bounds)/navLinks.js"></script>
     <script src="./JS(📢out of bounds)/homepage.js"></script>
     <script src="./JS(📢out of bounds)/feedbackBtn.js"></script>
+    <script src="./JS(📢out of bounds)/homeCarousel.js"></script>
     <!-- Lightbox2 JS -->
     <script src="https://cdn.jsdelivr.net/npm/lightbox2@2/dist/js/lightbox-plus-jquery.min.js"></script>
   </body>

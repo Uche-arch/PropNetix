@@ -31,8 +31,104 @@ nav {
   gap: 2rem;
 }
 
+/* Carousel Container */
+.carousel-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
 
+/* Carousel Slide */
+.carousel-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
 
+.carousel-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Text Overlay */
+.text-overlay {
+  position: absolute;
+  bottom: 30%;
+  left: 10%;
+  color: white;
+  font-family: "Courier New", Courier, monospace;
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+}
+
+.text-overlay h1 {
+  font-size: 3rem;
+  margin: 0;
+  font-weight: bold;
+}
+
+.text-overlay p {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+.cta-button {
+  display: inline-block;
+  margin-top: 2rem;
+  padding: 0.8rem 2rem;
+  background: linear-gradient(145deg, #ffd700, #f0c000);
+  color: #000;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 25px rgba(255, 215, 0, 0.6);
+}
+
+/* Scroll Down Indicator */
+.scroll-indicator {
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: bounce 1.5s infinite;
+  font-size: 17px;
+  font-weight: bolder;
+  font-family: sans-serif;
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+}
+
+/* Content Section (for reveal effect) */
+.content-section {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  /* padding: 50px; */
+  text-align: center;
+}
+
+.content-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
 
 /* nav {
   display: flex;
@@ -58,9 +154,7 @@ nav {
   gap: 20px;
 } */
 
-
 /* Medium screens (tablet) */
-
 
 /* Small screens (mobile) */
 @media (max-width: 600px) {
@@ -74,9 +168,44 @@ nav {
   header {
     padding: 8px 15px;
   }
+  /* Text Overlay */
+  .text-overlay {
+    position: absolute;
+    bottom: 25%;
+    left: 10%;
+    color: white;
+    font-family: "Courier New", Courier, monospace;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+  }
 
-  
+  .text-overlay h1 {
+    font-size: 2rem;
+    margin: 0;
+    font-weight: bold;
+  }
+
+  .text-overlay p {
+    font-size: 1rem;
+  }
+  .cta-button {
+    display: inline-block;
+    margin-top: 1.3rem;
+    padding: 0.4rem 1rem;
+    background: linear-gradient(145deg, #ffd700, #f0c000);
+    color: #000;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+    transition: all 0.3s ease;
+  }
+  .scroll-indicator {
+    position: absolute;
+    bottom: 10%;
+    left: 40%;
+    transform: translateX(-40%);
+    animation: bounce 1.5s infinite;
+    font-weight: bolder;
+    font-family: sans-serif;
+  }
 }
-
-
-
