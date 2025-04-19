@@ -85,6 +85,7 @@
 
 #post-category {
   color: #f1a400;
+  text-transform: capitalize;
 }
 
 #post-price {
