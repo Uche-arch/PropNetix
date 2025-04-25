@@ -204,6 +204,7 @@ input[type="file"] {
   text-transform: capitalize;
   font-size: 25px;
   font-family: 'Courier New', Courier, monospace;
+  color: white;
 }
 
 /* User Icon */
