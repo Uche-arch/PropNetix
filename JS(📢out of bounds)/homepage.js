@@ -211,6 +211,11 @@ document.addEventListener("DOMContentLoaded", async function () {
             }</b></p>
             <p id="post-price"><i class="fas fa-money-bill"></i> ₦${post.price.toLocaleString()}</p>
             <p  id="post-negotiable">Negotiable: ${post.negotiable}</p>
+            ${
+              post.measurement
+                ? `<p id="post-measurement">Measurement: ${post.measurement}</p>`
+                : ""
+            }
             <p id="post-location"><i class="fas fa-map-marker-alt"></i> ${
               post.location
             }</p>
@@ -220,7 +225,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         .map(
           (image) => `
         <a href="${image}" data-lightbox="post-gallery">
-        <img src="${image}" alt="Post Image"  loading="lazy"/>
+        <img src="${image}" alt="Post Image" />
         </a>`
         )
         .join("")}

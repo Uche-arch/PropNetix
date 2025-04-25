@@ -150,6 +150,11 @@ document.addEventListener("DOMContentLoaded", async function () {
           <p id="post-price"><i class="fas fa-money-bill"></i> ₦${
             post.price
           }</p>
+          ${
+            post.measurement
+              ? `<p id="post-measurement">Measurement: ${post.measurement}</p>`
+              : ""
+          }
           <p id="post-negotiable">Negotiable: ${post.negotiable}</p>
           <p id="post-location"><i class="fas fa-map-marker-alt"></i> ${locationText}</p>
           <p id="post-phone"><i class="fas fa-phone"></i> ${post.phone}</p>
