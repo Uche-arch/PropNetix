@@ -3,6 +3,47 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- ✅ SEO Meta Tags -->
+    <title>PropNetix | List & Discover Properties, Props, and More</title>
+    <meta
+      name="description"
+      content="PropNetix is a modern platform to list and discover apartments, props, furniture, gadgets, and more — all tied to real-world locations."
+    />
+    <meta
+      name="keywords"
+      content="PropNetix, real estate, props, apartments, furniture, gadgets, rentals, property listing, Nigeria tech, fullstack project"
+    />
+    <meta name="author" content="Your Name or PropNetix Team" />
+
+    <!-- ✅ Open Graph for Social Sharing -->
+    <meta
+      property="og:title"
+      content="PropNetix | List & Discover All Things Local"
+    />
+    <meta
+      property="og:description"
+      content="List or rent anything — from apartments to movie props. PropNetix connects people to assets around them."
+    />
+    <meta
+      property="og:image"
+      content="https://yourdomain.com/img/products.jpg"
+    />
+    <meta property="og:url" content="https://yourdomain.com" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="PropNetix" />
+
+    <!-- ✅ Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="PropNetix" />
+    <meta
+      name="twitter:description"
+      content="List or find apartments, gadgets, furniture, and more in one place."
+    />
+    <meta
+      name="twitter:image"
+      content="https://yourdomain.com/img/products.jpg"
+    />
+
     <link rel="stylesheet" href="./CSS/header.css" />
     <link rel="stylesheet" href="./CSS/buttons.css" />
     <link rel="stylesheet" href="./CSS/search.css" />
@@ -20,13 +61,12 @@
       href="https://cdn.jsdelivr.net/npm/lightbox2@2/dist/css/lightbox.min.css"
       rel="stylesheet"
     />
-    <title>PropNetix</title>
   </head>
   <body>
     <header>
       <nav>
         <div class="logo">
-          <h2>PropNetix.</h2>
+          <h2><a href="index.html">PropNetix.</a></h2>
           <p>
             <a href="index.html" id="home" class="active"
               ><i class="fa fa-home"></i>
@@ -35,7 +75,7 @@
           </p>
         </div>
         <div class="nav_links">
-          <a href="realEstate.html?category=apartments">Apartments</a>
+          <a href="apartments.html?category=apartments">Apartments</a>
           <a href="lands.html?category=land">Land</a>
           <a href="shops.html?category=shops">Shops</a>
           <a href="props.html?category=props">Props</a>
@@ -97,36 +137,36 @@
         <p>Scroll down ⌄⌄</p>
       </div>
     </div>
-    <div class="content-section">
-      <div class="search_index">
-        <input
-          type="text"
-          id="keywordSearch"
-          placeholder="Search title (keywords)"
-        />
-      </div>
-      <main>
-        <div id="loadingModal" class="modal">
-          <div class="modal-content">
-            <h2 id="loading">
-              <i class="fa-solid fa-sync fa-spin"></i> Loading... Please wait
-            </h2>
-          </div>
-        </div>
-        <div class="feed_container">
-          <div id="homepageFeed" class="feed"></div>
-
-          <!-- Feedback Button -->
-          <a
-            id="feedback-button"
-            href="https://forms.gle/ejc1CS8h1pT7wE2a7"
-            target="_blank"
-          >
-            <i class="fa-solid fa-comment-dots"></i> Give Feedback</a
-          >
-        </div>
-      </main>
+    <!-- <div class="content-section"> -->
+    <div class="search_index">
+      <input
+        type="text"
+        id="keywordSearch"
+        placeholder="Search title (keywords)"
+      />
     </div>
+    <main>
+      <div id="loadingModal" class="modal">
+        <div class="modal-content">
+          <h2 id="loading">
+            <i class="fa-solid fa-sync fa-spin"></i> Loading... Please wait
+          </h2>
+        </div>
+      </div>
+      <div class="feed_container">
+        <div id="homepageFeed" class="feed"></div>
+
+        <!-- Feedback Button -->
+        <a
+          id="feedback-button"
+          href="https://forms.gle/ejc1CS8h1pT7wE2a7"
+          target="_blank"
+        >
+          <i class="fa-solid fa-comment-dots"></i> Give Feedback</a
+        >
+      </div>
+    </main>
+    <!-- </div> -->
     <script src="./JS(📢out of bounds)/navLinks.js"></script>
     <script src="./JS(📢out of bounds)/homepage.js"></script>
     <script src="./JS(📢out of bounds)/feedbackBtn.js"></script>

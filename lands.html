@@ -3,6 +3,43 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- SEO Meta Tags -->
+    <meta
+      name="description"
+      content="Explore a wide range of land listings for sale or rent on PropNetix. Find properties, commercial lands, and more to suit your needs."
+    />
+    <meta
+      name="keywords"
+      content="land, property listings, buy land, commercial land, real estate"
+    />
+    <meta name="author" content="PropNetix Team" />
+
+    <!-- Open Graph Tags for Social Sharing -->
+    <meta property="og:title" content="PropNetix | Lands for Sale or Rent" />
+    <meta
+      property="og:description"
+      content="Browse land listings for sale or rent. Find your ideal property on PropNetix."
+    />
+    <meta
+      property="og:image"
+      content="https://yourdomain.com/img/og-image.jpg"
+    />
+    <meta property="og:url" content="https://yourdomain.com/lands.html" />
+    <meta property="og:type" content="website" />
+
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:title" content="PropNetix | Lands for Sale or Rent" />
+    <meta
+      name="twitter:description"
+      content="Explore land listings and find the perfect property for your needs on PropNetix."
+    />
+    <meta
+      name="twitter:image"
+      content="https://yourdomain.com/img/og-image.jpg"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+
     <link rel="stylesheet" href="./CSS/header.css" />
     <link rel="stylesheet" href="./CSS/buttons.css" />
     <link rel="stylesheet" href="./CSS/search.css" />
@@ -10,14 +47,17 @@
     <link rel="stylesheet" href="./CSS/modals.css" />
     <link rel="stylesheet" href="./CSS/feed.css" />
     <link rel="stylesheet" href="./CSS/feedbackBtn.css" />
-    <link rel="stylesheet" href="./CSS/active.css">
-
+    <link rel="stylesheet" href="./CSS/active.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
     />
+
     <!-- Lightbox2 CSS -->
-<link href="https://cdn.jsdelivr.net/npm/lightbox2@2/dist/css/lightbox.min.css" rel="stylesheet" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/lightbox2@2/dist/css/lightbox.min.css"
+      rel="stylesheet"
+    />
 
     <title>PropNetix | Lands</title>
   </head>
@@ -25,16 +65,13 @@
     <header>
       <nav>
         <div class="logo">
-          <h2>PropNetix.</h2>
+          <h2><a href="index.html">PropNetix.</a></h2>
           <p>
-            <a href="index.html" id="home"
-              ><i class="fa fa-home"></i>
-              <!-- <span>Home</span> -->
-            </a>
+            <a href="index.html" id="home"><i class="fa fa-home"></i></a>
           </p>
         </div>
         <div class="nav_links">
-          <a href="realEstate.html?category=apartments">Apartments</a>
+          <a href="apartments.html?category=apartments">Apartments</a>
           <a href="lands.html?category=land" class="active">Land</a>
           <a href="shops.html?category=shops">Shops</a>
           <a href="props.html?category=props">Props</a>
@@ -65,8 +102,6 @@
     </header>
     <main>
       <div class="category_header">
-        <!-- <h1 id="categoryTitle">Loading category...</h1> -->
-        <!-- This will dynamically change -->
         <div class="search_index">
           <input
             type="text"
@@ -77,15 +112,17 @@
         </div>
       </div>
       <div id="postsContainer"></div>
-      <!-- Container to hold the posts -->
+
       <!-- Feedback Button -->
       <a
         id="feedback-button"
         href="https://forms.gle/ejc1CS8h1pT7wE2a7"
         target="_blank"
-        ><i class="fa-solid fa-comment-dots"></i> Give Feedback</a
       >
+        <i class="fa-solid fa-comment-dots"></i> Give Feedback
+      </a>
     </main>
+
     <!-- Modal HTML -->
     <div id="loadingModal" class="modal">
       <div class="modal-content">
@@ -95,10 +132,10 @@
       </div>
     </div>
 
-    <!-- <script src="./JS(📢out of bounds)/navLinks.js"></script> -->
     <script src="./JS(📢out of bounds)/categories.js"></script>
     <script src="./JS(📢out of bounds)/feedbackBtn.js"></script>
+
     <!-- Lightbox2 JS -->
-<script src="https://cdn.jsdelivr.net/npm/lightbox2@2/dist/js/lightbox-plus-jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lightbox2@2/dist/js/lightbox-plus-jquery.min.js"></script>
   </body>
 </html>

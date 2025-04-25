@@ -1,0 +1,156 @@
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Arial", sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+  line-height: 1.6;
+  padding: 15px;
+}
+
+/* Header Styles */
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 15px 0;
+}
+
+header nav {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header .logo h2 {
+  font-size: 1.5em;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+header nav a {
+  color: #fff;
+  text-decoration: none;
+  padding: 10px;
+  font-size: 1.1em;
+  transition: color 0.3s;
+}
+
+header nav a:hover {
+  color: #ff7f50;
+}
+
+/* Terms Container */
+.terms-container {
+  max-width: 1200px;
+  margin: 40px auto;
+  background-color: #fff;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.terms-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.terms-header h1 {
+  font-size: 2.3em;
+  color: #333;
+}
+
+.terms-header p {
+  font-size: 1.1em;
+  color: #666;
+}
+
+/* Terms Content */
+.terms-content {
+  line-height: 1.8;
+  font-size: 1.1em;
+  color: #555;
+}
+
+.terms-content h2 {
+  font-size: 2em;
+  color: #333;
+  margin-top: 20px;
+}
+
+.terms-content p {
+  margin-bottom: 20px;
+}
+
+.terms-content ul {
+  list-style-type: disc;
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
+
+.terms-content ul li {
+  font-size: 1.1em;
+  margin-bottom: 10px;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  background-color: #333;
+  color: #fff;
+  padding: 15px 0;
+  margin-top: 40px;
+}
+
+footer p {
+  font-size: 1em;
+  color: #ccc;
+}
+
+/* Links */
+a {
+  color: #ff7f50;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+a:hover {
+  color: #ff4500;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  header .logo h2 {
+    font-size: 1em;
+  }
+  header nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .terms-container {
+    padding: 8px;
+  }
+
+  .terms-header h1 {
+    font-size: 1.5em;
+  }
+
+  .terms-content h2 {
+    font-size: 1.3em;
+  }
+
+  .terms-content p,
+  .terms-content ul li {
+    font-size: 1em;
+  }
+}

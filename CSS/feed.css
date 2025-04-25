@@ -40,6 +40,7 @@
   /* color: blue; */
 
   color: #ffffff;
+  text-align: left;
   margin-bottom: 5px;
    font-family: 'Montserrat', sans-serif;
 }
@@ -54,16 +55,19 @@
 
 #post-title {
   font-size: 1.5rem;
-  margin: 10px 0;
+  margin: 3px 0;
   /* color: #34495e; */
   color: white;
    font-family: 'Montserrat', sans-serif;
+   text-align: center;
 }
 
 #post-description {
   /* line-height: 1.6; */
   margin-bottom: 15px;
   color: #e0e0e0;
+  text-align: center;
+  font-size: 15px;
 }
 
 #post-measurement {
@@ -81,10 +85,11 @@
    font-family: 'Roboto', sans-serif;
   /* color: #555; */
   /* color: orange; */
+  /* text-align: center; */
 }
 
 #post-category {
-  color: #f1a400;
+  color: #FF9800;
   text-transform: capitalize;
 }
 
@@ -99,11 +104,11 @@
 }
 
 #post-location {
-  color: #76baff;
+  color: #4AA3F0;
 }
 
 #post-phone {
-  color: #ff5722;
+  color: #ffD95A;
 }
 
 #post-images {
@@ -189,12 +194,12 @@
 #post-phone,
 #post-measurement,
 #post-time {
-  font-size: 11px;
+  font-size: 10.5px;
 }
 #post-description, .post-username {
-  font-size: 12.5px;
+  font-size: 12px;
 }
 #post-title {
-  font-size: 17px;
+  font-size: 16.5px;
 }
 }

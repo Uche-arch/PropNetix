@@ -13,17 +13,17 @@ function changeSlide() {
 }
 
 // Change slide every 5 seconds
-setInterval(changeSlide, 5000);
+setInterval(changeSlide, 8000);
 changeSlide(); // Initial slide change
 
 // Scroll Down Effect (Reveal Content on Scroll)
-const contentSection = document.querySelector(".content-section");
+// const contentSection = document.querySelector(".content-section");
 
-window.addEventListener("scroll", () => {
-  const scrollPosition = window.scrollY + window.innerHeight;
-  const contentPosition = contentSection.offsetTop;
+// window.addEventListener("scroll", () => {
+//   const scrollPosition = window.scrollY + window.innerHeight;
+//   const contentPosition = contentSection.offsetTop;
 
-  if (scrollPosition > contentPosition) {
-    contentSection.classList.add("visible");
-  }
-});
+//   if (scrollPosition > contentPosition) {
+//     contentSection.classList.add("visible");
+//   }
+// });

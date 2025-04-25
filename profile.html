@@ -3,6 +3,43 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- SEO Meta Tags -->
+    <meta
+      name="description"
+      content="Manage your PropNetix profile and posts. Create, edit, and view posts in real estate categories like apartments, shops, and more."
+    />
+    <meta
+      name="keywords"
+      content="profile, user profile, real estate posts, apartments, shops, land, props, create post"
+    />
+    <meta name="author" content="PropNetix Team" />
+
+    <!-- Open Graph Tags for Social Sharing -->
+    <meta property="og:title" content="PropNetix | Your Profile" />
+    <meta
+      property="og:description"
+      content="Manage your PropNetix profile and posts. Create, edit, and view posts in real estate categories like apartments, shops, and more."
+    />
+    <meta
+      property="og:image"
+      content="https://yourdomain.com/img/og-image-profile.jpg"
+    />
+    <meta property="og:url" content="https://yourdomain.com/profile.html" />
+    <meta property="og:type" content="website" />
+
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:title" content="PropNetix | Your Profile" />
+    <meta
+      name="twitter:description"
+      content="Manage your PropNetix profile and posts. Create, edit, and view posts in real estate categories like apartments, shops, and more."
+    />
+    <meta
+      name="twitter:image"
+      content="https://yourdomain.com/img/og-image-profile.jpg"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+
     <link rel="stylesheet" href="./CSS/header.css" />
     <link rel="stylesheet" href="./CSS/buttons.css" />
     <link rel="stylesheet" href="./CSS/profile.css" />
@@ -16,7 +53,10 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
     />
     <!-- Lightbox2 CSS -->
-<link href="https://cdn.jsdelivr.net/npm/lightbox2@2/dist/css/lightbox.min.css" rel="stylesheet" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/lightbox2@2/dist/css/lightbox.min.css"
+      rel="stylesheet"
+    />
 
     <title>PropNetix | Your Profile</title>
   </head>
@@ -24,16 +64,13 @@
     <header>
       <nav>
         <div class="logo">
-          <h2>PropNetix.</h2>
+          <h2><a href="index.html">PropNetix.</a></h2>
           <p>
-            <a href="index.html" id="home"
-              ><i class="fa fa-home"></i>
-              <!-- <span>Home</span> -->
-            </a>
+            <a href="index.html" id="home"><i class="fa fa-home"></i></a>
           </p>
         </div>
         <div class="nav_links">
-          <a href="realEstate.html?category=apartments">Apartments</a>
+          <a href="apartments.html?category=apartments">Apartments</a>
           <a href="lands.html?category=land">Land</a>
           <a href="shops.html?category=shops">Shops</a>
           <a href="props.html?category=props">Props</a>
@@ -131,8 +168,6 @@
             /><br />
             <input type="text" id="phone" placeholder="Phone" required /><br />
 
-            <!-- <input type="file" id="images" multiple /><br /> -->
-
             <div class="fileUploadWrapper">
               <label for="images" class="customFileUpload"
                 >📁 Upload Images</label
@@ -177,6 +212,6 @@
     <script src="./JS(📢out of bounds)/profile.js"></script>
     <script src="./JS(📢out of bounds)/feedbackBtn.js"></script>
     <!-- Lightbox2 JS -->
-<script src="https://cdn.jsdelivr.net/npm/lightbox2@2/dist/js/lightbox-plus-jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lightbox2@2/dist/js/lightbox-plus-jquery.min.js"></script>
   </body>
 </html>

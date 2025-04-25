@@ -30,6 +30,10 @@ nav {
   align-items: center;
   gap: 2rem;
 }
+.logo a {
+  color: white;
+  text-decoration: none;
+}
 
 /* Carousel Container */
 .carousel-container {
@@ -207,5 +211,6 @@ nav {
     animation: bounce 1.5s infinite;
     font-weight: bolder;
     font-family: sans-serif;
+    display: none;
   }
 }

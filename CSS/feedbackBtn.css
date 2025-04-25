@@ -2,7 +2,8 @@
   position: fixed;
   bottom: 30px;
   right: 30px;
-  background: linear-gradient(135deg, #4caf50, #2e7d32);
+  /* background: linear-gradient(135deg, #4caf50, #2e7d32); */
+  background-color: blue;
   color: white;
   padding: 12px 20px;
   border-radius: 30px;
@@ -22,7 +23,7 @@
 }
 
 #feedback-button:hover {
-  background: linear-gradient(135deg, #66bb6a, #388e3c);
+  /* background: linear-gradient(135deg, #66bb6a, #388e3c); */
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
   transform: translateY(-2px);
 }

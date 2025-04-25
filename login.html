@@ -3,6 +3,43 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- SEO Meta Tags -->
+    <meta
+      name="description"
+      content="Log in to your PropNetix account to access property listings, manage your posts, and explore a wide range of properties, land, and more."
+    />
+    <meta
+      name="keywords"
+      content="log in, property listings, real estate, land, apartments, buy, sell, rent"
+    />
+    <meta name="author" content="PropNetix Team" />
+
+    <!-- Open Graph Tags for Social Sharing -->
+    <meta property="og:title" content="PropNetix | Log In" />
+    <meta
+      property="og:description"
+      content="Log in to PropNetix to access your account and manage property listings or explore new opportunities in real estate."
+    />
+    <meta
+      property="og:image"
+      content="https://yourdomain.com/img/og-image-login.jpg"
+    />
+    <meta property="og:url" content="https://yourdomain.com/login.html" />
+    <meta property="og:type" content="website" />
+
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:title" content="PropNetix | Log In" />
+    <meta
+      name="twitter:description"
+      content="Log in to PropNetix to manage your listings and explore property options."
+    />
+    <meta
+      name="twitter:image"
+      content="https://yourdomain.com/img/og-image-login.jpg"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+
     <link rel="stylesheet" href="./CSS/header.css" />
     <link rel="stylesheet" href="./CSS/buttons.css" />
     <link rel="stylesheet" href="./CSS/login.css" />
@@ -20,16 +57,13 @@
     <header>
       <nav>
         <div class="logo">
-          <h2>PropNetix.</h2>
+          <h2><a href="index.html">PropNetix.</a></h2>
           <p>
-            <a href="index.html" id="home"
-              ><i class="fa fa-home"></i>
-              <!-- <span>Home</span> -->
-            </a>
+            <a href="index.html" id="home"><i class="fa fa-home"></i> </a>
           </p>
         </div>
         <div class="nav_links">
-          <a href="realEstate.html?category=apartments">Apartments</a>
+          <a href="apartments.html?category=apartments">Apartments</a>
           <a href="lands.html?category=land">Land</a>
           <a href="shops.html?category=shops">Shops</a>
           <a href="props.html?category=props">Props</a>
@@ -83,14 +117,15 @@
           <h2 id="modalMessage" style="color: black"></h2>
         </div>
       </div>
+
       <!-- Feedback Button -->
       <a
         id="feedback-button"
         href="https://forms.gle/ejc1CS8h1pT7wE2a7"
         target="_blank"
       >
-        <i class="fa-solid fa-comment-dots"></i>Give Feedback</a
-      >
+        <i class="fa-solid fa-comment-dots"></i>Give Feedback
+      </a>
     </main>
 
     <script src="./JS(📢out of bounds)/login.js"></script>

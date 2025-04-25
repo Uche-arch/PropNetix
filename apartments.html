@@ -3,31 +3,73 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Page-specific description -->
+    <meta
+      name="description"
+      content="Find apartments for sale or rent in your area at PropNetix. Explore the best real estate options today."
+    />
+
+    <!-- Keywords relevant to the page content -->
+    <meta
+      name="keywords"
+      content="apartments, real estate, property, apartment for rent, apartment for sale, affordable apartments, city apartments"
+    />
+
+    <!-- Author of the page -->
+    <meta name="author" content="PropNetix" />
+
+    <!-- Social Media Meta Tags (Open Graph for Facebook, LinkedIn, etc.) -->
+    <meta property="og:title" content="PropNetix | Apartments" />
+    <meta
+      property="og:description"
+      content="Browse apartments for sale or rent at PropNetix. Find your perfect apartment today."
+    />
+    <meta
+      property="og:image"
+      content="https://yourdomain.com/path-to-image.jpg"
+    />
+    <meta property="og:url" content="https://yourdomain.com/apartments.html" />
+    <meta property="og:type" content="website" />
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:title" content="PropNetix | Apartments" />
+    <meta
+      name="twitter:description"
+      content="Browse apartments for sale or rent at PropNetix. Find your perfect apartment today."
+    />
+    <meta
+      name="twitter:image"
+      content="https://yourdomain.com/path-to-image.jpg"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+
     <link rel="stylesheet" href="./CSS/header.css" />
     <link rel="stylesheet" href="./CSS/buttons.css" />
     <link rel="stylesheet" href="./CSS/search.css" />
     <link rel="stylesheet" href="./CSS/nav_links.css" />
     <link rel="stylesheet" href="./CSS/modals.css" />
     <link rel="stylesheet" href="./CSS/feed.css" />
-    <link rel="stylesheet" href="./CSS/feedbackBtn.css">
-    <link rel="stylesheet" href="./CSS/active.css">
+    <link rel="stylesheet" href="./CSS/feedbackBtn.css" />
+    <link rel="stylesheet" href="./CSS/active.css" />
 
- <link
+    <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
     />
     <!-- Lightbox2 CSS -->
-<link href="https://cdn.jsdelivr.net/npm/lightbox2@2/dist/css/lightbox.min.css" rel="stylesheet" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/lightbox2@2/dist/css/lightbox.min.css"
+      rel="stylesheet"
+    />
 
-
-    <title>PropNetix | Real Estate</title>
+    <title>PropNetix | Apartments</title>
   </head>
   <body>
     <header>
       <nav>
         <div class="logo">
-          <h2>PropNetix.</h2>
-         <p>
+          <h2><a href="index.html">PropNetix.</a></h2>
+          <p>
             <a href="index.html" id="home"
               ><i class="fa fa-home"></i>
               <!-- <span>Home</span> -->
@@ -35,7 +77,9 @@
           </p>
         </div>
         <div class="nav_links">
-          <a href="realEstate.html?category=apartments" class="active">Apartments</a>
+          <a href="apartments.html?category=apartments" class="active"
+            >Apartments</a
+          >
           <a href="lands.html?category=land">Land</a>
           <a href="shops.html?category=shops">Shops</a>
           <a href="props.html?category=props">Props</a>
@@ -56,7 +100,7 @@
             style="display: none"
             onclick="window.location.href='profile.html'"
           >
-            <i class="fas fa-user "></i>
+            <i class="fas fa-user"></i>
           </button>
           <button id="logoutButton" style="display: none" onclick="logout()">
             Log Out
@@ -90,7 +134,9 @@
     <!-- Modal HTML -->
     <div id="loadingModal" class="modal">
       <div class="modal-content">
-        <h2 id="loading"> <i class="fa-solid fa-sync fa-spin"></i> Loading...</h2>
+        <h2 id="loading">
+          <i class="fa-solid fa-sync fa-spin"></i> Loading...
+        </h2>
       </div>
     </div>
 
@@ -98,6 +144,6 @@
     <script src="./JS(📢out of bounds)/categories.js"></script>
     <script src="./JS(📢out of bounds)/feedbackBtn.js"></script>
     <!-- Lightbox2 JS -->
-<script src="https://cdn.jsdelivr.net/npm/lightbox2@2/dist/js/lightbox-plus-jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lightbox2@2/dist/js/lightbox-plus-jquery.min.js"></script>
   </body>
 </html>

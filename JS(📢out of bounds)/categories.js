@@ -147,12 +147,13 @@ document.addEventListener("DOMContentLoaded", async function () {
            <p class="post-username">Posted by: ${username}</p> <!-- Display username -->
           <h3 id="post-title">${post.title}</h3>
           <p id="post-description">${post.description}</p>
-          <p id="post-category">Category: ${post.category}</p>
-          <p id="post-price">Price: ₦${post.price}</p>
+          <p id="post-price"><i class="fas fa-money-bill"></i> ₦${
+            post.price
+          }</p>
           <p id="post-negotiable">Negotiable: ${post.negotiable}</p>
-          <p id="post-location">Location: ${locationText}</p>
-          <p id="post-phone">Phone: ${post.phone}</p>
-          <p id="post-time">Posted ${timeAgo}</p> <!-- Display the formatted date here -->
+          <p id="post-location"><i class="fas fa-map-marker-alt"></i> ${locationText}</p>
+          <p id="post-phone"><i class="fas fa-phone"></i> ${post.phone}</p>
+          <p id="post-time" style="text-align: right;">Posted ${timeAgo}</p> <!-- Display the formatted date here -->
           <div id="post-images">
       ${post.images
         .map(
