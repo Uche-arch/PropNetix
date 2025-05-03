@@ -1,0 +1,228 @@
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background: black;
+    }
+    .showcase {
+      position: relative;
+    }
+    .showcase img {
+      width: 100%;
+      height: 93vh;
+    }
+    .logo {
+      position: absolute;
+      top: 5%;
+      left: 3%;
+      font-size: 1.4rem;
+      display: flex;
+      justify-content: space-between;
+      width: 95%;
+      margin: auto;
+    }
+    .logo a {
+      color: white;
+      text-decoration: none;
+      font-family: "Courier New", Courier, monospace;
+    }
+    .buttons {
+        display: flex;
+        gap: 20px;
+    }
+    .buttons button {
+      padding: 10px 20px;
+      font-size: 14px;
+      font-weight: bold;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+    }
+    .buttons button:active {
+      transform: translateY(2px);
+    }
+    /* .buttons {
+      top: 5%;
+      display: flex;
+      gap: 20px;
+      left: 84%;
+      position: absolute;
+    } */
+    .sign-up {
+      background-color: rgb(84, 84, 230);
+    }
+    .text-overlay {
+      position: absolute;
+      top: 38%;
+      width: 100%;
+      color: white;
+      font-family: "Courier New", Courier, monospace;
+      text-align: center;
+    }
+    .text-overlay h1 {
+      font-size: 4rem;
+    }
+    .card {
+      width: 300px;
+      height: 250px;
+      position: relative;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .image-wrapper {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+
+    .card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .gradient-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.9),
+        rgba(0, 0, 0, 0) 50%,
+        rgba(0, 0, 0, 0) 40%,
+        rgba(0, 0, 0, 0.8)
+      );
+      z-index: 1;
+    }
+
+    .text {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      width: 100%;
+      justify-content: space-between;
+      padding: 10px;
+      color: white;
+    }
+    .top {
+      font-weight: bolder;
+    }
+
+    .explore {
+      width: 40%;
+      margin: 0 auto;
+      padding: 10px 9px;
+      background-color: transparent;
+      border: 1px solid white;
+      border-radius: 50px;
+      font-size: 16px;
+      transition: background-color 0.4s ease;
+      text-align: center;
+      color: white;
+      text-decoration: none;
+    }
+
+    .explore:hover{
+      background-color: white;
+      color: black;
+    }
+
+    .cards {
+      width: 95%;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(9, 1fr);
+      overflow-x: scroll;
+      gap: 10px;
+      font-family: "Courier New", Courier, monospace;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    ::-webkit-scrollbar {
+      display: none;
+    }
+    footer {
+      color: white;
+      text-align: center;
+      margin-top: 70px;
+      margin-bottom: 20px;
+    }
+    footer a:hover {
+      color: white;
+    }
+
+    @media screen and (max-width: 500px) {
+      .logo {
+        font-size: 1.1rem;
+        top: 3.4%;
+      }  
+      .buttons {
+        gap: 15px;
+      }
+      .buttons button {
+        padding: 8px 15px;
+        font-size: 13px;
+      }
+      .text-overlay h1 {
+        font-size: 3rem;
+        padding: 10px;
+      }
+      .cards {
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       flex-direction: column;
+       gap: 14px;
+      }
+      footer {
+        font-size: 14px;
+      }
+    }
+
+    @media screen and (max-width: 390px) {
+      .logo {
+        font-size: .8rem;
+        top: 3.4%;
+      }  
+      .buttons {
+        gap: 9px;
+      }
+      .buttons button {
+        padding: 6px 11px;
+        font-size: 13px;
+      }
+      .text-overlay h1 {
+        font-size: 2rem;
+        padding: 0px 10px;
+      }
+      .text-overlay h3 {
+        font-size: .9rem;
+      }
+      .cards {
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       flex-direction: column;
+       gap: 17px;
+      }
+      .card {
+        width: 280px;
+      }
+      footer {
+        font-size: 12px;
+      }
+      .showcase img {
+        height: 70vh;
+      }
+    }

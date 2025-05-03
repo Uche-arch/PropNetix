@@ -202,34 +202,66 @@ document.addEventListener("DOMContentLoaded", async function () {
         // }
 
         postDiv.innerHTML = `
-            <p class="post-username">Posted by: ${username}</p> <!-- Display username -->
-            <p id="post-time">Posted ${timeAgo}</p>
-            <h3 id="post-title">${title}</h3>
-            <p id="post-description">${post.description}</p>
-            <p id="post-category"><i class="fas fa-tags"></i> <b>${
-              post.category
-            }</b></p>
-            <p id="post-price"><i class="fas fa-money-bill"></i> ₦${post.price.toLocaleString()}</p>
-            <p  id="post-negotiable">Negotiable: ${post.negotiable}</p>
-            ${
-              post.measurement
-                ? `<p id="post-measurement">Measurement: ${post.measurement}</p>`
-                : ""
-            }
-            <p id="post-location"><i class="fas fa-map-marker-alt"></i> ${
-              post.location
-            }</p>
-            <p id="post-phone"><i class="fas fa-phone"></i> ${post.phone}</p>
-          <div id="post-images">
-      ${post.images
-        .map(
-          (image) => `
-        <a href="${image}" data-lightbox="post-gallery">
-        <img src="${image}" alt="Post Image" />
-        </a>`
-        )
-        .join("")}
+           <div id="post-images">
+  ${post.images
+    .map(
+      (img) => `
+    <a href="${img}" data-lightbox="post-gallery">
+      <img src="${img}" alt="Post Image" class="post-image" loading="lazy" />
+    </a>
+  `
+    )
+    .join("")}
+</div>
+
+  <div class="post-content">
+    <h3 class="post-title">${post.title}</h3>
+
+    <p class="post-description">
+      ${post.description.slice(0, 80)}...
+      <span class="more-text" style="display: none;">${post.description.slice(
+        80
+      )}</span>
+      <span class="toggle-desc" onclick="toggleDescription(this)">See more</span>
+    </p>
+
+    <div class="post-meta-top">
+  <span class="post-category">
+    <span class="icon-circle"><i class="fas fa-tags"></i></span>
+    ${post.category}
+  </span>
+  <span class="post-price">
+    <span class="icon-circle"><i class="fas fa-money-bill"></i></span>
+    ₦${post.price.toLocaleString()}
+  </span>
+</div>
+
+${
+  post.measurement
+    ? `
+<p class="post-measurement">
+  <span class="icon-circle"><i class="fas fa-ruler-combined"></i></span>
+  ${post.measurement}
+</p>`
+    : ""
+}
+
+<p class="post-location">
+  <span class="icon-circle"><i class="fas fa-map-marker-alt"></i></span>
+  ${post.location}
+</p>
+
+<p class="post-phone">
+  <span class="icon-circle"><i class="fas fa-phone"></i></span>
+  ${post.phone}
+</p>
+
+
+    <div class="post-meta-bottom">
+      <span class="post-username">Posted by: ${username}</span>
+      <span class="post-time">${timeAgo}</span>
     </div>
+  </div>
         `;
 
         homepageFeed.appendChild(postDiv); // Append the post to the homepage feed

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- ✅ SEO Meta Tags -->
+    <title>PropNetix | List & Discover Properties, Props, and More</title>
+    <meta
+      name="description"
+      content="PropNetix is a modern platform to list and discover apartments, props, furniture, gadgets, and more — all tied to real-world locations."
+    />
+    <meta
+      name="keywords"
+      content="PropNetix, real estate, props, apartments, furniture, gadgets, rentals, property listing, Nigeria tech, fullstack project"
+    />
+    <meta name="author" content="Your Name or PropNetix Team" />
+
+    <!-- ✅ Open Graph for Social Sharing -->
+    <meta
+      property="og:title"
+      content="PropNetix | List & Discover All Things Local"
+    />
+    <meta
+      property="og:description"
+      content="List or rent anything — from apartments to movie props. PropNetix connects people to assets around them."
+    />
+    <meta
+      property="og:image"
+      content="https://propnetix.netlify.app/img/goodone.jpg"
+    />
+    <meta property="og:url" content="https://yourdomain.com" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="PropNetix" />
+
+    <!-- ✅ Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="PropNetix" />
+    <meta
+      name="twitter:description"
+      content="List or find apartments, gadgets, furniture, and more in one place."
+    />
+    <meta
+      name="twitter:image"
+      content="https://propnetix.netlify.app/img/products.jpg"
+    />
+
+    <link rel="stylesheet" href="./CSS/header.css" />
+    <link rel="stylesheet" href="./CSS/buttons.css" />
+    <link rel="stylesheet" href="./CSS/search.css" />
+    <link rel="stylesheet" href="./CSS/nav_links.css" />
+    <link rel="stylesheet" href="./CSS/modals.css" />
+    <link rel="stylesheet" href="./CSS/feed.css" />
+    <link rel="stylesheet" href="./CSS/feedbackBtn.css" />
+    <link rel="stylesheet" href="./CSS/active.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+    <!-- Lightbox2 CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/lightbox2@2/dist/css/lightbox.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="logo">
+          <h2><a href="index.html">PropNetix.</a></h2>
+          <p>
+            <a href="all.html" id="home" class="active"
+              ><i class="fa fa-home"></i>
+              <!-- <span>Home</span> -->
+            </a>
+          </p>
+        </div>
+        <div class="nav_links">
+          <a href="apartments.html?category=apartments">Apartments</a>
+          <a href="lands.html?category=land">Land</a>
+          <a href="shops.html?category=shops">Shops</a>
+          <a href="props.html?category=props">Props</a>
+          <a href="others.html?category=others">Others</a>
+        </div>
+        <div class="nav_buttons">
+          <button
+            id="signupButton"
+            onclick="window.location.href='signup.html'"
+          >
+            Sign Up
+          </button>
+          <button id="LoginButton" onclick="window.location.href='login.html'">
+            Log In
+          </button>
+          <button
+            style="display: none"
+            id="profileButton"
+            onclick="window.location.href='profile.html'"
+          >
+            <i class="fas fa-user"></i>
+          </button>
+          <!-- Remember that it was styled to not be displayed -->
+          <button id="logoutButton" style="display: none" onclick="logout()">
+            Log Out
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Carousel Section -->
+    <div class="carousel-container">
+      <div class="carousel-slide">
+        <img src="./img/goodone.jpg" alt="Modern Property" />
+        <div class="text-overlay">
+          <h1>PropNetix</h1>
+          <p>Find your next property. Buy, rent, or sell.</p>
+        </div>
+      </div>
+      <div class="carousel-slide">
+        <img src="./img/products.jpg" alt="Lifestyle Products" />
+        <div class="text-overlay">
+          <h1>PropNetix</h1>
+          <p>List anything — from homes to gadgets.</p>
+        </div>
+      </div>
+      <div class="carousel-slide">
+        <!-- <img src="./img/baby.avif" alt="User Listing" /> -->
+        <div class="text-overlay">
+          <h1>PropNetix</h1>
+          <p>Start selling in minutes. It’s free!</p>
+          <!-- 🔘 CTA Button -->
+          <a href="./signup.html" class="cta-button">Get Started</a>
+        </div>
+      </div>
+
+      <!-- Scroll Down Indicator -->
+      <div class="scroll-indicator">
+        <p>Scroll down ⌄⌄</p>
+      </div>
+    </div>
+    <!-- <div class="content-section"> -->
+    <div class="search_index">
+      <input
+        type="text"
+        id="keywordSearch"
+        placeholder="Search title (keywords)"
+      />
+    </div>
+    <main>
+      <div id="loadingModal" class="modal">
+        <div class="modal-content">
+          <h2 id="loading">
+            <i class="fa-solid fa-sync fa-spin"></i> Loading... Please wait
+          </h2>
+        </div>
+      </div>
+      <div class="feed_container">
+        <div id="homepageFeed" class="feed"></div>
+
+        <!-- Feedback Button -->
+        <a
+          id="feedback-button"
+          href="https://forms.gle/ejc1CS8h1pT7wE2a7"
+          target="_blank"
+        >
+          <i class="fa-solid fa-comment-dots"></i> Give Feedback</a
+        >
+      </div>
+    </main>
+    <!-- </div> -->
+    <script src="./JS(📢out of bounds)/navLinks.js"></script>
+    <script src="./JS(📢out of bounds)/homepage.js"></script>
+    <script src="./JS(📢out of bounds)/feedbackBtn.js"></script>
+    <script src="./JS(📢out of bounds)/homeCarousel.js"></script>
+    <script src="./JS(📢out of bounds)/carousel.js"></script>
+    <!-- Lightbox2 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/lightbox2@2/dist/js/lightbox-plus-jquery.min.js"></script>
+  </body>
+</html>

@@ -1,5 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap");
+body {
+  font-family: 'Montserrat', sans-serif;
+}
 .feed,
 #postsContainer,
 #postFeed {
@@ -31,84 +34,18 @@
   transition: transform 0.3s ease;
 }
 .post:hover {
-  transform: scale(1.02);
+  /* transform: scale(1.02); */
 }
 
-.post-username {
-  font-weight: bold;
-  /* color: #2c3e50; */
-  /* color: blue; */
-
-  color: #ffffff;
-  text-align: left;
-  margin-bottom: 5px;
-   font-family: 'Montserrat', sans-serif;
-}
-
-#post-time {
-  /* color: #888; */
-  /* color: white; */
-  color: #999999;
-  font-size: 0.9rem;
-  margin-bottom: 10px;
-}
-
-#post-title {
-  font-size: 1.5rem;
-  margin: 3px 0;
-  /* color: #34495e; */
-  color: white;
-   font-family: 'Montserrat', sans-serif;
-   text-align: center;
-}
-
-#post-description {
-  /* line-height: 1.6; */
-  margin-bottom: 15px;
+.post-card {
+  max-width: 400px;
+  background: #1e1e1e;
   color: #e0e0e0;
-  text-align: center;
-  font-size: 15px;
-}
-
-#post-measurement {
-  color: #b3b3b3;
-}
-
-#post-category,
-#post-price,
-#post-negotiable,
-#post-location,
-#post-phone,
-#post-measurement,
-#post-time {
-  margin: 4px 0;
-   font-family: 'Roboto', sans-serif;
-  /* color: #555; */
-  /* color: orange; */
-  /* text-align: center; */
-}
-
-#post-category {
-  color: #FF9800;
-  text-transform: capitalize;
-}
-
-#post-price {
-  font-weight: bold;
-  color: #4caf50;
-}
-
-#post-negotiable {
-  font-style: italic;
-  color: #ff9800;
-}
-
-#post-location {
-  color: #4AA3F0;
-}
-
-#post-phone {
-  color: #ffD95A;
+  font-family: 'Montserrat', sans-serif;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 12px rgba(0,0,0,0.3);
+  margin: 20px auto;
 }
 
 #post-images {
@@ -117,48 +54,118 @@
   overflow-x: auto;
   padding: 10px 0;
   margin-top: 15px;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
 }
 
-#post-images img {
-  width: 150px;
-}
-
-#post-images::-webkit-scrollbar {
-  height: 6px; /* Slim scrollbar */
-}
-
-#post-images::-webkit-scrollbar-track {
-  background: transparent; /* Invisible track for cleaner look */
-}
-
-#post-images::-webkit-scrollbar-thumb {
-  background: linear-gradient(135deg, #999, #ccc); /* Soft gradient */
-  border-radius: 10px;
-  transition: background 0.3s ease;
-}
-
-#post-images::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(
-    135deg,
-    #777,
-    #aaa
-  ); /* Slightly darker on hover */
-}
-
+#post-images img,
 .post-image {
-  height: 150px;
+  width: 150px;
+  height: 100px;
   border-radius: 8px;
   object-fit: cover;
   flex-shrink: 0;
 }
 
-#post-images {
-  scroll-behavior: smooth;
+#post-images::-webkit-scrollbar {
+  height: 6px;
 }
 
-#post-images {
-  -webkit-overflow-scrolling: touch;
+#post-images::-webkit-scrollbar-track {
+  background: transparent;
 }
+
+#post-images::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #999, #ccc);
+  border-radius: 10px;
+}
+
+#post-images::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #777, #aaa);
+}
+
+
+/* Content */
+.icon-circle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background-color: #4e4b4b; /* Same as username/time */
+  color: white;
+  font-size: 12px;
+  margin-right: 6px;
+}
+
+.post-content {
+  padding: 15px;
+  font-size: 13px;
+}
+
+.post-title {
+  font-size: 1.1rem;
+  text-align: center;
+  margin-bottom: 6px;
+}
+
+.post-description {
+  line-height: 1.4;
+  margin-bottom: 10px;
+}
+
+.more-text {
+  display: none;
+}
+
+.toggle-desc {
+  color: #4aa3f0;
+  font-weight: 500;
+  cursor: pointer;
+  margin-left: 5px;
+}
+
+.post-category,
+.post-measurement,
+.post-location,
+.post-phone {
+  color: #cccccc; /* Soft grey */
+  font-size: 13px;
+  margin: 4px 0;
+}
+
+.post-price {
+  color: #7ed957; /* Calm green */
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.post-title {
+  color: #ffffff;
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+.post-description {
+  color: #e0e0e0;
+}
+
+.post-username,
+.post-time {
+  color: #999999;
+  font-size: 11px;
+}
+
+
+.post-meta-bottom, .post-meta-top {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  margin-top: 15px;
+  color: #999;
+}
+
 
 @media screen and (max-width: 992px) {
   .feed,
