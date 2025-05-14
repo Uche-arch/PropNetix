@@ -48,11 +48,13 @@ document.addEventListener("DOMContentLoaded", async function () {
 
   // Show the loading modal when data is being fetched
   showLoadingModal();
+  const page = 1; // Example: you can dynamically change the page number based on user interaction
+  const limit = 10; // Example: limit the number of posts per request
 
   // Fetch posts from the backend to display on the homepage
   try {
     const response = await fetch(
-      "https://propnetixbackend.onrender.com/api/posts",
+      `https://propnetixbackend.onrender.com/api/posts?page=${page}&limit=${limit}`,
       {
         method: "GET", // GET request to fetch posts
       }
