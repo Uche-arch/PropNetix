@@ -1,70 +1,118 @@
-const loginForm = document.getElementById("loginForm");
-// function showTemporaryModal(modalId, duration = 2000) {
-//   const modal = document.getElementById(modalId);
-//   modal.style.display = "block";
-//   setTimeout(() => {
-//     modal.style.display = "none";
-//     // if (reload) {
-//     //   window.location.reload(); // Refresh the page after modal hides
-//     // }
-//   }, duration);
-// }
+const auth = firebase.auth();
 
-function showTemporaryModal(modalId, message = "", duration = 2000) {
-  const modal = document.getElementById(modalId);
-  const modalMessage = document.getElementById("modalMessage");
+// 📦 Modal Elements
+const resendVerificationBtn = document.getElementById("resendVerificationBtn");
+const forgotPasswordModal = document.getElementById("forgotPasswordModal");
+const userModal = document.getElementById("userModal");
+const modalMessage = document.getElementById("modalMessage");
 
-  if (modalMessage && message) {
-    modalMessage.textContent = message;
-  }
-
-  modal.style.display = "block";
+// 📢 Utility: Show user feedback modal
+function showUserModal(message, redirectAfter = null, delay = 2500) {
+  modalMessage.textContent = message;
+  userModal.style.display = "flex";
 
   setTimeout(() => {
-    modal.style.display = "none";
-  }, duration);
+    userModal.style.display = "none";
+    if (redirectAfter) window.location.href = redirectAfter;
+  }, delay);
 }
 
-loginForm.addEventListener("submit", async (e) => {
+// 🔁 Utility: Show forgot password modal
+function showForgotPasswordModal() {
+  forgotPasswordModal.style.display = "flex";
+}
+
+// ❌ Utility: Close forgot password modal
+function closeForgotPasswordModal() {
+  forgotPasswordModal.style.display = "none";
+}
+
+// 🟩 LOGIN SUBMIT HANDLER
+document.getElementById("loginForm").addEventListener("submit", async (e) => {
   e.preventDefault();
 
-  // Get the username and password from the input fields
-  const username = document.getElementById("username").value;
+  const email = document.getElementById("email").value.trim();
   const password = document.getElementById("password").value;
 
-  // Send only username and password in the body
-  const response = await fetch(
-    "https://propnetixbackend.onrender.com/api/login",
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ username, password }), // Corrected here
+  try {
+    // 1. Attempt sign-in
+    const userCredential = await auth.signInWithEmailAndPassword(
+      email,
+      password
+    );
+    const user = userCredential.user;
+
+    // 2. Check email verification
+    if (!user.emailVerified) {
+      showUserModal("⚠️ Please verify your email before logging in.");
+      await auth.signOut();
+
+      // Enable resend button and store user in temp
+      resendVerificationBtn.style.display = "block";
+      window.tempUserForResend = user;
+      return;
     }
-  );
 
-  const data = await response.json();
+    // 3. Get ID token and proceed
+    const idToken = await user.getIdToken();
+    localStorage.setItem("token", idToken);
 
-  // if (data.token) {
-  //   localStorage.setItem("token", data.token);
-  //   window.location.href = "profile.html";
-  // } else {
-  //   alert("Error: " + data.message);
-  // }
-
-  // if (data.token) {
-  //   localStorage.setItem("token", data.token);
-  //   window.location.href = "profile.html";
-  // } else {
-  //   showTemporaryModal("invalidModal", data.message);
-  // }
-
-  if (response.ok && data.token) {
-    localStorage.setItem("token", data.token);
-    window.location.href = "profile.html";
-  } else {
-    // Show message from server in modal
-    showTemporaryModal("invalidModal", "Invalid username or password");
+    showUserModal("✅ Login successful!", "profile.html");
+  } catch (error) {
+    console.error("Login error:", error);
+    showUserModal("Login failed: Invalid credentials or network error.");
   }
 });
+
+// 🔁 RESEND EMAIL VERIFICATION
+resendVerificationBtn.addEventListener("click", async () => {
+  const user = window.tempUserForResend;
+
+  if (!user) {
+    showUserModal("⚠️ Please try logging in first.");
+    resendVerificationBtn.style.display = "none";
+    return;
+  }
+
+  try {
+    await user.sendEmailVerification();
+    showUserModal("✅ Verification email resent! Check your inbox.");
+    resendVerificationBtn.style.display = "none";
+  } catch (error) {
+    console.error("Resend verification error:", error);
+    showUserModal("❌ Error sending email: " + error.message);
+  }
+});
+
+// 🔑 FORGOT PASSWORD LINK HANDLER
+document.getElementById("forgotPasswordLink").addEventListener("click", () => {
+  showForgotPasswordModal();
+});
+
+// 📧 SEND RESET EMAIL
+document
+  .getElementById("sendResetEmail")
+  .addEventListener("click", async () => {
+    const email = document.getElementById("resetEmail").value.trim();
+
+    if (!email) {
+      showUserModal("Please enter your email.");
+      return;
+    }
+
+    try {
+      await auth.sendPasswordResetEmail(email);
+      showUserModal("✅ Reset link sent! Check your email.");
+      closeForgotPasswordModal();
+    } catch (error) {
+      console.error("Password reset error:", error);
+      showUserModal("❌ Error: " + error.message);
+    }
+  });
+
+// 🧼 CLOSE MODALS ON BACKDROP CLICK
+window.onclick = function (event) {
+  if (event.target === userModal) userModal.style.display = "none";
+  if (event.target === forgotPasswordModal)
+    forgotPasswordModal.style.display = "none";
+};

@@ -48,15 +48,12 @@ document.addEventListener("DOMContentLoaded", async function () {
 
 // Fetch user data to get the username
 async function fetchUserData(token) {
-  const response = await fetch(
-    "https://propnetixbackend.onrender.com/api/user",
-    {
-      method: "GET",
-      headers: {
-        Authorization: token,
-      },
-    }
-  );
+  const response = await fetch("http://localhost:5000/api/user", {
+    method: "GET",
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
 
   const data = await response.json();
 
@@ -143,21 +140,18 @@ postForm.addEventListener("submit", async (e) => {
   }
 
   try {
-    const response = await fetch(
-      "https://propnetixbackend.onrender.com/api/create-post",
-      {
-        method: "POST",
-        headers: {
-          Authorization: token,
-        },
-        body: formData,
-      }
-    );
+    const response = await fetch("http://localhost:5000/api/create-post", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+      body: formData,
+    });
     // showLoadingModal();
     const data = await response.json();
     console.log("Post created data:", data);
 
-    if (data.message === "Post created successfully!") {
+    if (data.message === "Post created") {
       // hideLoadingModal();
       // alert("Post created successfully!");
       showTemporaryModal("postingModal", 2000, true);
@@ -200,15 +194,12 @@ async function fetchUserPosts(token) {
   // Show the loading modal when data is being fetched
   showLoadingModal();
 
-  const response = await fetch(
-    "https://propnetixbackend.onrender.com/api/posts/user",
-    {
-      method: "GET",
-      headers: {
-        Authorization: token,
-      },
-    }
-  );
+  const response = await fetch("http://localhost:5000/api/posts/user", {
+    method: "GET",
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
 
   const data = await response.json();
 
@@ -362,11 +353,11 @@ async function deletePost(postId) {
 
   try {
     const response = await fetch(
-      `https://propnetixbackend.onrender.com/api/delete-post/${postId}`,
+      `http://localhost:5000/api/delete-post/${postId}`,
       {
         method: "DELETE",
         headers: {
-          Authorization: token,
+          Authorization: `Bearer ${token}`
         },
       }
     );

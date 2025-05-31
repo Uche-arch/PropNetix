@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- SEO Meta Tags -->
+    <!-- // SEO Meta Tags -->
     <meta
       name="description"
       content="Sign up for PropNetix today and access a wide range of properties, including apartments, shops, lands, and more."
@@ -15,7 +15,7 @@
     />
     <meta name="author" content="PropNetix" />
 
-    <!-- Open Graph (for Facebook, LinkedIn, etc.) -->
+    <!-- // Open Graph (for Facebook, LinkedIn, etc.) -->
     <meta property="og:title" content="PropNetix | Sign Up" />
     <meta
       property="og:description"
@@ -28,7 +28,7 @@
     <meta property="og:url" content="https://yourdomain.com/signup.html" />
     <meta property="og:type" content="website" />
 
-    <!-- Twitter Card Tags -->
+    <!-- // Twitter Card Tags -->
     <meta name="twitter:title" content="PropNetix | Sign Up" />
     <meta
       name="twitter:description"
@@ -40,7 +40,7 @@
     />
     <meta name="twitter:card" content="summary_large_image" />
 
-    <!-- CSS Files -->
+    <!-- CSS Files// -->
     <link rel="stylesheet" href="./CSS/header.css" />
     <link rel="stylesheet" href="./CSS/buttons.css" />
     <link rel="stylesheet" href="./CSS/signup.css" />
@@ -48,13 +48,15 @@
     <link rel="stylesheet" href="./CSS/nav_links.css" />
     <link rel="stylesheet" href="./CSS/feedbackBtn.css" />
 
-    <!-- Font Awesome -->
+    <!-- Font Awesome// -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
     />
-    <link rel="shortcut icon" href="./img/newLogo.png" type="image/x-icon">
-
+    <link rel="shortcut icon" href="./img/newLogo.png" type="image/x-icon" />
+    <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-auth-compat.js"></script>
+    <script src="./JS(📢out of bounds)/configuration.js"></script>
 
     <title>PropNetix | Sign Up</title>
   </head>
@@ -100,11 +102,12 @@
     </header>
     <main>
       <div id="userModal" class="modal">
-        <div class="modal-content">
+        <div class="modal-content" id="modalMessage" style="color: black; font-size: 1.4rem;">
           <h2 style="color: black">User created -- Login</h2>
         </div>
       </div>
       <div class="signUpForm_container">
+        <!-- Only showing the form part that changed -->
         <form id="signupForm">
           <input
             type="text"
@@ -112,13 +115,13 @@
             placeholder="Username"
             required
           /><br />
+          <input type="email" id="email" placeholder="Email" required /><br />
           <input
             type="password"
             id="password"
             placeholder="Password"
             required
           /><br />
-
           <label>
             By signing up, you agree to our
             <a href="terms-condition.html" target="_blank" style="color: orange"
@@ -129,11 +132,10 @@
               >Privacy Policy</a
             >. </label
           ><br />
-
           <button type="submit">Sign Up</button>
         </form>
       </div>
-      <!-- Feedback Button -->
+      <!-- Feedback Button// -->
       <a
         id="feedback-button"
         href="https://forms.gle/ejc1CS8h1pT7wE2a7"

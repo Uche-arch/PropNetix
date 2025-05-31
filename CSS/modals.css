@@ -27,6 +27,29 @@
   font-family: 'Courier New', Courier, monospace;
 }
 
+.modal-content2 {
+  text-align: center;
+  background: #fff;
+  margin: auto auto; 
+  padding: 20px;
+  border-radius: 8px; /* Rounded corners */
+  width: 80%; /* Set a max width */
+  max-width: 600px; /* Ensure modal isn't too wide on larger screens */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Add a shadow for depth */
+  animation: slideIn 0.3s ease-out; /* Animation for modal appearance */
+  font-family: 'Courier New', Courier, monospace;
+}
+
+ #sendResetEmail {
+  padding: 10px 13px;
+  margin-top: 20px;
+  background-color: green;
+  font-size: 1em;
+  /* font-family: 'Courier New', Courier, monospace; */
+  border: 0;
+  border-radius: 10px;
+}
+
 /* Modal Header */
 .modal-header {
   font-size: 1.5em;
@@ -63,6 +86,17 @@
 
 .modal .close:hover {
   color: #f44336; /* Change color on hover */
+}
+#resetEmail {
+  padding: 10px 12px;
+  border: 2px solid;
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.9);
+  font-size: 16px;
+  color: #333;
+  outline: none;
+  transition: box-shadow 0.3s ease;
+  margin-top: 10px;
 }
 
 /* Fade in animation for modal */
