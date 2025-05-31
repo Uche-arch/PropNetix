@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", async function () {
   // Fetch posts for the specific category from the backend
   try {
     const response = await fetch(
-      `http://localhost:5000/api/posts?category=${category}`,
+      `https://propnetixbackend.onrender.com/api/posts?category=${category}`,
       {
         method: "GET", // GET request to fetch posts
       }

@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", async function () {
   // Fetch posts from the backend to display on the homepage
   try {
     const response = await fetch(
-      `http://localhost:5000/api/posts?page=${page}&limit=${limit}`,
+      `https://propnetixbackend.onrender.com/api/posts?page=${page}&limit=${limit}`,
       {
         method: "GET", // GET request to fetch posts
       }
