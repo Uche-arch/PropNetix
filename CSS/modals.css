@@ -11,6 +11,12 @@
   overflow: auto; /* Allow scrolling */
   transition: all 0.3s ease; /* Smooth transition for modal appearing */
   backdrop-filter: blur(10px); /* Blurred background for modern effect */
+  /* .modal { */
+    display: none;
+    justify-content: center;
+    align-items: center;
+  /* } */
+  
 }
 
 /* Modal Content */

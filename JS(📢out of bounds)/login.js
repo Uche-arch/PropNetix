@@ -44,7 +44,7 @@ document.getElementById("loginForm").addEventListener("submit", async (e) => {
 
     // 2. Check email verification
     if (!user.emailVerified) {
-      showUserModal("⚠️ Please verify your email before logging in.");
+      showUserModal("⚠️ Please verify your email before logging in.", null, 3000);
       await auth.signOut();
 
       // Enable resend button and store user in temp
@@ -60,7 +60,7 @@ document.getElementById("loginForm").addEventListener("submit", async (e) => {
     showUserModal("✅ Login successful!", "profile.html");
   } catch (error) {
     console.error("Login error:", error);
-    showUserModal("Login failed: Invalid credentials or network error.");
+    showUserModal("Login failed: User not found!");
   }
 });
 
@@ -76,11 +76,11 @@ resendVerificationBtn.addEventListener("click", async () => {
 
   try {
     await user.sendEmailVerification();
-    showUserModal("✅ Verification email resent! Check your inbox.");
+    showUserModal("✅ Verification email resent! Check your inbox.", null, 6000);
     resendVerificationBtn.style.display = "none";
   } catch (error) {
     console.error("Resend verification error:", error);
-    showUserModal("❌ Error sending email: " + error.message);
+    showUserModal("❌ Error sending email: " + error.message, null, 10000);
   }
 });
 
@@ -102,7 +102,7 @@ document
 
     try {
       await auth.sendPasswordResetEmail(email);
-      showUserModal("✅ Reset link sent! Check your email.");
+      showUserModal("✅ Reset link sent! Check your email.", null, 6000);
       closeForgotPasswordModal();
     } catch (error) {
       console.error("Password reset error:", error);

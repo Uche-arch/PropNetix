@@ -37,7 +37,7 @@ signupForm.addEventListener("submit", async (e) => {
 
     if (!checkResponse.ok || !checkResult.available) {
       showModalMessage(
-        "❌ Username already taken or unavailable. Please choose another."
+        "❌ Username already taken or unavailable. Please choose another.", null, 3000
       );
       return;
     }
