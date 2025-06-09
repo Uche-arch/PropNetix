@@ -88,33 +88,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     document
       .getElementById("keywordSearch")
       .addEventListener("input", filterPosts);
-    // document
-    //   .getElementById("userSearch")
-    //   .addEventListener("input", filterPosts);
-
-    // Function to filter posts based on price and keyword
-    // function filterPosts() {
-    //   // const priceQuery = document.getElementById("priceSearch").value;
-    //   const keywordQuery = document
-    //     .getElementById("keywordSearch")
-    //     .value.toLowerCase();
-
-    //   // Filter the posts based on price and keyword
-    //   const filteredPosts = posts.filter((post) => {
-    //     // const matchesPrice = priceQuery ? post.price <= priceQuery : true;
-    //     const matchesKeyword = post.title.toLowerCase().includes(keywordQuery);
-    //     return matchesKeyword;
-    //   });
-
-    //   // Check if no matches are found
-    //   const homepageFeed = document.getElementById("homepageFeed");
-    //   if (filteredPosts.length === 0) {
-    //     homepageFeed.innerHTML = "<p>No matches found.</p>"; // Show no matches found message
-    //   } else {
-    //     // Display the filtered posts
-    //     displayPosts(filteredPosts);
-    //   }
-    // }
+    
 
     function filterPosts() {
       const keywordQuery = document
@@ -195,7 +169,8 @@ document.addEventListener("DOMContentLoaded", async function () {
         }
 
         // Highlight username match
-        let username = post.user.username;
+        // let username = post.user.username;
+        let username = post.user?.username || "Unknown User";
         // if (userQuery) {
         //   username = username.replace(
         //     new RegExp(userQuery, "gi"),

@@ -134,7 +134,9 @@ document.addEventListener("DOMContentLoaded", async function () {
         const priceQuery = priceSearchInput.value;
 
         // Username
-        let username = post.user.username;
+        // let username = post.user.username;
+        let username = post.user?.username || "Unknown User";
+
 
         if (priceQuery) {
           const priceRegex = new RegExp(priceQuery, "g"); // Create regex for price query
