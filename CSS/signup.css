@@ -1,80 +1,19 @@
-/* Reset margin for body and make sure it doesn't interfere with header */
-/* body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(135deg, #6a11cb, #2575fc);
-} */
-
-/* Form section takes full screen (minus header) and centers form */
-/* main { */
-/* min-height: calc(100vh - 80px); adjust 80px to match your header height */
-/* display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 40px 20px;
-} */
-
-/* Glassmorphism style */
-/* .signUpForm_container {
-  background: rgba(255, 255, 255, 0.15);
-  padding: 40px 30px;
-  border-radius: 15px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  max-width: 400px;
-  width: 100%;
-  text-align: center;
-} */
-
-/* Input styling */
-/* .signUpForm_container input {
-  width: 100%;
-  padding: 12px 15px;
-  margin: 10px 0;
-  border: none;
-  border-radius: 8px;
-  background-color: rgba(255, 255, 255, 0.9);
-  font-size: 16px;
-  outline: none;
-  transition: all 0.3s ease;
-}
-
-.signUpForm_container input:focus {
-  box-shadow: 0 0 5px rgba(81, 203, 238, 1);
-  border: 1px solid rgba(81, 203, 238, 1);
-} */
-
-/* Button styling */
-/* .signUpForm_container button {
-  width: 100%;
-  padding: 12px;
-  margin-top: 15px;
-  border: none;
-  border-radius: 8px;
-  background-color: #4a90e2;
-  color: white;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
-
-.signUpForm_container button:hover {
-  background-color: #357ab8;
-} */
-
 /* General reset and background */
 body {
   margin: 0;
   padding: 0;
-  /* font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; */
-  /* background: linear-gradient(120deg, #f093fb, #f5576c, #4facfe); */
-  /* background: linear-gradient(120deg, #08161b, #245261, #247a9e); */
   background-size: 400% 400%;
   animation: backgroundFlow 20s ease infinite;
   color: #fff;
+}
+
+#togglePassword,
+#toggleConfirmPassword {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
 }
 
 @keyframes backgroundFlow {
@@ -112,6 +51,12 @@ main {
   text-align: center;
   animation: floatUp 1.5s ease-out;
   color: #fff;
+}
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background-color: #ccc !important;
+  color: #666 !important;
 }
 
 @keyframes floatUp {
@@ -160,9 +105,7 @@ main {
   transition: background 0.4s ease;
 }
 
-.signUpForm_container button:hover {
-  background: linear-gradient(to right, #43e97b, #38f9d7);
-}
+
 
 @media screen and (max-width: 400px) {
   /* Input fields */

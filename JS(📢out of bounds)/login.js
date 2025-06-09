@@ -5,6 +5,14 @@ const resendVerificationBtn = document.getElementById("resendVerificationBtn");
 const forgotPasswordModal = document.getElementById("forgotPasswordModal");
 const userModal = document.getElementById("userModal");
 const modalMessage = document.getElementById("modalMessage");
+const passwordInput = document.getElementById("password");
+const togglePassword = document.getElementById("togglePassword");
+
+togglePassword.addEventListener("click", () => {
+  const type = passwordInput.type === "password" ? "text" : "password";
+  passwordInput.type = type;
+  togglePassword.textContent = type === "password" ? "👁️" : "🙈";
+});
 
 // 📢 Utility: Show user feedback modal
 function showUserModal(message, redirectAfter = null, delay = 2500) {
@@ -44,7 +52,11 @@ document.getElementById("loginForm").addEventListener("submit", async (e) => {
 
     // 2. Check email verification
     if (!user.emailVerified) {
-      showUserModal("⚠️ Please verify your email before logging in.", null, 3000);
+      showUserModal(
+        "⚠️ Please verify your email before logging in.",
+        null,
+        3000
+      );
       await auth.signOut();
 
       // Enable resend button and store user in temp
@@ -76,7 +88,11 @@ resendVerificationBtn.addEventListener("click", async () => {
 
   try {
     await user.sendEmailVerification();
-    showUserModal("✅ Verification email resent! Check your inbox.", null, 6000);
+    showUserModal(
+      "✅ Verification email resent! Check your inbox.",
+      null,
+      6000
+    );
     resendVerificationBtn.style.display = "none";
   } catch (error) {
     console.error("Resend verification error:", error);

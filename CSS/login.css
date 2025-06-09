@@ -43,7 +43,6 @@ main {
   }
 }
 
-
 /* Form elements */
 .login_container h2 {
   margin-bottom: 20px;
@@ -109,32 +108,39 @@ main {
   text-decoration: underline;
 }
 
+#togglePassword {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
 
 @media screen and (max-width: 400px) {
   /* Login input */
   .login_container input {
-  width: 100%;
-  padding: 10px 12px;
-  border: none;
-  border-radius: 8px;
-  background-color: rgba(255, 255, 255, 0.9);
-  font-size: 16px;
-  color: #333;
-  outline: none;
-  transition: box-shadow 0.3s ease;
-}
+    width: 100%;
+    padding: 10px 12px;
+    border: none;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.9);
+    font-size: 16px;
+    color: #333;
+    outline: none;
+    transition: box-shadow 0.3s ease;
+  }
 
-/* Login button */
-.login_container button {
-  width: 100%;
-  padding: 10px;
-  margin-top: 20px;
-  border: none;
-  border-radius: 8px;
-  background-color: #4a90e2;
-  color: white;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
+  /* Login button */
+  .login_container button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 8px;
+    background-color: #4a90e2;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
 }

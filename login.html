@@ -105,7 +105,13 @@
           <input type="email" id="email" required /><br />
 
           <label for="loginPassword">Password:</label>
-          <input type="password" id="password" required />
+          <div style="position: relative;">
+            <input type="password" id="password" required />
+            <span
+              id="togglePassword"
+              title="Show/Hide Password"
+            >👁️</span>
+          </div>
 
           <button type="submit">Login</button>
         </form>

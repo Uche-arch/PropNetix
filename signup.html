@@ -103,10 +103,10 @@
     <main>
       <div id="userModal" class="modal">
         <div class="modal-content">
-          <h2 id="modalMessage" style="color: black; font-size: 1.4rem;"></h2>
+          <h2 id="modalMessage" style="color: black; font-size: 1.4rem"></h2>
         </div>
       </div>
-      
+
       <div class="signUpForm_container">
         <!-- Only showing the form part that changed -->
         <form id="signupForm">
@@ -117,12 +117,29 @@
             required
           /><br />
           <input type="email" id="email" placeholder="Email" required /><br />
-          <input
-            type="password"
-            id="password"
-            placeholder="Password"
-            required
-          /><br />
+
+          <div style="position: relative">
+            <input
+              type="password"
+              id="password"
+              placeholder="Password"
+              required
+            />
+            <span id="togglePassword" title="Show/Hide Password">👁️</span>
+          </div>
+          <div style="position: relative">
+            <input
+              type="password"
+              id="confirmPassword"
+              placeholder="Confirm Password"
+              required
+            />
+            <span id="toggleConfirmPassword" title="Show/Hide Password"
+              >👁️</span
+            >
+          </div>
+          <br />
+
           <label>
             By signing up, you agree to our
             <a href="terms-condition.html" target="_blank" style="color: orange"
@@ -131,9 +148,11 @@
             and
             <a href="privacy.html" target="_blank" style="color: orange"
               >Privacy Policy</a
-            >. </label
-          ><br />
-          <button type="submit">Sign Up</button>
+            >.
+          </label>
+          <br />
+          <p id="errorMessage" style="color: red; font-size: 0.9rem"></p>
+          <button id="signupBtn" type="submit" disabled>Sign Up</button>
         </form>
       </div>
       <!-- Feedback Button// -->
