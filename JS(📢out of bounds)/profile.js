@@ -24,7 +24,8 @@ document.addEventListener("DOMContentLoaded", async function () {
   // Handle Log Out functionality
   logoutButton.addEventListener("click", function () {
     localStorage.removeItem("token"); // Remove the token from localStorage
-    window.location.href = "login.html"; // Redirect to the login page
+    localStorage.removeItem("isLoggedIn", "false");
+    window.location.href = "index.html"; // or 'login.html'
   });
 
   // Get the token from localStorage to authenticate the user

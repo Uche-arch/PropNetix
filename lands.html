@@ -48,6 +48,7 @@
     <link rel="stylesheet" href="./CSS/feed.css" />
     <link rel="stylesheet" href="./CSS/feedbackBtn.css" />
     <link rel="stylesheet" href="./CSS/active.css" />
+    <link rel="stylesheet" href="./CSS/auth.css">
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
@@ -59,6 +60,7 @@
       rel="stylesheet"
     />
     <link rel="shortcut icon" href="./img/newLogo.png" type="image/x-icon">
+    <script src="./JS(📢out of bounds)/protected.js"></script>
 
 
     <title>PropNetix | Lands</title>
@@ -69,7 +71,7 @@
         <div class="logo">
           <h2><a href="index.html">PropNetix.</a></h2>
           <p>
-            <a href="index.html" id="home"><i class="fa fa-home"></i></a>
+            <a href="all.html" id="home"><i class="fa fa-home"></i></a>
           </p>
         </div>
         <div class="nav_links">
@@ -114,6 +116,9 @@
         </div>
       </div>
       <div id="postsContainer"></div>
+      <div id="loadingSpinner" style="display: none; text-align: center; padding: 1rem;">
+        <i class="fa-solid fa-sync fa-spin"></i>
+      </div>
 
       <!-- Feedback Button -->
       <a

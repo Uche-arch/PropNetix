@@ -70,6 +70,8 @@ document.getElementById("loginForm").addEventListener("submit", async (e) => {
     localStorage.setItem("token", idToken);
 
     showUserModal("✅ Login successful!", "profile.html");
+    // Validate user login here (this is just simulated)
+    localStorage.setItem("isLoggedIn", "true");
   } catch (error) {
     console.error("Login error:", error);
     showUserModal("Login failed: User not found!");

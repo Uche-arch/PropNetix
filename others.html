@@ -48,6 +48,8 @@
     <link rel="stylesheet" href="./CSS/feed.css" />
     <link rel="stylesheet" href="./CSS/feedbackBtn.css" />
     <link rel="stylesheet" href="./CSS/active.css" />
+    <link rel="stylesheet" href="./CSS/auth.css">
+    <script src="./JS(📢out of bounds)/protected.js"></script>
 
     <link
       rel="stylesheet"
@@ -69,7 +71,7 @@
         <div class="logo">
           <h2><a href="index.html">PropNetix.</a></h2>
           <p>
-            <a href="index.html" id="home"><i class="fa fa-home"></i> </a>
+            <a href="all.html" id="home"><i class="fa fa-home"></i> </a>
           </p>
         </div>
         <div class="nav_links">
@@ -114,6 +116,9 @@
         </div>
       </div>
       <div id="postsContainer"></div>
+      <div id="loadingSpinner" style="display: none; text-align: center; padding: 1rem;">
+        <i class="fa-solid fa-sync fa-spin"></i>
+      </div>
       <!-- Feedback Button -->
       <a
         id="feedback-button"

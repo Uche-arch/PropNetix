@@ -51,6 +51,7 @@
     <link rel="stylesheet" href="./CSS/feed.css" />
     <link rel="stylesheet" href="./CSS/feedbackBtn.css" />
     <link rel="stylesheet" href="./CSS/active.css" />
+    <link rel="stylesheet" href="./CSS/auth.css">
 
     <link
       rel="stylesheet"
@@ -62,6 +63,7 @@
       rel="stylesheet"
     />
     <link rel="shortcut icon" href="./img/newLogo.png" type="image/x-icon">
+    <script src="./JS(📢out of bounds)/protected.js"></script>
 
 
     <title>PropNetix | Apartments</title>
@@ -72,7 +74,7 @@
         <div class="logo">
           <h2><a href="index.html">PropNetix.</a></h2>
           <p>
-            <a href="index.html" id="home"
+            <a href="all.html" id="home"
               ><i class="fa fa-home"></i>
               <!-- <span>Home</span> -->
             </a>
@@ -124,6 +126,9 @@
         </div>
       </div>
       <div id="postsContainer"></div>
+      <div id="loadingSpinner" style="display: none; text-align: center; padding: 1rem;">
+        <i class="fa-solid fa-sync fa-spin"></i>
+      </div>
       <!-- Container to hold the posts -->
       <!-- Feedback Button -->
       <a
