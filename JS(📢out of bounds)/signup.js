@@ -7,7 +7,7 @@ const userModal = document.getElementById("userModal");
 const modalMessage = document.getElementById("modalMessage");
 
 // 📢 Utility: Show modal message and optionally redirect
-function showModalMessage(message, redirectUrl = null, delay = 2000) {
+function showModalMessage(message, redirectUrl = null, delay = 2800) {
   modalMessage.textContent = message;
   userModal.style.display = "flex"; // or "block" based on your modal CSS
 
@@ -201,7 +201,7 @@ signupForm.addEventListener("submit", async (e) => {
     }
   } catch (error) {
     console.error("Signup failed:", error);
-    showModalMessage("❌ Signup failed: " + (error.message || "Unknown error"));
+    showModalMessage("❌ Signup failed: An error occured, check internet connection and try again");
     signupBtn.disabled = false; // Re-enable if failed
   }
 });
