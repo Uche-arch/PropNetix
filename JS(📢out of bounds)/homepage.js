@@ -120,10 +120,13 @@ document.addEventListener("DOMContentLoaded", async function () {
       loadPosts();
     }
   });
-  
 
   // Initial load
-  loadPosts();
+  // loadPosts();
+  // Initial load (after small delay to ensure everything is ready)
+  setTimeout(() => {
+    loadPosts();
+  }, 100);
 
   // Filtering logic stays the same
   document
