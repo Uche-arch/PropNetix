@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+/* Supporters Button */
+#supporters-btn {
+  position: fixed;
+  bottom: 90px;
+  right: 20px;
+  background-color: #6c63ff;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  padding: 12px 20px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+
+/* Supporters Panel */
+#supporters-panel {
+  position: fixed;
+  bottom: 140px;
+  right: 20px;
+  width: 250px;
+  max-height: 300px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+  padding: 15px;
+  opacity: 0;
+  transform: translateY(10px);
+  pointer-events: none;
+  transition: all 0.3s ease;
+  z-index: 999;
+  font-family: 'Poppins', sans-serif;
+}
+
+#supporters-panel.active {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.supporter {
+  display: flex;
+  align-items: center;
+ margin-bottom: 5px;
+}
+
+.supporter img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.supporter span {
+  font-size: 12px;
+  color: #333;
+  font-family: 'Poppins', sans-serif;
+}
+
+#supporters-panel::-webkit-scrollbar {
+  width: 6px;
+}
+
+#supporters-panel::-webkit-scrollbar-thumb {
+  background-color: #aaa;
+  border-radius: 10px;
+}
+
+
+@media screen and (max-width: 390px) {
+  #supporters-btn {
+    bottom: 30px;
+    right: 15px;
+    padding: 10px 15px;
+  }
+
+  #supporters-panel {
+    bottom: 80px;
+    right: 15px;
+    width: 220px;
+    padding: 10px;
+  }
+  .supporter img {
+    width: 30px;
+    height: 30px;
+    margin-right: 8px;
+  }
+  .supporter span {
+    font-size: 10px;
+  }
+}

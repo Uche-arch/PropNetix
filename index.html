@@ -5,8 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>PropNetix | List & Discover Properties, Props, and More</title>
     <link rel="stylesheet" href="./CSS/new.css" />
-    <link rel="shortcut icon" href="./img/newLogo.png" type="image/x-icon">
-
+    <link rel="stylesheet" href="./CSS/support-btn.css" />
+    <link rel="shortcut icon" href="./img/newLogo.png" type="image/x-icon" />
+    <!-- Lightbox2 CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/lightbox2@2/dist/css/lightbox.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
   </head>
   <body>
     <main>
@@ -104,6 +113,37 @@
           </div>
         </div>
       </div>
+
+      <section>
+        <!-- Supporters Button -->
+        <button id="supporters-btn"><i class="fas fa-users"></i></button>
+
+        <!-- Supporters List Panel -->
+        <div id="supporters-panel">
+          <h6 style="margin-bottom: 6px;">People who support this project</h5>
+          <div class="supporter">
+            <a
+              href="./img/another.jpg"
+              data-lightbox="supporters"
+              data-title="Uche Godswill"
+            >
+              <img src="./img/another.jpg" alt="Uche" />
+            </a>
+            <span>Uche Godswill</span>
+          </div>
+          <div class="supporter">
+            <a
+              href="./img/happyuser.avif"
+              data-lightbox="supporters"
+              data-title="Ada Johnson"
+            >
+              <img src="./img/happyuser.avif" alt="Ada" />
+            </a>
+            <span>Ada Johnson</span>
+          </div>
+          <!-- Add more supporters as needed -->
+        </div>
+      </section>
       <footer>
         <h3>Copyright © 2025 PropNex Limited. All rights reserved.</h3>
         <br />
@@ -113,5 +153,25 @@
         </p>
       </footer>
     </main>
+
+    <!-- Toggle and Outside Click Script -->
+    <script>
+      const btn = document.getElementById("supporters-btn");
+      const panel = document.getElementById("supporters-panel");
+
+      btn.addEventListener("click", (e) => {
+        e.stopPropagation(); // prevent closing immediately when clicking the button
+        panel.classList.toggle("active");
+      });
+
+      // Hide panel on click outside
+      document.addEventListener("click", (e) => {
+        if (!panel.contains(e.target) && !btn.contains(e.target)) {
+          panel.classList.remove("active");
+        }
+      });
+    </script>
+    <!-- Lightbox2 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/lightbox2@2/dist/js/lightbox-plus-jquery.min.js"></script>
   </body>
 </html>
