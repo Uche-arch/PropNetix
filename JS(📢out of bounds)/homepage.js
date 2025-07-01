@@ -126,6 +126,7 @@ document.addEventListener("DOMContentLoaded", async function () {
   // Initial load (after small delay to ensure everything is ready)
   setTimeout(() => {
     loadPosts();
+    console.log("Loading post!")
   }, 100);
 
   // Filtering logic stays the same
@@ -150,7 +151,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 
     postsToDisplay.forEach((post) => {
       const postDiv = document.createElement("div");
-      postDiv.classList.add("post");
+      postDiv.classList.add("post", "animate-in");
 
       const postedDate = new Date(post.createdAt);
       const timeAgo = getTimeAgo(postedDate);

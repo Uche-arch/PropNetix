@@ -254,7 +254,7 @@ function getTimeAgo(date) {
 function appendPostToFeed(post, feedId) {
   const postFeed = document.getElementById(feedId);
   const postDiv = document.createElement("div");
-  postDiv.classList.add("post");
+  postDiv.classList.add("post", "animate-in");
 
   // Convert the createdAt timestamp to a readable format
   const postedDate = new Date(post.createdAt); // Assuming the backend returns a valid date

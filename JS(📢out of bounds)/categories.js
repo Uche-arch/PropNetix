@@ -77,7 +77,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     }
     postsToDisplay.forEach((post) => {
       const postDiv = document.createElement("div");
-      postDiv.classList.add("post");
+      postDiv.classList.add("post", "animate-in");
 
       const createdAt = new Date(post.createdAt);
       const timeAgo = getTimeAgo(createdAt);
