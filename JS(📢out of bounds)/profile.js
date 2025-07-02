@@ -276,7 +276,7 @@ function appendPostToFeed(post, feedId) {
     <h3 class="post-title">${post.title}</h3>
 
     <p class="post-description">
-      ${post.description.slice(0, 80)}...
+      ${post.description.slice(0, 80)}
       <span class="more-text" style="display: none;">${post.description.slice(
         80
       )}</span>
