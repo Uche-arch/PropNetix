@@ -259,6 +259,20 @@ function appendPostToFeed(post, feedId) {
   // Convert the createdAt timestamp to a readable format
   const postedDate = new Date(post.createdAt); // Assuming the backend returns a valid date
   const timeAgo = getTimeAgo(postedDate); // Get time ago format
+
+
+  // Description logic
+  let desc = post.description;
+  let maxLength = 80;
+
+  // Find the last space before 80 characters
+  let cutoff = desc.slice(0, maxLength).lastIndexOf(" ");
+  cutoff = cutoff === -1 ? maxLength : cutoff;
+
+  let shortText = desc.slice(0, cutoff); // ends at last full word
+  let restText = desc.slice(cutoff); // starts with space before next word
+
+
   postDiv.innerHTML = `
    <div id="post-images">
   ${post.images
@@ -275,13 +289,9 @@ function appendPostToFeed(post, feedId) {
   <div class="post-content">
     <h3 class="post-title">${post.title}</h3>
 
-    <p class="post-description">
-      ${post.description.slice(0, 80)}
-      <span class="more-text" style="display: none;">${post.description.slice(
-        80
-      )}</span>
-      <span class="toggle-desc" onclick="toggleDescription(this)">See more</span>
-    </p>
+   <p class="post-description">
+  ${shortText}<span class="more-text" style="display: none;">${restText}</span><span class="toggle-desc" onclick="toggleDescription(this)">See more</span>
+</p>
 
     <div class="post-meta-top">
   <span class="post-category">
@@ -299,7 +309,7 @@ ${
     ? `
 <p class="post-measurement">
   <span class="icon-circle"><i class="fas fa-ruler-combined"></i></span>
-  ${post.measurement}
+  ${post.measurement}m²
 </p>`
     : ""
 }
