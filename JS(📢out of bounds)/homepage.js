@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 
     try {
       const response = await fetch(
-        `https://https://propnetix-backend-v2.onrender.com/api/posts?page=${page}&limit=${limit}`,
+        `https://propnetix-backend-v2.onrender.com/api/posts?page=${page}&limit=${limit}`,
         {
           method: "GET",
         }

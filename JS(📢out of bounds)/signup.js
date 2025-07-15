@@ -143,7 +143,7 @@ signupForm.addEventListener("submit", async (e) => {
   try {
     // ✅ Step 1: Check username availability from backend
     const checkResponse = await fetch(
-      `https://https://propnetix-backend-v2.onrender.com/api/check-username?username=${encodeURIComponent(
+      `https://propnetix-backend-v2.onrender.com/api/check-username?username=${encodeURIComponent(
         username
       )}`
     );
@@ -171,7 +171,7 @@ signupForm.addEventListener("submit", async (e) => {
 
     // ✅ Step 5: Send username to backend to save in MongoDB
     const saveResponse = await fetch(
-      "https://https://propnetix-backend-v2.onrender.com/api/register",
+      "https://propnetix-backend-v2.onrender.com/api/register",
       {
         method: "POST",
         headers: {
