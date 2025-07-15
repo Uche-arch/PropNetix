@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 // Fetch user data to get the username
 async function fetchUserData(token) {
   const response = await fetch(
-    "https://propnetixbackend.onrender.com/api/user",
+    "https://https://propnetix-backend-v2.onrender.com/api/user",
     {
       method: "GET",
       headers: {
@@ -145,7 +145,7 @@ postForm.addEventListener("submit", async (e) => {
 
   try {
     const response = await fetch(
-      "https://propnetixbackend.onrender.com/api/create-post",
+      "https://https://propnetix-backend-v2.onrender.com/api/create-post",
       {
         method: "POST",
         headers: {
@@ -202,7 +202,7 @@ async function fetchUserPosts(token) {
   showLoadingModal();
 
   const response = await fetch(
-    "https://propnetixbackend.onrender.com/api/posts/user",
+    "https://https://propnetix-backend-v2.onrender.com/api/posts/user",
     {
       method: "GET",
       headers: {
@@ -373,7 +373,7 @@ async function deletePost(postId) {
 
   try {
     const response = await fetch(
-      `https://propnetixbackend.onrender.com/api/delete-post/${postId}`,
+      `https://https://propnetix-backend-v2.onrender.com/api/delete-post/${postId}`,
       {
         method: "DELETE",
         headers: {
