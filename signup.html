@@ -47,6 +47,7 @@
     <link rel="stylesheet" href="./CSS/modals.css" />
     <link rel="stylesheet" href="./CSS/nav_links.css" />
     <link rel="stylesheet" href="./CSS/feedbackBtn.css" />
+    <link rel="stylesheet" href="./CSS/theme.css">
 
     <!-- Font Awesome// -->
     <link
@@ -58,13 +59,13 @@
     <script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-auth-compat.js"></script>
     <script src="./JS(📢out of bounds)/configuration.js"></script>
 
-    <title>PropNetix | Sign Up</title>
+    <title>PropNetix | Register</title>
   </head>
   <body>
     <header>
       <nav>
         <div class="logo">
-          <h2><a href="index.html">PropNetix.</a></h2>
+          <h2><a href="index.html">PropNetix</a></h2>
           <p>
             <a href="all.html" id="home"><i class="fa fa-home"></i></a>
           </p>
@@ -82,7 +83,7 @@
             class="activeBtn"
             onclick="window.location.href='signup.html'"
           >
-            Sign Up
+            Register
           </button>
           <button id="LoginButton" onclick="window.location.href='login.html'">
             Log In
@@ -97,18 +98,22 @@
           <button id="logoutButton" style="display: none" onclick="logout()">
             Log Out
           </button>
+          <button id="theme-toggle" aria-label="Toggle theme">
+            <i id="theme-icon" class="fas fa-moon"></i>
+          </button>
         </div>
       </nav>
     </header>
     <main>
       <div id="userModal" class="modal">
         <div class="modal-content">
-          <h2 id="modalMessage" style="color: black; font-size: 1.4rem"></h2>
+          <h2 id="modalMessage"></h2>
         </div>
       </div>
 
       <div class="signUpForm_container">
-        <p id="errorMessage" style="color: red; font-size: 0.9rem; font-family: Consolas, 'Courier New', monospace;"></p>
+        <h1>Register</h1>
+        <p id="errorMessage"></p>
         <!-- Only showing the form part that changed -->
         <form id="signupForm">
           <input
@@ -126,7 +131,7 @@
               placeholder="Password"
               required
             />
-            <span id="togglePassword" title="Show/Hide Password">👁️</span>
+            <span id="togglePassword" title="Show/Hide Password">  <i class="fa fa-eye"></i></span>
           </div>
           <div style="position: relative">
             <input
@@ -136,12 +141,12 @@
               required
             />
             <span id="toggleConfirmPassword" title="Show/Hide Password"
-              >👁️</span
+              >  <i class="fa fa-eye"></i></span
             >
           </div>
           <br />
 
-          <label>
+          <!-- <label>
             By signing up, you agree to our
             <a href="terms-condition.html" target="_blank" style="color: orange"
               >Terms and Conditions</a
@@ -150,23 +155,26 @@
             <a href="privacy.html" target="_blank" style="color: orange"
               >Privacy Policy</a
             >.
-          </label>
-          <br />
-          <button id="signupBtn" type="submit" disabled>Sign Up</button>
+          </label> -->
+          <!-- <br /> -->
+          <button id="signupBtn" type="submit" disabled>Register</button>
+           <p class="login-link">Already have an account? <a href="login.html">Log in</a></p>
         </form>
       </div>
       <!-- Feedback Button// -->
-      <a
+      <!-- <a
         id="feedback-button"
         href="https://forms.gle/ejc1CS8h1pT7wE2a7"
         target="_blank"
       >
         <i class="fa-solid fa-comment-dots"></i> Give Feedback
-      </a>
+      </a> -->
     </main>
 
     <script src="./JS(📢out of bounds)/signup.js"></script>
     <script src="./JS(📢out of bounds)/feedbackBtn.js"></script>
+    <script src="./JS(📢out of bounds)/theme-toggle.js"></script>
+    
     <script src="./JS(📢out of bounds)/hide.js"></script>
   </body>
 </html>

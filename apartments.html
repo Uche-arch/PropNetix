@@ -51,7 +51,7 @@
     <link rel="stylesheet" href="./CSS/feed.css" />
     <link rel="stylesheet" href="./CSS/feedbackBtn.css" />
     <link rel="stylesheet" href="./CSS/active.css" />
-    <link rel="stylesheet" href="./CSS/auth.css">
+    <link rel="stylesheet" href="./CSS/auth.css" />
 
     <link
       rel="stylesheet"
@@ -62,9 +62,8 @@
       href="https://cdn.jsdelivr.net/npm/lightbox2@2/dist/css/lightbox.min.css"
       rel="stylesheet"
     />
-    <link rel="shortcut icon" href="./img/newLogo.png" type="image/x-icon">
+    <link rel="shortcut icon" href="./img/newLogo.png" type="image/x-icon" />
     <script src="./JS(📢out of bounds)/protected.js"></script>
-
 
     <title>PropNetix | Apartments</title>
   </head>
@@ -72,7 +71,7 @@
     <header>
       <nav>
         <div class="logo">
-          <h2><a href="index.html">PropNetix.</a></h2>
+          <h2><a href="index.html">PropNetix</a></h2>
           <p>
             <a href="all.html" id="home"
               ><i class="fa fa-home"></i>
@@ -94,7 +93,7 @@
             id="signupButton"
             onclick="window.location.href='signup.html'"
           >
-            Sign Up
+            Register
           </button>
           <button id="LoginButton" onclick="window.location.href='login.html'">
             Log In
@@ -108,6 +107,9 @@
           </button>
           <button id="logoutButton" style="display: none" onclick="logout()">
             Log Out
+          </button>
+          <button id="theme-toggle" aria-label="Toggle theme">
+            <i id="theme-icon" class="fas fa-moon"></i>
           </button>
         </div>
       </nav>
@@ -126,17 +128,20 @@
         </div>
       </div>
       <div id="postsContainer"></div>
-      <div id="loadingSpinner" style="display: none; text-align: center; padding: 1rem;">
+      <div
+        id="loadingSpinner"
+        style="display: none; text-align: center; padding: 1rem"
+      >
         <i class="fa-solid fa-sync fa-spin"></i>
       </div>
       <!-- Container to hold the posts -->
       <!-- Feedback Button -->
-      <a
+      <!-- <a
         id="feedback-button"
         href="https://forms.gle/ejc1CS8h1pT7wE2a7"
         target="_blank"
         ><i class="fa-solid fa-comment-dots"></i> Give Feedback</a
-      >
+      > -->
     </main>
     <!-- Modal HTML -->
     <div id="loadingModal" class="modal">
@@ -151,6 +156,7 @@
     <script src="./JS(📢out of bounds)/categories.js"></script>
     <script src="./JS(📢out of bounds)/feedbackBtn.js"></script>
     <script src="./JS(📢out of bounds)/hide.js"></script>
+    <script src="./JS(📢out of bounds)/theme-toggle.js"></script>
     <!-- Lightbox2 JS -->
     <script src="https://cdn.jsdelivr.net/npm/lightbox2@2/dist/js/lightbox-plus-jquery.min.js"></script>
   </body>

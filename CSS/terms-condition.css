@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
+
 /* Global Styles */
 * {
   margin: 0;
@@ -6,84 +8,87 @@
 }
 
 body {
-  font-family: "Arial", sans-serif;
-  background-color: #f4f4f4;
-  color: #333;
-  line-height: 1.6;
-  padding: 15px;
+  background-color: #ffffff;
+  font-family: "Inter", sans-serif;
 }
 
 /* Header Styles */
 header {
-  background-color: #333;
-  color: #fff;
-  padding: 15px 0;
+  width: 100%;
+  background: transparent;
+  padding: 25px 0;
 }
 
 header nav {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  width: 95%;
+  margin: auto;
 }
 
 header .logo h2 {
   font-size: 1.5em;
 }
 .logo {
+  color: #000;
+  font-size: 30px;
+  font-weight: bold;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 15px;
+}
+.logo span {
+  border: 1px solid #000;
+  padding: 10px 14px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.arrow-animate {
+  display: inline-block;
+  animation: arrowWiggle 1s ease-in-out infinite;
+}
+
+@keyframes arrowWiggle {
+  0% { transform: translateX(0); }
+  50% { transform: translateX(-4px); }
+  100% { transform: translateX(0); }
 }
 
 header nav a {
-  color: #fff;
+  color: #1a1a1a;
   text-decoration: none;
-  padding: 10px;
-  font-size: 1.1em;
-  transition: color 0.3s;
-}
-
-header nav a:hover {
-  color: #ff7f50;
 }
 
 /* Terms Container */
 .terms-container {
-  max-width: 1200px;
-  margin: 40px auto;
-  background-color: #fff;
-  padding: 25px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 95%;
+  margin: auto;
 }
 
 .terms-header {
   text-align: center;
   margin-bottom: 20px;
+  padding-bottom: 20px;
+  color: #000;
+  border-bottom: 1px solid #000;
 }
 
 .terms-header h1 {
-  font-size: 2.3em;
-  color: #333;
+  font-size: 4rem;
 }
 
 .terms-header p {
-  font-size: 1.1em;
-  color: #666;
+  font-size: 1.3em;
+  padding: 5px 0 0 0;
 }
 
 /* Terms Content */
 .terms-content {
   line-height: 1.8;
   font-size: 1.1em;
-  color: #555;
 }
 
 .terms-content h2 {
   font-size: 2em;
-  color: #333;
   margin-top: 20px;
 }
 
@@ -105,7 +110,7 @@ header nav a:hover {
 /* Footer */
 footer {
   text-align: center;
-  background-color: #333;
+  background-color: #000;
   color: #fff;
   padding: 15px 0;
   margin-top: 40px;
@@ -113,21 +118,47 @@ footer {
 
 footer p {
   font-size: 1em;
-  color: #ccc;
 }
 
 /* Links */
 a {
-  color: #ff7f50;
+  color: #0066cc;
   text-decoration: none;
   transition: color 0.3s;
+  font-weight: 600;
 }
 
-a:hover {
-  color: #ff4500;
-}
+
 
 /* Responsive Design */
+@media (max-width: 1100px) {
+  header .logo h2 {
+    font-size: 1em;
+  }
+  header nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .terms-container {
+    padding: 8px;
+  }
+
+  .terms-header h1 {
+    font-size: 2.6em;
+  }
+
+  .terms-content h2 {
+    font-size: 1.3em;
+  }
+
+  .terms-content p,
+  .terms-content ul li {
+    font-size: 1em;
+  }
+}
+
+
 @media (max-width: 600px) {
   header .logo h2 {
     font-size: 1em;
@@ -152,5 +183,21 @@ a:hover {
   .terms-content p,
   .terms-content ul li {
     font-size: 1em;
+  }
+}
+
+@media (max-width: 390px) {
+  header {
+    padding: 15px 0;
+  }
+  header .logo h2 {
+    font-size: 1.6rem;
+  }
+  .logo span {
+    padding: 5px 7px;
+    font-size: 1rem;
+  }
+  .terms-header p {
+    font-size: 1.1em;
   }
 }

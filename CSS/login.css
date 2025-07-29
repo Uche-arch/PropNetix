@@ -1,112 +1,77 @@
 /* Reset and background setup */
 body {
   margin: 0;
-  padding: 0;
-  /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
-  /* background: linear-gradient(to right, #0f2027, #203a43, #2c5364); */
-  color: #fff;
+  padding: 30px 0 0 0;
+  height: 100vh;
 }
 
-/* Center the login form below the header */
 main {
-  min-height: calc(100vh - 80px); /* adjust if your header is taller */
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  padding: 180px 20px;
+  justify-content: center;
+  height: 100vh;
+  font-family: 'Inter', sans-serif;
 }
-
-/* Login container styles */
 .login_container {
-  background: rgba(255, 255, 255, 0.1);
-  padding: 40px 30px;
-  border-radius: 15px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  max-width: 400px;
+  background-color: rgba(0, 0, 0, 0.3);
+  border: 1px solid #333;
+  border-radius: 12px;
+  padding: 30px;
   width: 100%;
+  max-width: 500px;
+}
+.login-link {
   text-align: center;
-  color: #fff;
-  animation: floatUp 1.5s ease-out;
-}
-
-@keyframes floatUp {
-  from {
-    transform: translateY(120px);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-/* Form elements */
-.login_container h2 {
-  margin-bottom: 20px;
-  font-weight: 600;
-}
-
-.login_container label {
-  display: block;
-  text-align: left;
   margin-top: 15px;
-  margin-bottom: 5px;
-  font-size: 14px;
-  color: #e0e0e0;
+  font-size: 0.9rem;
+  color: #ccc;
 }
 
-.login_container input {
-  width: 100%;
-  padding: 12px 15px;
-  border: none;
-  border-radius: 8px;
-  background-color: rgba(255, 255, 255, 0.9);
-  font-size: 16px;
-  color: #333;
-  outline: none;
-  transition: box-shadow 0.3s ease;
-}
-
-.login_container input:focus {
-  box-shadow: 0 0 5px rgba(81, 203, 238, 0.8);
-}
-
-/* Login button */
-.login_container button {
-  width: 100%;
-  padding: 12px;
-  margin-top: 20px;
-  border: none;
-  border-radius: 8px;
-  background-color: #4a90e2;
-  color: white;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
-
-.login_container button:hover {
-  background-color: #357ab8;
-}
-
-/* Link for signup */
-.login_container p {
-  margin-top: 20px;
-  font-size: 14px;
-}
-
-.login_container a {
-  color: #90caf9;
+.login-link a {
+  color: #a259ff;
   text-decoration: none;
-  font-weight: 500;
+}
+.login_container h1 {
+   text-align: center;
+  margin-bottom: 25px;
+  font-size: 2rem;
+}
+.login_container form input {
+   width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  background: transparent;
+  border: 1px solid #444;
+  border-radius: 8px;
+  color: white;
+  font-size: 1rem;
+  font-family: 'Inter', sans-serif;
+}
+.login_container form input::placeholder {
+  font-family: 'Inter', sans-serif;
+}
+.login_container button {
+   width: 100%;
+  padding: 12px;
+  /* margin-top: 15px; */
+  background-color: #a259ff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s ease; 
+  font-family: 'Inter', sans-serif;
+}
+.login_container #forgotPasswordLink {
+  color: #a259ff;
+  font-size: 14px;
+  margin-top: 15px;
+  text-align: right;
+  display: block;
 }
 
-.login_container a:hover {
-  text-decoration: underline;
-}
 
 #togglePassword {
   position: absolute;
@@ -117,30 +82,80 @@ main {
 }
 
 @media screen and (max-width: 400px) {
-  /* Login input */
-  .login_container input {
-    width: 100%;
-    padding: 10px 12px;
-    border: none;
-    border-radius: 8px;
-    background-color: rgba(255, 255, 255, 0.9);
-    font-size: 16px;
-    color: #333;
-    outline: none;
-    transition: box-shadow 0.3s ease;
+  body {
+    padding: 5px 0 0 0;
   }
-
-  /* Login button */
-  .login_container button {
-    width: 100%;
+  .login_container {
+    padding: 25px;
+  }
+  .login_container h1 {
+    margin-bottom: 20px;
+    font-size: 1.6rem;
+  }
+  /* Input fields */
+  .login_container form input {
     padding: 10px;
-    margin-top: 20px;
-    border: none;
-    border-radius: 8px;
-    background-color: #4a90e2;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background 0.3s ease;
+    font-size: .92rem;
   }
+  .login_container button {
+    padding: 10px;
+    font-size: .92rem;
+  }
+  .login-link, .login_container #forgotPasswordLink {
+    font-size: 0.8rem;
+  }
+}
+
+
+
+/* 🌞 LIGHT MODE OVERRIDES */
+body.light {
+  background-color: #f2f2f2;
+  color: #222;
+}
+
+body.light .login_container {
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+}
+
+body.light .login_container h1 {
+  color: #222;
+}
+
+body.light .login_container form input {
+  background-color: #fafafa;
+  border: 1px solid #ccc;
+  color: #222;
+}
+
+body.light .login_container form input::placeholder {
+  color: #666;
+}
+
+body.light .login_container button {
+  background-color: #262626;
+  color: white;
+}
+
+body.light .login_container button:hover {
+  background: #111;
+}
+
+
+
+body.light .login-link {
+  color: #444;
+}
+
+body.light .login-link a {
+  color: blue;
+}
+
+body.light .login_container #forgotPasswordLink {
+  color: blue;
+}
+
+body.light #togglePassword {
+  color: #555;
 }

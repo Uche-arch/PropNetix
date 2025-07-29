@@ -65,7 +65,7 @@
     <header>
       <nav>
         <div class="logo">
-          <h2><a href="index.html">PropNetix.</a></h2>
+          <h2><a href="index.html">PropNetix</a></h2>
           <p>
             <a href="all.html" id="home"><i class="fa fa-home"></i></a>
           </p>
@@ -83,7 +83,7 @@
             onclick="window.location.href='signup.html'"
             style="display: none"
           >
-            Sign Up
+            Register
           </button>
           <button
             id="LoginButton"
@@ -99,29 +99,45 @@
             <i class="fas fa-user activeUser"></i>
           </button>
           <button id="logoutButton">Log Out</button>
+          <button id="theme-toggle" aria-label="Toggle theme">
+            <i id="theme-icon" class="fas fa-moon"></i>
+          </button>
         </div>
       </nav>
     </header>
     <main>
       <div class="profile-container">
-        <h1 id="Phead">Your Profile</h1>
-        <div class="profileHeader">
-          <i class="fa-solid fa-user user-icon"></i>
-          <span id="username"></span>
-        </div>
-        <div class="cBtn">
-          <div class="createPost_button">
-            <i class="fa-solid fa-plus"></i><span>Create Post</span>
+        <div class="flex">
+          <!-- <h1 id="Phead">Your Profile</h1> -->
+          <div class="profileHeader">
+            <i class="fa-solid fa-user user-icon"></i>
+            <span id="username">Meryl</span>
+          </div>
+          <div class="cBtn">
+            <div class="createPost_button">
+              <i class="fa-solid fa-plus"></i><span>Create Post</span>
+            </div>
           </div>
         </div>
         <div id="postModalOverlay">
           <form id="postForm">
             <div id="closeModal">&times;</div>
-            <input type="text" id="title" placeholder="Title" required /><br />
+            <input
+              type="text"
+              id="title"
+              placeholder="Title"
+              required
+              minlength="5"
+              oninput="this.setCustomValidity('')"
+              oninvalid="this.setCustomValidity('Title must be at least 5 characters')"
+            /><br />
             <textarea
               id="description"
               placeholder="Description"
               required
+              minlength="5"
+              oninput="this.setCustomValidity('')"
+              oninvalid="this.setCustomValidity('Text too short')"
             ></textarea
             ><br />
 
@@ -146,7 +162,12 @@
             <br />
 
             <!-- Change price to a number-->
-            <input type="text" id="price" placeholder="Price" required /><br />
+            <input
+              type="number"
+              id="price"
+              placeholder="Price"
+              required
+            /><br />
 
             <!-- Price Negotiable Options -->
             <div id="negotiate">
@@ -180,7 +201,7 @@
 
             <div class="fileUploadWrapper">
               <label for="images" class="customFileUpload"
-                >📁 Upload Images</label
+                >Add Images (Limit 5)</label
               >
               <input type="file" id="images" multiple />
               <span id="fileUploadLabel">No image chosen</span>
@@ -190,31 +211,52 @@
           </form>
         </div>
         <h2>Your Posts</h2>
+        <div
+          id="noPostMessage"
+          style="display: none; text-align: center; padding: 5px; color: #aaa"
+        >
+          No posts yet.
+        </div>
         <div id="postFeed"></div>
         <!-- Feedback Button -->
-        <a
+        <!-- <a
           id="feedback-button"
           href="https://forms.gle/ejc1CS8h1pT7wE2a7"
           target="_blank"
           ><i class="fa-solid fa-comment-dots"></i> Give Feedback</a
-        >
+        > -->
       </div>
     </main>
     <div id="loadingModal" class="modal">
       <div class="modal-content">
-        <h2><i class="fa-solid fa-sync fa-spin"></i> Loading...</h2>
+        <h2>
+          <i class="fa-solid fa-circle-notch fa-spin"></i> Loading your
+          profile... Please wait.
+        </h2>
       </div>
     </div>
 
     <div id="postingModal" class="modal">
       <div class="modal-content">
-        <h2><i class="fa-solid fa-circle-check"></i> Posted</h2>
+        <h2>Uploading... Almost there!</h2>
+      </div>
+    </div>
+
+    <div id="deletingModal" class="modal">
+      <div class="modal-content">
+        <h2>Deleting post... Please wait.</h2>
+      </div>
+    </div>
+
+    <div id="postedModal" class="modal">
+      <div class="modal-content">
+        <h2>Done! Your post is now live.</h2>
       </div>
     </div>
 
     <div id="deleteSuccessModal" class="modal">
       <div class="modal-content">
-        <h2><i class="fa-solid fa-trash-can"></i> Post Deleted!</h2>
+        <h2>Post deleted successfully.</h2>
       </div>
     </div>
 
@@ -222,6 +264,7 @@
     <script src="./JS(📢out of bounds)/profile.js"></script>
     <script src="./JS(📢out of bounds)/feedbackBtn.js"></script>
     <script src="./JS(📢out of bounds)/carousel.js"></script>
+    <script src="./JS(📢out of bounds)/theme-toggle.js"></script>
     <script src="./JS(📢out of bounds)/hide.js"></script>
 
     <!-- Lightbox2 JS -->

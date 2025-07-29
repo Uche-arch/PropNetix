@@ -7,11 +7,15 @@ const userModal = document.getElementById("userModal");
 const modalMessage = document.getElementById("modalMessage");
 const passwordInput = document.getElementById("password");
 const togglePassword = document.getElementById("togglePassword");
+const loginButton = document.getElementById("loginButton");
 
 togglePassword.addEventListener("click", () => {
   const type = passwordInput.type === "password" ? "text" : "password";
   passwordInput.type = type;
-  togglePassword.textContent = type === "password" ? "👁️" : "🙈";
+
+  const icon = togglePassword.querySelector("i");
+  icon.classList.toggle("fa-eye");
+  icon.classList.toggle("fa-eye-slash");
 });
 
 // 📢 Utility: Show user feedback modal
@@ -38,6 +42,7 @@ function closeForgotPasswordModal() {
 // 🟩 LOGIN SUBMIT HANDLER
 document.getElementById("loginForm").addEventListener("submit", async (e) => {
   e.preventDefault();
+  loginButton.textContent= "Loading..."
 
   const email = document.getElementById("email").value.trim();
   const password = document.getElementById("password").value;
@@ -51,9 +56,10 @@ document.getElementById("loginForm").addEventListener("submit", async (e) => {
     const user = userCredential.user;
 
     // 2. Check email verification
+    await user.reload(); // refreshes user's data from Firebase
     if (!user.emailVerified) {
       showUserModal(
-        "⚠️ Please verify your email before logging in.",
+        "⚠️ Your email isn’t verified yet. Please check your inbox and confirm to proceed.",
         null,
         3000
       );
@@ -69,12 +75,14 @@ document.getElementById("loginForm").addEventListener("submit", async (e) => {
     const idToken = await user.getIdToken();
     localStorage.setItem("token", idToken);
 
-    showUserModal("✅ Login successful!", "profile.html");
+    showUserModal("You’ve successfully logged in.", "profile.html");
     // Validate user login here (this is just simulated)
     localStorage.setItem("isLoggedIn", "true");
   } catch (error) {
     console.error("Login error:", error);
-    showUserModal("Login failed: User not found!");
+    showUserModal("Login failed: User not found!", null, 3000);
+  loginButton.textContent = "Login";
+    
   }
 });
 
@@ -91,7 +99,7 @@ resendVerificationBtn.addEventListener("click", async () => {
   try {
     await user.sendEmailVerification();
     showUserModal(
-      "✅ Verification email resent! Check your inbox.",
+      "Verification email sent. Please check your inbox.",
       null,
       6000
     );
@@ -120,7 +128,11 @@ document
 
     try {
       await auth.sendPasswordResetEmail(email);
-      showUserModal("✅ Reset link sent! Check your email.", null, 6000);
+      showUserModal(
+        "A fresh verification link has been emailed to you.",
+        null,
+        6000
+      );
       closeForgotPasswordModal();
     } catch (error) {
       console.error("Password reset error:", error);

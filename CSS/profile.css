@@ -2,6 +2,13 @@
 .profile-container {
   width: 95%;
   margin: 0 auto 1rem auto;
+  padding: 100px 0 0 0;
+  font-family: "Inter", sans-serif;
+}
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 /* ------------ Overlay (modal background) ------------ */
@@ -16,7 +23,6 @@
   display: none;
   align-items: center;
   justify-content: center;
-  /* z-index: 999999999999999999999999999999999999999999999999999999; */
   z-index: 222222222222222;
   animation: fadeInOverlay 0.3s ease forwards;
 }
@@ -29,24 +35,18 @@
     opacity: 1;
   }
 }
-/* Post success icon */
-.fa-circle-check {
-  font-size: 30px; /* Bigger size */
-  color: #28a745; /* Success green */
-}
-
 
 /* Delete Icon */
 .fa-trash-can {
-  font-size: 30px;               /* Large size */
-  color: #dc3545;                /* Red (commonly used for deletion) */
+  font-size: 30px; /* Large size */
+  color: #dc3545; /* Red (commonly used for deletion) */
   animation: fadeIn 0.3s ease-in-out;
   transition: transform 0.3s ease, color 0.3s ease;
 }
 
 .fa-trash-can:hover {
-  color: #c82333;                /* Darker red on hover */
-  transform: scale(1.1);         /* Slight zoom on hover */
+  color: #c82333; /* Darker red on hover */
+  transform: scale(1.1); /* Slight zoom on hover */
 }
 
 @keyframes fadeIn {
@@ -60,11 +60,19 @@
   }
 }
 
-
-#Phead {
-  padding-top: 60px;
-  color: white;
+/* Input number*/
+/* Chrome, Safari, Edge, Opera */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
+
+/* Firefox */
+input[type="number"] {
+  --moz-appearance: textfield;
+}
+
 /* ------------ Form Modal Container ------------ */
 #postForm {
   background: rgba(255, 255, 255, 0.08);
@@ -104,6 +112,7 @@
   background-color: rgba(255, 255, 255, 0.95);
   color: #000;
   outline: none;
+  font-family: "Inter", sans-serif;
 }
 
 /* Radio buttons */
@@ -125,7 +134,6 @@
 .customFileUpload {
   display: inline-block;
   padding: 8px 14px;
-  /* background: linear-gradient(to right, #4facfe, #00f2fe); */
   background: lightblue;
   color: black;
   font-weight: 600;
@@ -133,13 +141,6 @@
   cursor: pointer;
   transition: border 0.3s ease;
 }
-
-/* .customFileUpload:hover { */
-  /* background: linear-gradient(to right, #43e97b, #38f9d7); */
-  /* background: rgb(91, 91, 168); */
-  /* border: 2px solid blue; */
-
-/* } */
 
 input[type="file"] {
   display: none;
@@ -165,19 +166,17 @@ input[type="file"] {
   margin-top: 9px;
   border: none;
   border-radius: 8px;
-  /* background: linear-gradient(to right, #4facfe, #00f2fe); */
   background: rgb(72, 72, 245);
   color: white;
   font-size: 16px;
   font-weight: bold;
   cursor: pointer;
   transition: background 0.3s ease;
+  font-family: "Inter", sans-serif;
 }
 
 #postForm button:hover {
-  /* background: linear-gradient(to right, #43e97b, #38f9d7); */
   background: rgb(38, 38, 236);
-
 }
 
 /* Close button */
@@ -203,7 +202,7 @@ input[type="file"] {
 #username {
   text-transform: capitalize;
   font-size: 25px;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: "Inter", sans-serif;
   color: white;
 }
 
@@ -211,38 +210,30 @@ input[type="file"] {
 .user-icon {
   font-size: 40px; /* Make it bigger */
   color: #fff; /* Icon color */
-  background-color: #4a4e69; /* Background color */
+  background-color: #434346; /* Background color */
   padding: 20px 25px; /* Space around the icon */
   border-radius: 50%; /* Makes it a circle */
-  border: 2px solid #222; /* Optional border */
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Optional shadow */
-  /* display: inline-flex; */
   align-items: center;
   justify-content: center;
-}
-
-/* Create Button container */
-.cBtn {
-  display: flex;
-  justify-content: flex-end;
+  margin: 15px 0;
 }
 
 /* Create Post Button */
 .createPost_button {
   display: inline-block;
-  background: #4a4e69;
+  background: #3e3e3f;
   padding: 10px 18px;
   color: #fff;
   font-weight: bold;
   border-radius: 8px;
   cursor: pointer;
-  margin-bottom: 20px;
   text-align: center;
   transition: background 0.3s ease;
 }
 
 .createPost_button:hover {
-  background: #357ab8;
+  background: #5a5a5b;
 }
 
 /* Icon for post */
@@ -252,11 +243,8 @@ input[type="file"] {
   color: #fff; /* Icon color */
   border-radius: 50%; /* Circular background */
   padding: 5px; /*Space around the icon */
-  /* display: inline-flex;        Center the icon */
-  /* justify-content: center;     
-  align-items: center;          */
+
   margin-right: 5px;
-  /* transition: all 0.3s ease; Smooth transition for hover effects */
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Optional shadow */
 }
 
@@ -282,8 +270,8 @@ input[type="file"] {
     display: none;
   }
   .createPost_button {
-  padding: 10px;
-  border-radius: 50%;
+    padding: 10px;
+    border-radius: 50%;
   }
   .fa-plus {
     margin: 0;
@@ -291,29 +279,110 @@ input[type="file"] {
 }
 
 @media screen and (max-width: 600px) {
-  #Phead {
-    padding-top: 60px;
-    font-size: 28px;
+  .profile-container {
+    padding: 65px 0 0 0;
   }
   .user-icon {
-  font-size: 30px; /* Make it bigger */
-  color: #fff; /* Icon color */
-  background-color: #4a4e69; /* Background color */
-  padding: 18px 22px; /* Space around the icon */
-  border-radius: 50%; /* Makes it a circle */
-  border: 2px solid #222; /* Optional border */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Optional shadow */
-  /* display: inline-flex; */
-  align-items: center;
-  justify-content: center;
-}
-#username {
-  text-transform: capitalize;
-  font-size: 18px;
-  font-weight: bold;
-}
-.createPost_button {
-  padding: 4px;
+    font-size: 30px; /* Make it bigger */
+    color: #fff; /* Icon color */
+    padding: 18px 22px; /* Space around the icon */
+    border-radius: 50%; /* Makes it a circle */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Optional shadow */
+    align-items: center;
+    justify-content: center;
+  }
+  #username {
+    text-transform: capitalize;
+    font-size: 18px;
+  }
+  .createPost_button {
+    padding: 4px;
+  }
 }
 
+
+
+/* 🌞 LIGHT MODE OVERRIDES */
+body.light .profile-container {
+  background-color: #f9f9f9;
+  color: #222;
+}
+
+body.light #postModalOverlay {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+body.light #postForm {
+  background: rgba(255, 255, 255, 0.9);
+  color: #111;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ddd;
+}
+
+body.light #postForm input,
+body.light #postForm textarea,
+body.light #postForm select {
+  background-color: #ffffff;
+  color: #222;
+  border: 1px solid;
+}
+
+body.light #postForm button {
+  background: #007bff;
+  color: white;
+}
+
+body.light #postForm button:hover {
+  background: #0056b3;
+}
+
+body.light #closeModal {
+  color: transparent;
+}
+
+body.light .fa-trash-can {
+  color: #dc3545;
+}
+
+body.light .fa-trash-can:hover {
+  color: #c82333;
+}
+
+body.light .customFileUpload {
+  background: #cce6ff;
+  color: #000;
+}
+
+body.light #fileUploadLabel {
+  color: #888;
+}
+
+body.light #username {
+  color: #222;
+}
+
+body.light .user-icon {
+  background-color: #ccc;
+  color: #000;
+}
+
+body.light .createPost_button {
+  background: #f0f0f0;
+  color: #111;
+}
+
+body.light .createPost_button:hover {
+  background: #dcdcdc;
+}
+
+body.light .fa-plus {
+  color: #222;
+  background-color: #e0e0e0;
+}
+
+body.light .fa-paper-plane:hover {
+  background-color: #d6e9f8;
+  color: #264653;
 }

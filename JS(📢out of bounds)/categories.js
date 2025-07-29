@@ -1,4 +1,32 @@
 document.addEventListener("DOMContentLoaded", async function () {
+
+     const likedPosts = JSON.parse(localStorage.getItem("likedPosts")) || {};
+
+     // ✅ Apply liked style on load
+     document.querySelectorAll(".like-btn").forEach((btn) => {
+       const postId = btn.getAttribute("data-post-id");
+       if (likedPosts[postId]) {
+         btn.classList.add("liked");
+       }
+     });
+
+     // ✅ Toggle like on click
+     document.addEventListener("click", function (e) {
+       if (e.target.classList.contains("like-btn")) {
+         const btn = e.target;
+         const postId = btn.getAttribute("data-post-id");
+
+         btn.classList.toggle("liked");
+
+         likedPosts[postId] = btn.classList.contains("liked");
+         localStorage.setItem("likedPosts", JSON.stringify(likedPosts));
+
+         btn.classList.add("animate");
+         setTimeout(() => btn.classList.remove("animate"), 200);
+       }
+     });
+
+
   // Check if a user is logged in (i.e., check if there's a JWT in localStorage)
   const token = localStorage.getItem("token");
 
@@ -115,6 +143,7 @@ document.addEventListener("DOMContentLoaded", async function () {
       let restText = desc.slice(cutoff); // starts with space before next word
 
       postDiv.innerHTML = `
+       <button class="like-btn" data-post-id="${post._id}">❤</button>
         <div id="post-images">
           ${post.images
             .map(
@@ -165,6 +194,11 @@ document.addEventListener("DOMContentLoaded", async function () {
           </div>
         </div>
       `;
+
+       const likeBtn = postDiv.querySelector(".like-btn");
+       if (likedPosts[post._id]) {
+         likeBtn.classList.add("liked");
+       }
 
       postsContainer.appendChild(postDiv);
     });

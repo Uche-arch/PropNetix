@@ -62,7 +62,7 @@
     <header>
       <nav>
         <div class="logo">
-          <h2><a href="index.html">PropNetix.</a></h2>
+          <h2><a href="index.html">PropNetix</a></h2>
           <p>
             <a href="all.html" id="home"><i class="fa fa-home"></i> </a>
           </p>
@@ -79,7 +79,7 @@
             id="signupButton"
             onclick="window.location.href='signup.html'"
           >
-            Sign Up
+            Register
           </button>
           <button id="LoginButton" onclick="window.location.href='login.html'">
             Log In
@@ -94,12 +94,15 @@
           <button id="logoutButton" style="display: none" onclick="logout()">
             Log Out
           </button>
+          <button id="theme-toggle" aria-label="Toggle theme">
+            <i id="theme-icon" class="fas fa-moon"></i>
+          </button>
         </div>
       </nav>
     </header>
     <main>
       <div class="login_container">
-        <h2>Login</h2>
+        <h1>Login</h1>
         <form id="loginForm">
           <label for="loginEmail">Email:</label>
           <input type="email" id="email" required /><br />
@@ -110,10 +113,10 @@
             <span
               id="togglePassword"
               title="Show/Hide Password"
-            >👁️</span>
+            ><i class="fa fa-eye"></i></span>
           </div>
 
-          <button type="submit">Login</button>
+          <button type="submit" id="loginButton">Login</button>
         </form>
         <!-- Resend Verification Email Button (hidden initially) -->
         <button
@@ -122,8 +125,10 @@
         >
           Resend Verification Email
         </button>
+           <p class="login-link">Don't have an account? <a href="signup.html">Sign Up</a></p>
+
         <p>
-          <a href="#" id="forgotPasswordLink" style="color: orange"
+          <a href="#" id="forgotPasswordLink"
             >Forgot Password?</a
           >
         </p>
@@ -131,21 +136,21 @@
 
       <div id="userModal" class="modal">
         <div class="modal-content">
-          <h2 id="modalMessage" style="color: black"></h2>
+          <h2 id="modalMessage"></h2>
         </div>
       </div>
 
       <!-- Feedback Button// -->
-      <a
+      <!-- <a
         id="feedback-button"
         href="https://forms.gle/ejc1CS8h1pT7wE2a7"
         target="_blank"
       >
         <i class="fa-solid fa-comment-dots"></i>Give Feedback
-      </a>
+      </a> -->
       <div id="forgotPasswordModal" class="modal">
-        <div class="modal-content2">
-          <h2 style="color: black">Reset Password</h2>
+        <div class="modal-content modal-form">
+          <h2>Reset Password</h2>
           <input
             type="email"
             id="resetEmail"
@@ -160,5 +165,6 @@
     <script src="./JS(📢out of bounds)/login.js"></script>
     <script src="./JS(📢out of bounds)/feedbackBtn.js"></script>
     <script src="./JS(📢out of bounds)/hide.js"></script>
+    <script src="./JS(📢out of bounds)/theme-toggle.js"></script>
   </body>
 </html>

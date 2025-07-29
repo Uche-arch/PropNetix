@@ -1,10 +1,8 @@
 /* General reset and background */
 body {
   margin: 0;
-  padding: 0;
-  background-size: 400% 400%;
-  animation: backgroundFlow 20s ease infinite;
-  color: #fff;
+  padding: 30px 0 0 0;
+  height: 100vh;
 }
 
 #togglePassword,
@@ -16,42 +14,33 @@ body {
   cursor: pointer;
 }
 
-@keyframes backgroundFlow {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-/* Center the form below the header */
 main {
-  min-height: calc(100vh - 80px); /* header height offset */
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  padding: 200px 20px;
+  justify-content: center;
+  height: 100vh;
+  font-family: 'Inter', sans-serif;
+}
+.signUpForm_container {
+  background-color: rgba(0, 0, 0, 0.3);
+  border: 1px solid #333;
+  border-radius: 12px;
+  padding: 30px;
+  width: 100%;
+  max-width: 500px;
 }
 
-/* Signup form container */
-.signUpForm_container {
-  background: rgba(255, 255, 255, 0.1);
-  padding: 50px 35px;
-  border-radius: 20px;
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  max-width: 420px;
-  width: 100%;
-  text-align: center;
-  animation: floatUp 1.5s ease-out;
-  color: #fff;
+.signUpForm_container h1 {
+   text-align: center;
+  margin-bottom: 25px;
+  font-size: 2rem;
 }
+.signUpForm_container #errorMessage {
+  color: #aaa;
+  font-size: 12px;
+}
+
 button:disabled {
   opacity: 0.5;
   cursor: not-allowed;
@@ -59,81 +48,114 @@ button:disabled {
   color: #666 !important;
 }
 
-@keyframes floatUp {
-  from {
-    transform: translateY(120px);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-/* Input fields */
-.signUpForm_container input {
-  width: 100%;
-  padding: 14px 16px;
-  margin: 12px 0;
-  border: none;
-  border-radius: 10px;
-  background-color: rgba(255, 255, 255, 0.95);
-  font-size: 15px;
-  color: #333;
-  outline: none;
-  transition: box-shadow 0.3s ease, border 0.3s ease;
-}
-
-.signUpForm_container input:focus {
-  box-shadow: 0 0 8px rgba(74, 144, 226, 0.6);
-  border: 1px solid #4a90e2;
-}
-
-/* Button */
-.signUpForm_container button {
-  width: 100%;
-  padding: 14px;
-  margin-top: 20px;
-  border: none;
-  border-radius: 50px;
-  /* background: linear-gradient(to right, rgb(31, 30, 30), rgb(105, 98, 98)); */
-  background-color: #4a90e2;
+.signUpForm_container form input {
+   width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  background: transparent;
+  border: 1px solid #444;
+  border-radius: 8px;
   color: white;
-  font-size: 16px;
-  font-weight: bold;
+  font-size: 1rem;
+  font-family: 'Inter', sans-serif;
+
+}
+
+.signUpForm_container form input::placeholder {
+  font-family: 'Inter', sans-serif;
+}
+.signUpForm_container button {
+   width: 100%;
+  padding: 12px;
+  /* margin-top: 15px; */
+  background-color: #a259ff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
   cursor: pointer;
-  transition: background 0.4s ease;
+  transition: 0.3s ease; 
+  font-family: 'Inter', sans-serif; 
+}
+.signUpForm_container button:hover {
+  background-color: #8a40e8;
+}
+.login-link {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+.login-link a {
+  color: #a259ff;
+  text-decoration: none;
+}
+@media screen and (max-width: 400px) {
+  body {
+    padding: 5px 0 0 0;
+  }
+  .signUpForm_container {
+    padding: 25px;
+  }
+  .signUpForm_container h1 {
+    margin-bottom: 20px;
+    font-size: 1.6rem;
+  }
+  /* Input fields */
+  .signUpForm_container form input {
+    padding: 10px;
+    font-size: .92rem;
+  }
+  .signUpForm_container button {
+    padding: 10px;
+    font-size: .92rem;
+  }
+   .login-link {
+    font-size: 0.8rem;
+  }
 }
 
 
 
-@media screen and (max-width: 400px) {
-  /* Input fields */
-  .signUpForm_container input {
-    width: 100%;
-    padding: 10px 12px;
-    margin: 12px 0;
-    border: none;
-    border-radius: 10px;
-    background-color: rgba(255, 255, 255, 0.95);
-    font-size: 15px;
-    color: #333;
-    outline: none;
-    transition: box-shadow 0.3s ease, border 0.3s ease;
-  }
 
-  /* Button */
-  .signUpForm_container button {
-    width: 100%;
-    padding: 10px;
-    margin-top: 20px;
-    border: none;
-    border-radius: 50px;
-    background: linear-gradient(to right, #4facfe, #00f2fe);
-    color: white;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background 0.4s ease;
-  }
+/* ------------------ LIGHT MODE ------------------ */
+body.light .signUpForm_container {
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+}
+
+body.light .signUpForm_container h1 {
+  color: #111;
+}
+
+body.light .signUpForm_container #errorMessage {
+  color: #cc0000;
+}
+
+body.light .signUpForm_container form input {
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  color: #111;
+}
+
+body.light .signUpForm_container form input::placeholder {
+  color: #555;
+}
+
+body.light .signUpForm_container button {
+  background-color: #262626;
+  color: white;
+}
+
+body.light .signUpForm_container button:hover {
+  background-color: #111;
+}
+
+body.light .login-link {
+  color: #444;
+}
+
+body.light .login-link a {
+  color: blue;
 }

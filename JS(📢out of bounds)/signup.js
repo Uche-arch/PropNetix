@@ -1,4 +1,3 @@
-
 const auth = firebase.auth();
 
 // 📦 DOM Elements
@@ -7,7 +6,7 @@ const userModal = document.getElementById("userModal");
 const modalMessage = document.getElementById("modalMessage");
 
 // 📢 Utility: Show modal message and optionally redirect
-function showModalMessage(message, redirectUrl = null, delay = 2800) {
+function showModalMessage(message, redirectUrl = null, delay = 3500) {
   modalMessage.textContent = message;
   userModal.style.display = "flex"; // or "block" based on your modal CSS
 
@@ -16,7 +15,6 @@ function showModalMessage(message, redirectUrl = null, delay = 2800) {
     if (redirectUrl) window.location.href = redirectUrl;
   }, delay);
 }
-
 
 const signupBtn = document.getElementById("signupBtn");
 const usernameInput = document.getElementById("username");
@@ -27,27 +25,32 @@ const errorMessage = document.getElementById("errorMessage");
 const togglePassword = document.getElementById("togglePassword");
 const toggleConfirmPassword = document.getElementById("toggleConfirmPassword");
 
-
 let currentField = null;
 
-// 👁️ Toggle Password Visibility
+// Toggle Visibility
 togglePassword.addEventListener("click", () => {
   const type = passwordInput.type === "password" ? "text" : "password";
   passwordInput.type = type;
-  togglePassword.textContent = type === "password" ? "👁️" : "🙈";
+
+  const icon = togglePassword.querySelector("i");
+  icon.classList.toggle("fa-eye");
+  icon.classList.toggle("fa-eye-slash");
 });
 
-// Toggle password visibility
+// Toggle Invisibility
 toggleConfirmPassword.addEventListener("click", () => {
   const type = confirmPasswordInput.type === "password" ? "text" : "password";
   confirmPasswordInput.type = type;
-  toggleConfirmPassword.textContent = type === "password" ? "👁️" : "🙈";
-});
 
+  const icon = toggleConfirmPassword.querySelector("i");
+  icon.classList.toggle("fa-eye");
+  icon.classList.toggle("fa-eye-slash");
+});
 
 // 🔍 Field-specific validation
 function validateUsername(username) {
-  if (username.length < 5) return "Username must be at least 5 characters.";
+  if (username.length < 5)
+    return "Username must be at least 5 characters. No spacing.";
   if (!/^[a-zA-Z0-9_]+$/.test(username))
     return "Username must be alphanumeric.";
   return "";
@@ -61,7 +64,6 @@ function validatePassword(password) {
     return "Password must include a special symbol.";
   return "";
 }
-
 
 function validateConfirmPassword(password, confirmPassword) {
   if (password !== confirmPassword) return "Passwords do not match.";
@@ -124,16 +126,13 @@ confirmPasswordInput.addEventListener("input", () => {
   updateFormState();
 });
 
-
-
 // ✍️ Signup Form Submission Handler
 signupForm.addEventListener("submit", async (e) => {
   e.preventDefault();
 
   signupBtn.disabled = true;
+  signupBtn.textContent = "Loading...";
   errorMessage.textContent = "";
-
-
 
   // 📥 Grab user inputs
   const username = document.getElementById("username").value.trim();
@@ -151,23 +150,34 @@ signupForm.addEventListener("submit", async (e) => {
 
     if (!checkResponse.ok || !checkResult.available) {
       showModalMessage(
-        "❌ Username already taken or unavailable. Please choose another.", null, 3000
+        "Oops! Someone's already using that username. Choose another one.",
+        null,
+        3000
       );
       return;
     }
 
-    // ✅ Step 2: Create Firebase user
     const userCredential = await auth.createUserWithEmailAndPassword(
       email,
       password
     );
     const user = userCredential.user;
 
-    // ✅ Step 3: Send email verification
-    await user.sendEmailVerification();
+    // 🔐 Get Firebase ID token
+    const idToken = await user.getIdToken();
 
-    // ✅ Step 4: Get Firebase ID token for auth with backend
-    const token = await user.getIdToken();
+    // ✅ Send verification email from your backend
+    await fetch(
+      "https://propnetix-backend-v2.onrender.com/api/send-verification-email",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          uid: user.uid,
+          email: user.email,
+        }),
+      }
+    );
 
     // ✅ Step 5: Send username to backend to save in MongoDB
     const saveResponse = await fetch(
@@ -176,7 +186,7 @@ signupForm.addEventListener("submit", async (e) => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
+          Authorization: `Bearer ${idToken}`, // ✅ Use correct token here
         },
         body: JSON.stringify({ username }),
       }
@@ -190,7 +200,7 @@ signupForm.addEventListener("submit", async (e) => {
       saveResult.message === "User registered successfully"
     ) {
       showModalMessage(
-        "✅ Verification email sent! Please verify before logging in.",
+        "Verification email sent. Please verify before logging in.",
         "login.html",
         9000
       );
@@ -201,7 +211,8 @@ signupForm.addEventListener("submit", async (e) => {
     }
   } catch (error) {
     console.error("Signup failed:", error);
-    showModalMessage("❌ Signup failed: An error occured, check internet connection and try again");
+    showModalMessage(error);
     signupBtn.disabled = false; // Re-enable if failed
+    signupBtn.textContent = "Register";
   }
 });

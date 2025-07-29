@@ -1,4 +1,35 @@
+// document.addEventListener("DOMContentLoaded", function () {
+ 
+// });
+
 document.addEventListener("DOMContentLoaded", async function () {
+
+   const likedPosts = JSON.parse(localStorage.getItem("likedPosts")) || {};
+
+   // ✅ Apply liked style on load
+   document.querySelectorAll(".like-btn").forEach((btn) => {
+     const postId = btn.getAttribute("data-post-id");
+     if (likedPosts[postId]) {
+       btn.classList.add("liked");
+     }
+   });
+
+   // ✅ Toggle like on click
+   document.addEventListener("click", function (e) {
+     if (e.target.classList.contains("like-btn")) {
+       const btn = e.target;
+       const postId = btn.getAttribute("data-post-id");
+
+       btn.classList.toggle("liked");
+
+       likedPosts[postId] = btn.classList.contains("liked");
+       localStorage.setItem("likedPosts", JSON.stringify(likedPosts));
+
+       btn.classList.add("animate");
+       setTimeout(() => btn.classList.remove("animate"), 200);
+     }
+   });
+
   function showBottomSpinner() {
     document.getElementById("loadingSpinner").style.display = "block";
   }
@@ -10,7 +41,7 @@ document.addEventListener("DOMContentLoaded", async function () {
   // Function to show the loading modal
   function showLoadingModal() {
     const loadingModal = document.getElementById("loadingModal");
-    loadingModal.style.display = "block"; // Show the modal
+    loadingModal.style.display = "flex"; // Show the modal
   }
 
   // Function to hide the loading modal
@@ -44,29 +75,35 @@ document.addEventListener("DOMContentLoaded", async function () {
   }
 
   // Handle Log Out functionality
-  logoutButton.addEventListener("click", function () {
-    localStorage.removeItem("token"); // Remove the token from localStorage
-    window.location.href = "login.html"; // Redirect to the login page
-  });
+  // logoutButton.addEventListener("click", function () {
+  //   localStorage.removeItem("token"); // Remove the token from localStorage
+  //   window.location.href = "login.html"; // Redirect to the login page
+  // });
 
-  // Handle Profile redirection
-  profileButton.addEventListener("click", function () {
-    window.location.href = "profile.html"; // Redirect to the profile page
-  });
+  // // Handle Profile redirection
+  // profileButton.addEventListener("click", function () {
+  //   window.location.href = "proile.html"; // Redirect to the profile page
+  // });
 
   let page = 1;
   const limit = 3;
   let isLoading = false;
   let hasMore = true;
   let fetchFailed = false;
+  let isFirstLoad = true; // 🔥 Add this global variable
 
   const homepageFeed = document.getElementById("homepageFeed");
+  const errorFeed = document.getElementById("errorFeed");
 
   // Fetch and render posts
   async function loadPosts() {
     if (isLoading || !hasMore || fetchFailed) return;
     isLoading = true;
-    showBottomSpinner(); // 👈 show spinner at the bottom
+
+    // ✅ Show modal only the first time
+    if (isFirstLoad) {
+      showLoadingModal();
+    }
 
     try {
       const response = await fetch(
@@ -85,49 +122,42 @@ document.addEventListener("DOMContentLoaded", async function () {
 
       if (newPosts.length === 0) {
         hasMore = false;
-        hideBottomSpinner(); // 👈 hide permanently if done
+        // hideBottomSpinner(); // 👈 hide permanently if done
         if (page === 1) {
           homepageFeed.innerHTML = "<p>No posts available.</p>";
         }
+        hideLoadingModal();
         return;
       }
-
+      errorFeed.style.display = "none";
       posts = posts.concat(newPosts); // Keep all posts for filtering
       displayPosts(newPosts, true); // Append instead of replacing
       page++;
       fetchFailed = false; // success, reset failure
+      // ✅ Hide modal after first batch
+      if (isFirstLoad) {
+        hideLoadingModal();
+        isFirstLoad = false; // 🔥 Turn off for next calls
+      }
     } catch (error) {
       console.error("Error loading posts:", error);
       fetchFailed = true;
       if (page === 1) {
-        homepageFeed.innerHTML =
-          "<h4>There was an error loading posts. Check your internet connection and try again.</h4>";
+        errorFeed.innerHTML =
+          "<h4 style='text-align: center;'>An error occured. Check your internet connection and try again.</h4>";
       }
+      hideLoadingModal();
     } finally {
-      hideBottomSpinner(); // 👈 hide on finish
+      // hideBottomSpinner(); // 👈 hide on finish
       isLoading = false;
     }
   }
 
-  // Scroll listener
-  window.addEventListener("scroll", () => {
-    if (
-      window.innerHeight + window.scrollY >= document.body.offsetHeight - 200 &&
-      !isLoading &&
-      hasMore &&
-      !fetchFailed
-    ) {
-      loadPosts();
-    }
-  });
-
-  // Initial load
-  // loadPosts();
-  // Initial load (after small delay to ensure everything is ready)
-  setTimeout(() => {
+  loadPosts();
+  // Auto-fetch posts every 8 seconds
+  setInterval(() => {
     loadPosts();
-    console.log("Loading post!")
-  }, 100);
+  }, 10); // adjust time as needed
 
   // Filtering logic stays the same
   document
@@ -169,7 +199,6 @@ document.addEventListener("DOMContentLoaded", async function () {
 
       let username = post.user?.username || "Unknown User";
 
-
       // Description logic
       let desc = post.description;
       let maxLength = 80;
@@ -182,6 +211,7 @@ document.addEventListener("DOMContentLoaded", async function () {
       let restText = desc.slice(cutoff); // starts with space before next word
 
       postDiv.innerHTML = `
+       <button class="like-btn" data-post-id="${post._id}">❤</button>
         <div id="post-images">
           ${post.images
             .map(
@@ -235,6 +265,11 @@ document.addEventListener("DOMContentLoaded", async function () {
           </div>
         </div>
       `;
+
+        const likeBtn = postDiv.querySelector(".like-btn");
+        if (likedPosts[post._id]) {
+          likeBtn.classList.add("liked");
+        }
 
       homepageFeed.appendChild(postDiv);
     });

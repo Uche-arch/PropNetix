@@ -1,4 +1,8 @@
 document.addEventListener("DOMContentLoaded", async function () {
+const modalOverlay = document.getElementById("postModalOverlay");
+
+const noPostMessage = document.getElementById("noPostMessage");
+
   // Check if a user is logged in (i.e., check if there's a JWT in localStorage)
   const token = localStorage.getItem("token");
 
@@ -75,7 +79,8 @@ async function fetchUserData(token) {
 const postForm = document.getElementById("postForm");
 postForm.addEventListener("submit", async (e) => {
   e.preventDefault();
-  showLoadingModal();
+  modalOverlay.style.display= "none"
+  showPostingModal()
 
   // function showTemporaryModal(modalId, duration = 2000) {
   //   const modal = document.getElementById(modalId);
@@ -86,7 +91,7 @@ postForm.addEventListener("submit", async (e) => {
   // }
   function showTemporaryModal(modalId, duration = 2000, reload = false) {
     const modal = document.getElementById(modalId);
-    modal.style.display = "block";
+    modal.style.display = "flex";
     setTimeout(() => {
       modal.style.display = "none";
       if (reload) {
@@ -161,7 +166,8 @@ postForm.addEventListener("submit", async (e) => {
     if (data.message === "Post created") {
       // hideLoadingModal();
       // alert("Post created successfully!");
-      showTemporaryModal("postingModal", 2000, true);
+      hidePostingModal()
+      showTemporaryModal("postedModal", 2000, true);
       postForm.reset();
       appendPostToFeed(data.post, "postFeed");
       // updateHomepageFeed(data.post);
@@ -188,7 +194,27 @@ function toggleLandMeasurement() {
 // Function to show the loading modal
 function showLoadingModal() {
   const loadingModal = document.getElementById("loadingModal");
-  loadingModal.style.display = "block"; // Show the modal
+  loadingModal.style.display = "flex"; // Show the modal
+}
+
+function showPostingModal() {
+  const postingModal = document.getElementById("postingModal");
+  postingModal.style.display = "flex"; // Show the modal
+}
+
+function hidePostingModal() {
+  const postingModal = document.getElementById("postingModal");
+  postingModal.style.display = "none"; // Show the modal
+}
+
+function showDeletingModal() {
+  const postingModal = document.getElementById("deletingModal");
+  postingModal.style.display = "flex"; // Show the modal
+}
+
+function hideDeletingModal() {
+  const deletingModal = document.getElementById("deletingModal");
+  deletingModal.style.display = "none";
 }
 
 // Function to hide the loading modal
@@ -213,22 +239,29 @@ async function fetchUserPosts(token) {
 
   const data = await response.json();
 
+  const postFeed = document.getElementById("postFeed");
+  const noPostMessage = document.getElementById("noPostMessage");
+
   if (response.ok) {
     // Hide the loading modal after data is fetched
     hideLoadingModal();
-    const postFeed = document.getElementById("postFeed");
     postFeed.innerHTML = ""; // Clear existing posts
 
-    // //Reverse the array to show the most recent posts first
-    // data.reverse();
-
-    data.forEach((post) => {
-      appendPostToFeed(post, "postFeed");
-    });
+    if (data.length > 0) {
+      noPostMessage.style.display = "none";
+      // data.reverse(); // Uncomment if needed
+      data.forEach((post) => {
+        appendPostToFeed(post, "postFeed");
+      });
+    } else {
+      noPostMessage.style.display = "block";
+    }
   } else {
+    hideLoadingModal();
     alert("Failed to load posts. Check internet connection.");
   }
 }
+
 
 // Function to calculate and return time ago format (e.g., "1 minute ago")
 function getTimeAgo(date) {
@@ -352,9 +385,9 @@ async function deletePost(postId) {
   //     modal.style.display = "none";
   //   }, duration);
   // }
-  function showTemporaryModal(modalId, duration = 2000, refresh = false) {
+  function showTemporaryModal(modalId, duration = 2500, refresh = false) {
     const modal = document.getElementById(modalId);
-    modal.style.display = "block";
+    modal.style.display = "flex";
 
     setTimeout(() => {
       modal.style.display = "none";
@@ -369,7 +402,7 @@ async function deletePost(postId) {
     alert("You must be logged in to delete a post.");
     return;
   }
-  showLoadingModal();
+  showDeletingModal();
 
   try {
     const response = await fetch(
@@ -386,7 +419,8 @@ async function deletePost(postId) {
     const data = await response.json();
     if (response.ok) {
       // alert("Post deleted successfully!");
-      showTemporaryModal("deleteSuccessModal", 2000, true);
+      hideDeletingModal(); // ✅ Add this here
+      showTemporaryModal("deleteSuccessModal", 2500, true);
       const postDiv = document.querySelector(`.post[data-post-id="${postId}"]`);
       if (postDiv) {
         postDiv.remove();

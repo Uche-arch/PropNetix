@@ -20,14 +20,22 @@ modalOverlay.addEventListener("click", (e) => {
   }
 });
 
-const fileInput = document.getElementById("images");
+const imageInput = document.getElementById("images");
 const fileLabel = document.getElementById("fileUploadLabel");
 
-fileInput.addEventListener("change", () => {
-  if (fileInput.files.length > 0) {
-    fileLabel.textContent = `${fileInput.files.length} file(s) selected`;
+imageInput.addEventListener("change", function () {
+  const files = Array.from(this.files);
+
+  if (files.length > 5) {
+    alert("You can upload a maximum of 5 images.");
+    this.value = ""; // Clear selection
+    fileLabel.textContent = "No image chosen";
+    return;
+  }
+
+  if (files.length === 0) {
+    fileLabel.textContent = "No image chosen";
   } else {
-    fileLabel.textContent = "No files chosen";
+    fileLabel.textContent = `${files.length} image(s) selected`;
   }
 });
-

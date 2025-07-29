@@ -66,7 +66,7 @@
     <header>
       <nav>
         <div class="logo">
-          <h2><a href="index.html">PropNetix.</a></h2>
+          <h2><a href="index.html">PropNetix</a></h2>
           <p>
             <a href="all.html" id="home"
               ><i class="fa fa-home"></i>
@@ -86,7 +86,7 @@
             id="signupButton"
             onclick="window.location.href='signup.html'"
           >
-            Sign Up
+            Register
           </button>
           <button id="LoginButton" onclick="window.location.href='login.html'">
             Log In
@@ -100,6 +100,9 @@
           </button>
           <button id="logoutButton" style="display: none" onclick="logout()">
             Log Out
+          </button>
+          <button id="theme-toggle" aria-label="Toggle theme">
+            <i id="theme-icon" class="fas fa-moon"></i>
           </button>
         </div>
       </nav>
@@ -123,13 +126,13 @@
       </div>
       <!-- Container to hold the posts -->
       <!-- Feedback Button -->
-      <a
+      <!-- <a
         id="feedback-button"
         href="https://forms.gle/ejc1CS8h1pT7wE2a7"
         target="_blank"
       >
         <i class="fa-solid fa-comment-dots"></i> Give Feedback</a
-      >
+      > -->
     </main>
     <!-- Modal HTML -->
     <div id="loadingModal" class="modal">
@@ -145,6 +148,7 @@
     <script src="./JS(📢out of bounds)/feedbackBtn.js"></script>
     <script src="./JS(📢out of bounds)/carousel.js"></script>
     <script src="./JS(📢out of bounds)/hide.js"></script>
+    <script src="./JS(📢out of bounds)/theme-toggle.js"></script>
 
     <!-- Lightbox2 JS -->
     <script src="https://cdn.jsdelivr.net/npm/lightbox2@2/dist/js/lightbox-plus-jquery.min.js"></script>
