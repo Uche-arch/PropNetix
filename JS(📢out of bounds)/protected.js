@@ -13,10 +13,10 @@ document.addEventListener("DOMContentLoaded", function () {
     overlay.innerHTML = `
       <div class="auth-modal">
         <h2>Access Denied</h2>
-        <p>You must log in or sign up to view this page.</p>
+        <p>You must log in or register to view this page.</p>
         <div class="auth-buttons">
           <button onclick="window.location.href='login.html'">Log In</button>
-          <button onclick="window.location.href='signup.html'">Sign Up</button>
+          <button onclick="window.location.href='signup.html'">Register</button>
           <a href="#" id="guest-btn" style="display: block; margin-top: 1rem; color: #6c757d; text-decoration: underline; cursor: pointer;">
             Continue as Guest
           </a>
