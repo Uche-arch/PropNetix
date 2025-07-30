@@ -13,8 +13,10 @@ if (savedTheme === "light") {
 
 // Toggle on click
 toggleBtn.addEventListener("click", () => {
+  // Enable smooth transition
+  body.classList.add("enable-transition");
+
   const isLight = body.classList.toggle("light");
   localStorage.setItem("theme", isLight ? "light" : "dark");
   icon.className = isLight ? "fas fa-moon" : "fas fa-sun";
 });
-

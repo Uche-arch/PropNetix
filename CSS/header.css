@@ -33,6 +33,12 @@ body {
   color: #fff;
 }
 
+/* Smooth transition for theme change */
+body.enable-transition,
+body.enable-transition * {
+  transition: background-color 0.6s ease, color 0.6s ease, border-color 0.6s ease;
+}
+
 header {
   width: 100%;
   background-color: #000;

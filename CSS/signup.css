@@ -37,7 +37,7 @@ main {
   font-size: 2rem;
 }
 .signUpForm_container #errorMessage {
-  color: #aaa;
+  color: rgb(236, 42, 42);
   font-size: 12px;
 }
 

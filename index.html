@@ -128,30 +128,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vanta/dist/vanta.dots.min.js"></script>
     <script>
-      let vantaEffect = null;
-
-      function initVanta(theme = "dark") {
-        // Destroy if already exists
-        if (vantaEffect) vantaEffect.destroy();
-
-        // Create new one based on theme
-        vantaEffect = VANTA.DOTS({
-          el: "#vanta-bg",
-          mouseControls: true,
-          touchControls: true,
-          gyroControls: false,
-          minHeight: 200.0,
-          minWidth: 200.0,
-          scale: 1.0,
-          scaleMobile: 1.0,
-          color: theme === "light" ? 0x999999 : 0x666666,
-          backgroundColor: theme === "light" ? 0xf2f2f2 : 0x0a0a0a,
-          spacing: 50.0,
-          showLines: false,
-        });
-      }
-    </script>
-    <script>
       const taglines = [
         "Your go-to marketplace — everything you need, all in one place, no stress, no waiting.",
         "One marketplace. Every product. Every purpose. For everyone.",
@@ -205,32 +181,69 @@
       });
     </script>
     <script>
-      // Get body and toggle button
+      let vantaEffect = null;
+
+      function initVanta(theme = "dark") {
+        const vantaEl = document.getElementById("vanta-bg");
+
+        // Fade out current background
+        vantaEl.style.transition = "opacity 0.5s ease";
+        vantaEl.style.opacity = 0;
+
+        // Delay for smooth fade-out before reinitializing
+        setTimeout(() => {
+          if (vantaEffect) vantaEffect.destroy();
+
+          vantaEffect = VANTA.DOTS({
+            el: "#vanta-bg",
+            mouseControls: true,
+            touchControls: true,
+            gyroControls: false,
+            minHeight: 200.0,
+            minWidth: 200.0,
+            scale: 1.0,
+            scaleMobile: 1.0,
+            color: theme === "light" ? 0x999999 : 0x666666,
+            backgroundColor: theme === "light" ? 0xf2f2f2 : 0x0a0a0a,
+            spacing: 50.0,
+            showLines: false,
+          });
+
+          // Fade back in
+          setTimeout(() => {
+            vantaEl.style.opacity = 1;
+          }, 50); // wait a bit to let Vanta initialize
+        }, 250); // wait for fade out
+      }
+
+      // Theme toggle
       const icon = document.getElementById("theme-icon");
       const themeBtn = document.getElementById("theme-toggle");
       const body = document.body;
 
-      // Load saved theme
       const savedTheme = localStorage.getItem("theme");
       if (savedTheme === "light") {
         body.classList.add("light");
-        icon.className = "fas fa-moon"; // dark mode icon
+        icon.className = "fas fa-moon";
         initVanta("light");
       } else {
-        icon.className = "fas fa-sun"; // light mode icon
+        icon.className = "fas fa-sun";
         initVanta("dark");
       }
 
-      // Toggle theme and reinit Vanta
       themeBtn.addEventListener("click", () => {
-       const isLight =  body.classList.toggle("light");
+        body.classList.add("enable-transition");
 
-        const currentTheme = body.classList.contains("light")
-          ? "light"
-          : "dark";
+        const isLight = body.classList.toggle("light");
+        const currentTheme = isLight ? "light" : "dark";
         localStorage.setItem("theme", currentTheme);
-        initVanta(currentTheme);
         icon.className = isLight ? "fas fa-moon" : "fas fa-sun";
+
+        initVanta(currentTheme);
+
+        setTimeout(() => {
+          body.classList.remove("enable-transition");
+        }, 500);
       });
     </script>
   </body>
