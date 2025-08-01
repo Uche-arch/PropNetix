@@ -6,7 +6,7 @@ const userModal = document.getElementById("userModal");
 const modalMessage = document.getElementById("modalMessage");
 
 // 📢 Utility: Show modal message and optionally redirect
-function showModalMessage(message, redirectUrl = null, delay = 3500) {
+function showModalMessage(message, redirectUrl = null, delay = 3900) {
   modalMessage.textContent = message;
   userModal.style.display = "flex"; // or "block" based on your modal CSS
 
@@ -200,7 +200,7 @@ signupForm.addEventListener("submit", async (e) => {
       saveResult.message === "User registered successfully"
     ) {
       showModalMessage(
-        "Verification email sent. Please verify before logging in.",
+        "Verification email sent. Please check your inbox and spam folder to verify your email before logging in.",
         "login.html",
         9000
       );

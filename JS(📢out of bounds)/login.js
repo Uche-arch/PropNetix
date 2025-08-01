@@ -19,7 +19,7 @@ togglePassword.addEventListener("click", () => {
 });
 
 // 📢 Utility: Show user feedback modal
-function showUserModal(message, redirectAfter = null, delay = 2500) {
+function showUserModal(message, redirectAfter = null, delay = 2900) {
   modalMessage.textContent = message;
   userModal.style.display = "flex";
 
@@ -59,9 +59,9 @@ document.getElementById("loginForm").addEventListener("submit", async (e) => {
     await user.reload(); // refreshes user's data from Firebase
     if (!user.emailVerified) {
       showUserModal(
-        "⚠️ Your email isn’t verified yet. Please check your inbox and confirm to proceed.",
+        "⚠️ Your email isn’t verified yet. Please check your inbox or spam folder and verify to continue.",
         null,
-        3000
+        3800
       );
       await auth.signOut();
 
@@ -99,7 +99,7 @@ resendVerificationBtn.addEventListener("click", async () => {
   try {
     await user.sendEmailVerification();
     showUserModal(
-      "Verification email sent. Please check your inbox.",
+      "Verification email sent. Please check your inbox or spam folder to verify.",
       null,
       6000
     );
@@ -129,7 +129,7 @@ document
     try {
       await auth.sendPasswordResetEmail(email);
       showUserModal(
-        "A fresh verification link has been emailed to you.",
+        "A fresh verification link has been emailed to you. Please check your inbox or spam folder to verify.",
         null,
         6000
       );

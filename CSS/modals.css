@@ -92,7 +92,7 @@
 .modal-content button {
   font-family: "Inter", sans-serif;
   padding: 10px 13px;
-  margin-top: 20px;
+  /* margin-top: 20px; */
   background-color: green;
   font-size: 1em;
   border: 0;
