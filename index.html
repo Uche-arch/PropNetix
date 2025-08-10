@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-     <meta
+    <meta
       property="og:image"
       content="https://propnetix.netlify.app/img/prop.png"
     />
@@ -21,6 +21,19 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
     />
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-3JPRGKXM50"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-3JPRGKXM50");
+    </script>
   </head>
   <body>
     <header>
@@ -140,7 +153,7 @@
         "Find your next space in seconds — skip the stress.",
         "Post once. Reach everyone. Sell faster on PropNetix.",
         "The all-in-one marketplace built to save you time.",
-        "What you're looking for is already waiting on PropNetix."
+        "What you're looking for is already waiting on PropNetix.",
       ];
 
       const taglineEl = document.getElementById("tagline");
