@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Help | PropNetix</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f7f7f7;
+      padding: 40px 20px;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 40px;
+      color: #222;
+    }
+
+    .accordion {
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      margin-bottom: 15px;
+      border: 1px solid #ddd;
+      overflow: hidden;
+    }
+
+    .accordion-header {
+      padding: 18px 20px;
+      cursor: pointer;
+      background-color: #f0f0f0;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+
+    .accordion-header:hover {
+      background-color: #eaeaea;
+    }
+
+    .accordion-content {
+      max-height: 0px;
+      overflow: hidden;
+      transition: max-height 0.1s ease;
+      background: white;
+      padding: 0 20px;
+    }
+
+    .accordion-content.open {
+      padding: 18px 20px;
+      max-height: 400px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Help Center</h1>
+
+  <div class="accordion">
+    <div class="accordion-header">📝 How do I list a property?</div>
+    <div class="accordion-content">
+      <p>To list a property, log in to your account, go to your dashboard, and click “Add New Listing.” Fill out the property details, upload photos, and submit. Your listing will appear on the feed immediately after approval (if required).</p>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <div class="accordion-header">🚀 How can I get the most out of PropNetix?</div>
+    <div class="accordion-content">
+      <p>Use high-quality images, clear descriptions, and accurate location tags. Share your listings on social media for more exposure. Also, check back often to manage inquiries quickly.</p>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <div class="accordion-header">💡 What makes PropNetix different?</div>
+    <div class="accordion-content">
+      <p>PropNetix is built to make house hunting and property listing easier and smarter. With real-time updates, a clean interface, and fast listings, it’s designed to help users and agents connect better.</p>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <div class="accordion-header">Agents Win Pack\</div>
+    <div class="accordion-content">
+      <p>PropNetix is built to make house hunting and property listing easier and smarter. With real-time updates, a clean interface, and fast listings, it’s designed to help users and agents connect better.</p>
+    </div>
+  </div>
+
+  <script>
+    const headers = document.querySelectorAll('.accordion-header');
+
+    headers.forEach(header => {
+      header.addEventListener('click', () => {
+        const content = header.nextElementSibling;
+        content.classList.toggle('open');
+      });
+    });
+  </script>
+
+</body>
+</html>
