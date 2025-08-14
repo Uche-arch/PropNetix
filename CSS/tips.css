@@ -1,0 +1,92 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
+
+body {
+  background: #f5f5f5; /* Light Gray */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 50px;
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+}
+
+.accordion {
+  background: #ffffff; /* White */
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  width: 100%;
+  max-width: 580px;
+  overflow: hidden;
+}
+
+.accordion-item {
+  border-bottom: 1px solid #e6e6e6; /* Slightly lighter than Medium Gray for subtle look */
+}
+
+.accordion-header {
+  cursor: pointer;
+  padding: 18px 22px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: background 0.2s ease;
+  color: #1a1a1a; /* Near Black */
+  background-color: #ffffff; /* White */
+}
+
+.accordion-header:hover {
+  background: #f5f5f5; /* Light Gray */
+}
+
+.accordion-icon {
+  transition: transform 0.3s ease;
+  color: #000000; /* Black */
+  font-size: 0.9rem;
+}
+
+.accordion-header.active .accordion-icon {
+  transform: rotate(180deg);
+}
+
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease, padding 0.35s ease;
+  background: #ffffff; /* White */
+  padding: 0 22px;
+}
+
+.accordion-content p {
+  margin: 15px 0;
+  line-height: 1.6;
+  font-size: 0.95rem;
+  color: #4d4d4d; /* Dark Gray */
+}
+
+.accordion-content.open {
+  padding: 16px 22px;
+}
+
+
+
+/* Slim Sleek Black & White Scrollbar */
+::-webkit-scrollbar {
+  width: 1px; /* Slim width */
+}
+
+::-webkit-scrollbar-track {
+  background: #FFFFFF; /* White track */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1A1A1A; /* Near black thumb */
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #000000; /* Solid black on hover */
+}
+
