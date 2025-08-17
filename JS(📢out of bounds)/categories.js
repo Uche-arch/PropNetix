@@ -188,9 +188,17 @@ document.addEventListener("DOMContentLoaded", async function () {
           </p>
 
           <p class="post-phone">
-            <span class="icon-circle"><i class="fas fa-phone"></i></span>
-            ${post.phone}
-          </p>
+  <span class="icon-circle" style="color: white; text-decoration: none;">
+    <a style="color: white;" href="tel:${post.phone}">
+      <i class="fas fa-phone"></i>
+    </a>
+  </span>
+  <a href="tel:${
+    post.phone
+  }" class="phone-number" style="text-decoration: none; color: #ccc;">
+    ${post.phone}
+  </a>
+</p>
 
           <div class="post-meta-bottom">
             <span class="post-username">Posted by: ${username}</span>

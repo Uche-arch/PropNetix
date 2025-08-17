@@ -227,13 +227,16 @@ body {
     font-family: sans-serif;
   }
 
+
+
+
   #post-category,
   #post-price,
   #post-negotiable,
   #post-location,
   #post-phone,
   #post-measurement,
-  #post-time {
+  #post-time, a {
     font-size: 10.5px;
   }
 

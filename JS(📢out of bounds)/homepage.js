@@ -259,9 +259,16 @@ document.addEventListener("DOMContentLoaded", async function () {
            
 <div class="post-top">
           <p class="post-phone">
-            <span class="icon-circle"><i class="fas fa-phone"></i></span>
-            ${post.phone}
-          </p>
+  <span class="icon-circle" style="color: white; text-decoration: none;">
+    <a style="color: white;" href="tel:${post.phone}">
+      <i class="fas fa-phone"></i>
+    </a>
+  </span>
+  <a href="tel:${post.phone}" class="phone-number" style="text-decoration: none; color: #ccc;">
+    ${post.phone}
+  </a>
+</p>
+
 <span class="post-price">
               <span class="post-location">Negotiable? </span>
               <span style="color: #4aa3f0;">${post.negotiable}</span>
