@@ -30,9 +30,9 @@
 
 @media screen and (max-width: 992px) {
   .search_index {
-    padding-top: 47px;
+    padding-top: 67px;
     width: 60%;
-    margin: 20px 10px 0 auto;
+    margin: 20px 50px 0 auto;
     display: flex;
     /* border: 1px solid; */
   }
@@ -45,7 +45,7 @@
   .search_index {
     padding-top: 38px;
     width: 60%;
-    margin: 20px 10px 0 auto;
+    margin: 20px 30px 0 auto;
     display: flex;
   }
   .search_index input {

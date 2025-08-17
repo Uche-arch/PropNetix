@@ -352,10 +352,16 @@ ${
   ${post.location}
 </p>
 
-<p class="post-phone">
-  <span class="icon-circle"><i class="fas fa-phone"></i></span>
-  ${post.phone}
-</p>
+<div class="post-top">
+          <p class="post-phone">
+            <span class="icon-circle"><i class="fas fa-phone"></i></span>
+            ${post.phone}
+          </p>
+<span class="post-price">
+              <span class="post-location">Negotiable? </span>
+              <span style="color: #4aa3f0;">${post.negotiable}</span>
+            </span>
+          </div>
 
 
     <div class="post-meta-bottom">

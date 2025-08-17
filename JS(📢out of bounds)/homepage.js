@@ -238,6 +238,7 @@ document.addEventListener("DOMContentLoaded", async function () {
               <span class="icon-circle"><i class="fas fa-money-bill"></i></span>
               ₦${post.price.toLocaleString()}
             </span>
+            
           </div>
 
           ${
@@ -253,11 +254,19 @@ document.addEventListener("DOMContentLoaded", async function () {
             <span class="icon-circle"><i class="fas fa-map-marker-alt"></i></span>
             ${post.location}
           </p>
+           
 
+           
+<div class="post-top">
           <p class="post-phone">
             <span class="icon-circle"><i class="fas fa-phone"></i></span>
             ${post.phone}
           </p>
+<span class="post-price">
+              <span class="post-location">Negotiable? </span>
+              <span style="color: #4aa3f0;">${post.negotiable}</span>
+            </span>
+          </div>
 
           <div class="post-meta-bottom">
             <span class="post-username">Posted by: ${username}</span>

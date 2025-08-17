@@ -204,7 +204,7 @@ nav {
     background-color: #0c0c0c;
     display: flex;
     justify-content: space-between;
-    padding: 7px 4px;
+    padding: 7px 14px;
     border-top: 2px solid black;
     z-index: 1000;
   }

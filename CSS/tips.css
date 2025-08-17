@@ -54,7 +54,7 @@ body {
 .accordion-content {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.35s ease, padding 0.35s ease;
+  transition: max-height 0.35s ease;
   background: #ffffff; /* White */
   padding: 0 22px;
 }
@@ -67,7 +67,7 @@ body {
 }
 
 .accordion-content.open {
-  padding: 16px 22px;
+  padding: 0px 22px;
 }
 
 

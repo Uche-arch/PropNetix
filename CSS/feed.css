@@ -173,9 +173,15 @@ body {
 .post-meta-top {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   font-size: 11px;
   margin-top: 15px;
   color: #999;
+}
+.post-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .post-meta-bottom {
@@ -198,7 +204,7 @@ body {
   animation: zoomInFade 0.4s ease-out forwards;
 }
 
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 1000px) {
   .feed,
   #postsContainer,
   #postFeed {
@@ -206,7 +212,7 @@ body {
   }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 640px) {
   .feed,
   #postsContainer,
   #postFeed {

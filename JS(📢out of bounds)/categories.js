@@ -167,6 +167,10 @@ document.addEventListener("DOMContentLoaded", async function () {
               <span class="icon-circle"><i class="fas fa-money-bill"></i></span>
               ₦${post.price.toLocaleString()}
             </span>
+            <span class="post-price">
+              <span class="post-location">Negotiable? </span>
+              <span style="color: #4aa3f0;">${post.negotiable}</span>
+            </span>
           </div>
 
           ${
