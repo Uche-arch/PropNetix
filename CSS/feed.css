@@ -156,8 +156,9 @@ body {
 
 .post-description {
   color: #e0e0e0;
-  line-height: 1.4;
+  line-height: 1.2;
   margin-bottom: 10px;
+  white-space: pre-wrap;
 }
 
 .more-text {
