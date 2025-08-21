@@ -201,7 +201,6 @@ document.addEventListener("DOMContentLoaded", async function () {
 </p>
 
           <div class="post-meta-bottom">
-            <span class="post-username">Posted by: ${username}</span>
             <span class="post-time">${timeAgo}</span>
           </div>
         </div>
