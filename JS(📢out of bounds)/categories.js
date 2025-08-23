@@ -81,23 +81,50 @@ document.addEventListener("DOMContentLoaded", async function () {
   let noMorePosts = false;
   let fetchFailed = false;
 
-  function getTimeAgo(date) {
-    const now = new Date();
-    const diff = now - date;
-    const seconds = Math.floor(diff / 1000);
-    const minutes = Math.floor(seconds / 60);
-    const hours = Math.floor(minutes / 60);
-    const days = Math.floor(hours / 24);
-    const months = Math.floor(days / 30);
-    const years = Math.floor(months / 12);
+  // function getTimeAgo(date) {
+  //   const now = new Date();
+  //   const diff = now - date;
+  //   const seconds = Math.floor(diff / 1000);
+  //   const minutes = Math.floor(seconds / 60);
+  //   const hours = Math.floor(minutes / 60);
+  //   const days = Math.floor(hours / 24);
+  //   const months = Math.floor(days / 30);
+  //   const years = Math.floor(months / 12);
 
-    if (years > 0) return `${years} year${years > 1 ? "s" : ""} ago`;
-    if (months > 0) return `${months} month${months > 1 ? "s" : ""} ago`;
-    if (days > 0) return `${days} day${days > 1 ? "s" : ""} ago`;
-    if (hours > 0) return `${hours} hour${hours > 1 ? "s" : ""} ago`;
-    if (minutes > 0) return `${minutes} minute${minutes > 1 ? "s" : ""} ago`;
-    return `${seconds} second${seconds > 1 ? "s" : ""} ago`;
+  //   if (years > 0) return `${years} year${years > 1 ? "s" : ""} ago`;
+  //   if (months > 0) return `${months} month${months > 1 ? "s" : ""} ago`;
+  //   if (days > 0) return `${days} day${days > 1 ? "s" : ""} ago`;
+  //   if (hours > 0) return `${hours} hour${hours > 1 ? "s" : ""} ago`;
+  //   if (minutes > 0) return `${minutes} minute${minutes > 1 ? "s" : ""} ago`;
+  //   return `${seconds} second${seconds > 1 ? "s" : ""} ago`;
+  // }
+
+  function getTimeAgo(postDate) {
+    const now = new Date();
+    const diffMs = now - postDate;
+    const diffSec = Math.floor(diffMs / 1000);
+    const diffMin = Math.floor(diffSec / 60);
+    const diffHours = Math.floor(diffMin / 60);
+    const diffDays = Math.floor(diffHours / 24);
+
+    if (diffMin < 60) {
+      return "Just now"; // under an hour
+    } else if (diffDays < 1) {
+      return "Today"; // same day
+    } else if (diffDays < 2) {
+      return "Yesterday";
+    } else if (diffDays < 7) {
+      return `${diffDays} days ago`;
+    } else {
+      // show formatted date if older than a week
+      return postDate.toLocaleDateString(undefined, {
+        month: "short",
+        day: "numeric",
+        year: "numeric",
+      });
+    }
   }
+
 
   function displayPosts(postsToDisplay, append = false) {
     if (!append) {
