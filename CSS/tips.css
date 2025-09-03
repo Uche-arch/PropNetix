@@ -6,9 +6,36 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 50px;
+  /* padding: 50px; */
   margin: 0;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
+  height: 100vh;
+  /* position: relative; */
+}
+
+.span {
+ font-size: 30px;
+  cursor: pointer;
+  position: absolute;
+  top: 30px;
+  left: 30px;
+}
+
+.arrow-animate {
+  display: inline-block;
+  animation: arrowWiggle 1s ease-in-out infinite;
+}
+
+@keyframes arrowWiggle {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-4px);
+  }
+  100% {
+    transform: translateX(0);
+  }
 }
 
 .accordion {
@@ -61,7 +88,7 @@ body {
 
 .accordion-content p {
   margin: 15px 0;
-  line-height: 1.6;
+  line-height: 1.5;
   font-size: 0.95rem;
   color: #4d4d4d; /* Dark Gray */
 }
@@ -70,7 +97,44 @@ body {
   padding: 0px 22px;
 }
 
+@media screen and (max-width: 450px) {
+  body {
+    padding: 0 10px;
+  }
+  .accordion {
+    max-width: 600px;
+  }
+  h1 {
+    font-size: 20px;
+  }
+  .accordion-header {
+    font-size: 0.9rem;
+    padding: 15px 20px;
+  }
+  .accordion-content p {
+    font-size: 0.84rem;
+  }
+}
 
+
+@media screen and (max-width: 320px) {
+  body {
+    padding: 0 10px;
+  }
+  .accordion {
+    max-width: 600px;
+  }
+  h1 {
+    font-size: 20px;
+  }
+  .accordion-header {
+    font-size: 0.85rem;
+    padding: 15px 20px;
+  }
+  .accordion-content p {
+    font-size: 0.8rem;
+  }
+}
 
 /* Slim Sleek Black & White Scrollbar */
 ::-webkit-scrollbar {
@@ -78,15 +142,14 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #FFFFFF; /* White track */
+  background: #ffffff; /* White track */
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #1A1A1A; /* Near black thumb */
+  background: #1a1a1a; /* Near black thumb */
   border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
   background: #000000; /* Solid black on hover */
 }
-

@@ -4,50 +4,73 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Professional Accordion</title>
-    <link rel="stylesheet" href="./CSS/tips.css">
+    <link rel="stylesheet" href="./CSS/tips.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
   </head>
   <body>
-    <h1>Help Center</h1>
+    <span class="span" onclick="window.location.href='index.html'"
+        ><i class="fa fa-arrow-left arrow-animate"></i> </span
+      >
+    <h1>
+      Help Center
+    </h1>
     <div class="accordion">
       <div class="accordion-item">
         <div class="accordion-header">
-          What is your return policy?
+          How to List
           <span class="accordion-icon">▼</span>
         </div>
         <div class="accordion-content">
-          <p>
-            We offer a 30-day money-back guarantee on all purchases. If you’re
-            not satisfied, contact our support team for assistance. Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque itaque totam praesentium repellendus, quod aut harum error cumque eius iusto consectetur? Harum eius architecto veritatis unde labore? Asperiores, voluptatibus facilis.
-          </p>
+          <p>- Register and log in (see How to Register below).</p>
+          <p>- Go to your profile page.</p>
+          <p>- Click the + button (top-right).</p>
+          <p>- Fill in the form with your listing details.</p>
+          <p>- Submit and your post goes live.</p>
+          <p>- Keep your phone nearby, interested clients may call anytime.</p>
         </div>
       </div>
       <div class="accordion-item">
         <div class="accordion-header">
-          How long does shipping take?
+          How to Register / Sign Up
           <span class="accordion-icon">▼</span>
         </div>
         <div class="accordion-content">
-          <p>
-            Standard shipping typically takes 5–7 business days. Expedited
-            options are available at checkout for faster delivery.
-          </p>
+         <p>- On the homepage, click Register (top-right).</p>
+         <p>- Fill in your details and submit.</p>
+         <p>- Verify your email.</p>
+         <p>- Log in to access your profile page.</p>
         </div>
       </div>
       <div class="accordion-item">
         <div class="accordion-header">
-          Do you offer international shipping?
+          How to Contact an Agent
           <span class="accordion-icon">▼</span>
         </div>
         <div class="accordion-content">
           <p>
-            Yes, we ship to most countries worldwide. Shipping fees and delivery
-            times vary based on your location.
+          Click the phone number or the phone icon on the listing to call directly.
           </p>
+        </div>
+      </div>
+      
+      <div class="accordion-item">
+        <div class="accordion-header">
+          ⚠️ Must Read   For Users / Potential Clients:
+          <span class="accordion-icon">▼</span>
+        </div>
+        <div class="accordion-content">
+         <p> Always inspect a property/space in person before payment.</p>
+         <p> Meet agents in safe, public places. Not secluded areas.</p>
+         <p> Never pay in full until agreements are signed.</p>
+         <p> Keep records of all communication and transactions.</p>
         </div>
       </div>
     </div>
 
-    <h1 style="margin-top: 80px;">Elite Agent Insights</h1>
+    <!-- <h1 style="margin-top: 80px;">Elite Agent Insights</h1>
     <div class="accordion">
       <div class="accordion-item">
         <div class="accordion-header">
@@ -85,7 +108,7 @@
           </p>
         </div>
       </div>
-    </div>
+    </div> -->
 
     <script>
       document.querySelectorAll(".accordion-header").forEach((header) => {

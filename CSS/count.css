@@ -1,0 +1,11 @@
+@media screen and (max-width: 800px) {
+   #listings-count, #category-count {
+    font-size: 17px;
+   } 
+}
+
+@media screen and (max-width: 400px) {
+   #listings-count, #category-count {
+    font-size: 14px;
+   } 
+}

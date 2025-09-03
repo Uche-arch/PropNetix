@@ -1,34 +1,47 @@
 // document.addEventListener("DOMContentLoaded", function () {
- 
+
 // });
 
 document.addEventListener("DOMContentLoaded", async function () {
+  const listingsCountElement = document.getElementById("listings-count");
 
-   const likedPosts = JSON.parse(localStorage.getItem("likedPosts")) || {};
+  // Fetch total number of listings
+  fetch("https://propnetix-backend-v2.onrender.com/api/posts-total")
+    .then((res) => res.json())
+    .then((data) => {
+      const rounded = Math.floor(data.count / 5) * 5; // e.g., 26 → 25+
+      listingsCountElement.textContent = `${rounded}+ listings`;
+    })
+    .catch((err) => console.error("Error fetching total listings:", err));
 
-   // ✅ Apply liked style on load
-   document.querySelectorAll(".like-btn").forEach((btn) => {
-     const postId = btn.getAttribute("data-post-id");
-     if (likedPosts[postId]) {
-       btn.classList.add("liked");
-     }
-   });
+      // Added this block above latest
 
-   // ✅ Toggle like on click
-   document.addEventListener("click", function (e) {
-     if (e.target.classList.contains("like-btn")) {
-       const btn = e.target;
-       const postId = btn.getAttribute("data-post-id");
 
-       btn.classList.toggle("liked");
+  const likedPosts = JSON.parse(localStorage.getItem("likedPosts")) || {};
 
-       likedPosts[postId] = btn.classList.contains("liked");
-       localStorage.setItem("likedPosts", JSON.stringify(likedPosts));
+  // ✅ Apply liked style on load
+  document.querySelectorAll(".like-btn").forEach((btn) => {
+    const postId = btn.getAttribute("data-post-id");
+    if (likedPosts[postId]) {
+      btn.classList.add("liked");
+    }
+  });
 
-       btn.classList.add("animate");
-       setTimeout(() => btn.classList.remove("animate"), 200);
-     }
-   });
+  // ✅ Toggle like on click
+  document.addEventListener("click", function (e) {
+    if (e.target.classList.contains("like-btn")) {
+      const btn = e.target;
+      const postId = btn.getAttribute("data-post-id");
+
+      btn.classList.toggle("liked");
+
+      likedPosts[postId] = btn.classList.contains("liked");
+      localStorage.setItem("likedPosts", JSON.stringify(likedPosts));
+
+      btn.classList.add("animate");
+      setTimeout(() => btn.classList.remove("animate"), 200);
+    }
+  });
 
   function showBottomSpinner() {
     document.getElementById("loadingSpinner").style.display = "block";
@@ -283,10 +296,10 @@ document.addEventListener("DOMContentLoaded", async function () {
         </div>
       `;
 
-        const likeBtn = postDiv.querySelector(".like-btn");
-        if (likedPosts[post._id]) {
-          likeBtn.classList.add("liked");
-        }
+      const likeBtn = postDiv.querySelector(".like-btn");
+      if (likedPosts[post._id]) {
+        likeBtn.classList.add("liked");
+      }
 
       homepageFeed.appendChild(postDiv);
     });
@@ -310,7 +323,6 @@ document.addEventListener("DOMContentLoaded", async function () {
   //   if (minutes > 0) return `${minutes} minute${minutes > 1 ? "s" : ""} ago`;
   //   return `${seconds} second${seconds > 1 ? "s" : ""} ago`;
   // }
-
 
   function getTimeAgo(postDate) {
     const now = new Date();
@@ -337,5 +349,4 @@ document.addEventListener("DOMContentLoaded", async function () {
       });
     }
   }
-
 });
