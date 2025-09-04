@@ -114,10 +114,13 @@ body {
   .accordion-content p {
     font-size: 0.84rem;
   }
+  .span {
+    font-size: 25px;
+  }
 }
 
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 365px) {
   body {
     padding: 0 10px;
   }
@@ -133,6 +136,9 @@ body {
   }
   .accordion-content p {
     font-size: 0.8rem;
+  }
+  .span {
+    font-size: 20px;
   }
 }
 
