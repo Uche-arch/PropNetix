@@ -2,32 +2,32 @@
 
 // });
 
-document.addEventListener("DOMContentLoaded", async function () {
-  const categories = ["apartments", "land", "shops"];
+// document.addEventListener("DOMContentLoaded", async function () {
+//   const categories = ["apartments", "land", "shops"];
 
-  categories.forEach(async (cat) => {
-    // 1. Get last visit timestamp (or default to "yesterday")
-    const lastVisit =
-      localStorage.getItem(`lastVisit_${cat}`) || new Date(0).toISOString();
+//   categories.forEach(async (cat) => {
+//     // 1. Get last visit timestamp (or default to "yesterday")
+//     const lastVisit =
+//       localStorage.getItem(`lastVisit_${cat}`) || new Date(0).toISOString();
 
-    try {
-      // 2. Ask backend how many new posts
-      const res = await fetch(
-        `https://propnetix-backend-v2.onrender.com/api/new-posts-count?category=${cat}&since=${lastVisit}`
-      );
-      const data = await res.json();
+//     try {
+//       // 2. Ask backend how many new posts
+//       const res = await fetch(
+//         `https://propnetix-backend-v2.onrender.com/api/new-posts-count?category=${cat}&since=${lastVisit}`
+//       );
+//       const data = await res.json();
 
-      // 3. Show badge if there are new posts
-      const badge = document.getElementById(`badge-${cat}`);
-      if (data.newCount > 0) {
-        badge.textContent = data.newCount;
-        badge.style.display = "inline-block";
-      }
-    } catch (err) {
-      console.error("Error fetching new posts count:", err);
-    }
-  });
-});
+//       // 3. Show badge if there are new posts
+//       const badge = document.getElementById(`badge-${cat}`);
+//       if (data.newCount > 0) {
+//         badge.textContent = data.newCount;
+//         badge.style.display = "inline-block";
+//       }
+//     } catch (err) {
+//       console.error("Error fetching new posts count:", err);
+//     }
+//   });
+// });
 
 // Notification bagde above
 

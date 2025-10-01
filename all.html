@@ -168,37 +168,10 @@
     <script src="./JS(📢out of bounds)/carousel.js"></script>
     <script src="./JS(📢out of bounds)/theme-toggle.js"></script>
     <!-- <script src="./JS(📢out of bounds)/hide.js"></script> -->
+     <script src="./JS(📢out of bounds)/badge.js"></script>
 
     <!-- Lightbox2 JS -->
     <script src="https://cdn.jsdelivr.net/npm/lightbox2@2/dist/js/lightbox-plus-jquery.min.js"></script>
-    <!-- <script>
-       document.addEventListener("DOMContentLoaded", function () {
-    const likedPosts = JSON.parse(localStorage.getItem("likedPosts")) || {};
-
-    // ✅ Apply liked style on load
-    document.querySelectorAll(".like-btn").forEach((btn) => {
-      const postId = btn.getAttribute("data-post-id");
-      if (likedPosts[postId]) {
-        btn.classList.add("liked");
-      }
-    });
-
-    // ✅ Toggle like on click
-    document.addEventListener("click", function (e) {
-      if (e.target.classList.contains("like-btn")) {
-        const btn = e.target;
-        const postId = btn.getAttribute("data-post-id");
-
-        btn.classList.toggle("liked");
-
-        likedPosts[postId] = btn.classList.contains("liked");
-        localStorage.setItem("likedPosts", JSON.stringify(likedPosts));
-
-        btn.classList.add("animate");
-        setTimeout(() => btn.classList.remove("animate"), 200);
-      }
-    });
-  });
-    </script> -->
+   
   </body>
 </html>
