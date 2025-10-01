@@ -1,4 +1,16 @@
 document.addEventListener("DOMContentLoaded", async function () {
+  const urlParams = new URLSearchParams(window.location.search);
+  const category = urlParams.get("category");
+
+  if (category) {
+    // ✅ Save current time as last visit for this category
+    localStorage.setItem(`lastVisit_${category}`, new Date().toISOString());
+  }
+});
+
+// Notification bagde above
+
+document.addEventListener("DOMContentLoaded", async function () {
   const likedPosts = JSON.parse(localStorage.getItem("likedPosts")) || {};
 
   // ✅ Apply liked style on load
@@ -61,13 +73,13 @@ document.addEventListener("DOMContentLoaded", async function () {
   }
 
   // ✅ Show count at top
-  fetch(
-    `https://propnetix-backend-v2.onrender.com/api/posts-count/${category}`
-  )
+  fetch(`https://propnetix-backend-v2.onrender.com/api/posts-count/${category}`)
     .then((res) => res.json())
     .then((data) => {
       const rounded = Math.floor(data.count / 5) * 5;
-      document.getElementById("category-count").textContent = ` ${rounded}+ listings`;
+      document.getElementById(
+        "category-count"
+      ).textContent = ` ${rounded}+ listings`;
     })
     .catch((err) => console.error("Error fetching category listings:", err));
 

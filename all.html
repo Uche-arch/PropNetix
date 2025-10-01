@@ -50,7 +50,7 @@
     <link rel="stylesheet" href="./CSS/search.css" />
     <link rel="stylesheet" href="./CSS/modals.css" />
     <link rel="stylesheet" href="./CSS/feed.css" />
-    <link rel="stylesheet" href="./CSS/count.css">
+    <link rel="stylesheet" href="./CSS/count.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
@@ -77,9 +77,19 @@
           </p>
         </div>
         <div class="nav_links">
-          <a href="apartments.html?category=apartments">Apartments</a>
+          <!-- <a href="apartments.html?category=apartments">Apartments</a>
           <a href="lands.html?category=land">Land</a>
-          <a href="shops.html?category=shops">Shops</a>
+          <a href="shops.html?category=shops">Shops</a> -->
+          <a href="apartments.html?category=apartments">
+            Apartments <span class="badge" id="badge-apartments"></span>
+          </a>
+          <a href="lands.html?category=land">
+            Land <span class="badge" id="badge-land"></span>
+          </a>
+          <a href="shops.html?category=shops">
+            Shops <span class="badge" id="badge-shops"></span>
+          </a>
+
           <!-- <a href="props.html?category=props">Props</a> -->
           <!-- <a href="others.html?category=others">Others</a> -->
         </div>
@@ -125,8 +135,17 @@
     </div>
 
     <div class="feed_container">
-      <div id="errorFeed" style="height: 70vh; display: flex; flex-direction: column; align-items: center; justify-content: center;"></div>
-      <h2 id="listings-count" style="margin-bottom: 5px;"></h2> 
+      <div
+        id="errorFeed"
+        style="
+          height: 70vh;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+        "
+      ></div>
+      <h2 id="listings-count" style="margin-bottom: 5px"></h2>
       <!-- Added this top line latest -->
       <div id="homepageFeed" class="feed"></div>
 
