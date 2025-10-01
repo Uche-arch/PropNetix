@@ -1,12 +1,12 @@
-// document.addEventListener("DOMContentLoaded", async function () {
-//   const urlParams = new URLSearchParams(window.location.search);
-//   const category = urlParams.get("category");
+document.addEventListener("DOMContentLoaded", async function () {
+  const urlParams = new URLSearchParams(window.location.search);
+  const category = urlParams.get("category");
 
-//   if (category) {
-//     // ✅ Save current time as last visit for this category
-//     localStorage.setItem(`lastVisit_${category}`, new Date().toISOString());
-//   }
-// });
+  if (category) {
+    // ✅ Save current time as last visit for this category
+    localStorage.setItem(`lastVisit_${category}`, new Date().toISOString());
+  }
+});
 
 // Notification bagde above
 
