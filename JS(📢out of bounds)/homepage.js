@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     try {
       // 2. Ask backend how many new posts
       const res = await fetch(
-        `/api/new-posts-count?category=${cat}&since=${lastVisit}`
+        `https://propnetix-backend-v2.onrender.com/api/new-posts-count?category=${cat}&since=${lastVisit}`
       );
       const data = await res.json();
 
@@ -29,9 +29,7 @@ document.addEventListener("DOMContentLoaded", async function () {
   });
 });
 
-
 // Notification bagde above
-
 
 document.addEventListener("DOMContentLoaded", async function () {
   const listingsCountElement = document.getElementById("listings-count");
@@ -45,8 +43,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     })
     .catch((err) => console.error("Error fetching total listings:", err));
 
-      // Added this block above latest
-
+  // Added this block above latest
 
   const likedPosts = JSON.parse(localStorage.getItem("likedPosts")) || {};
 
