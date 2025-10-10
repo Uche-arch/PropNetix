@@ -1,13 +1,16 @@
-const auth = firebase.auth();
+// const auth = firebase.auth();
 
 // 📦 Modal Elements
 const resendVerificationBtn = document.getElementById("resendVerificationBtn");
 const forgotPasswordModal = document.getElementById("forgotPasswordModal");
 const userModal = document.getElementById("userModal");
 const modalMessage = document.getElementById("modalMessage");
+// const passwordInput = document.getElementById("password");
+// const togglePassword = document.getElementById("togglePassword");
+const loginButton = document.getElementById("loginButton");
+
 const passwordInput = document.getElementById("password");
 const togglePassword = document.getElementById("togglePassword");
-const loginButton = document.getElementById("loginButton");
 
 togglePassword.addEventListener("click", () => {
   const type = passwordInput.type === "password" ? "text" : "password";
@@ -39,52 +42,93 @@ function closeForgotPasswordModal() {
   forgotPasswordModal.style.display = "none";
 }
 
-// 🟩 LOGIN SUBMIT HANDLER
+// Below is the new session code.
+
 document.getElementById("loginForm").addEventListener("submit", async (e) => {
   e.preventDefault();
-  loginButton.textContent= "Loading..."
+  loginButton.textContent = "Loading...";
 
   const email = document.getElementById("email").value.trim();
   const password = document.getElementById("password").value;
 
   try {
-    // 1. Attempt sign-in
+    // ✅ Set persistence
+    await firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL);
+
     const userCredential = await auth.signInWithEmailAndPassword(
       email,
       password
     );
     const user = userCredential.user;
 
-    // 2. Check email verification
-    await user.reload(); // refreshes user's data from Firebase
-    if (!user.emailVerified) {
-      showUserModal(
-        "⚠️ Your email isn’t verified yet. Please check your inbox or spam folder and verify to continue.",
-        null,
-        3800
-      );
-      await auth.signOut();
+    await user.reload(); // refresh data
 
-      // Enable resend button and store user in temp
+    if (!user.emailVerified) {
+      showUserModal("⚠️ Email not verified. Please check your inbox/spam.");
+      await auth.signOut();
       resendVerificationBtn.style.display = "block";
       window.tempUserForResend = user;
       return;
     }
 
-    // 3. Get ID token and proceed
     const idToken = await user.getIdToken();
     localStorage.setItem("token", idToken);
+    localStorage.setItem("isLoggedIn", "true");
 
     showUserModal("You’ve successfully logged in.", "profile.html");
-    // Validate user login here (this is just simulated)
-    localStorage.setItem("isLoggedIn", "true");
   } catch (error) {
     console.error("Login error:", error);
-    showUserModal("Login failed: User not found!", null, 3000);
-  loginButton.textContent = "Login";
-    
+    showUserModal("Login failed: " + error.message, null, 3000);
+    loginButton.textContent = "Login";
   }
 });
+
+// 🟩 LOGIN SUBMIT HANDLER
+// document.getElementById("loginForm").addEventListener("submit", async (e) => {
+//   e.preventDefault();
+//   loginButton.textContent= "Loading..."
+
+//   const email = document.getElementById("email").value.trim();
+//   const password = document.getElementById("password").value;
+
+//   try {
+//     // 1. Attempt sign-in
+//     const userCredential = await auth.signInWithEmailAndPassword(
+//       email,
+//       password
+//     );
+//     const user = userCredential.user;
+
+//     // 2. Check email verification
+//     await user.reload(); // refreshes user's data from Firebase
+//     if (!user.emailVerified) {
+//       showUserModal(
+//         "⚠️ Your email isn’t verified yet. Please check your inbox or spam folder and verify to continue.",
+//         null,
+//         3800
+//       );
+//       await auth.signOut();
+
+//       // Enable resend button and store user in temp
+//       resendVerificationBtn.style.display = "block";
+//       window.tempUserForResend = user;
+//       return;
+//     }
+
+//     // 3. Get ID token and proceed
+//     const idToken = await user.getIdToken();
+//     localStorage.setItem("token", idToken);
+
+//     showUserModal("You’ve successfully logged in.", "profile.html");
+//     // Validate user login here (this is just simulated)
+//     localStorage.setItem("isLoggedIn", "true");
+//   } catch (error) {
+//     console.error("Login error:", error);
+//     showUserModal("Login failed: User not found!", null, 3000);
+//   loginButton.textContent = "Login";
+
+//   }
+// });
 
 // 🔁 RESEND EMAIL VERIFICATION
 resendVerificationBtn.addEventListener("click", async () => {
@@ -146,3 +190,56 @@ window.onclick = function (event) {
   if (event.target === forgotPasswordModal)
     forgotPasswordModal.style.display = "none";
 };
+
+// NEW SESSION LOGIN CODE
+// const auth = firebase.auth();
+
+// // 📢 Modal Utility
+// function showUserModal(message, redirectAfter = null, delay = 2900) {
+//   modalMessage.textContent = message;
+//   userModal.style.display = "flex";
+
+//   setTimeout(() => {
+//     userModal.style.display = "none";
+//     if (redirectAfter) window.location.href = redirectAfter;
+//   }, delay);
+// }
+
+// document.getElementById("loginForm").addEventListener("submit", async (e) => {
+//   e.preventDefault();
+//   loginButton.textContent = "Loading...";
+
+//   const email = document.getElementById("email").value.trim();
+//   const password = document.getElementById("password").value;
+
+//   try {
+//     // ✅ Set persistence
+//     await firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL);
+
+//     const userCredential = await auth.signInWithEmailAndPassword(
+//       email,
+//       password
+//     );
+//     const user = userCredential.user;
+
+//     await user.reload(); // refresh data
+
+//     if (!user.emailVerified) {
+//       showUserModal("⚠️ Email not verified. Please check your inbox/spam.");
+//       await auth.signOut();
+//       resendVerificationBtn.style.display = "block";
+//       window.tempUserForResend = user;
+//       return;
+//     }
+
+//     const idToken = await user.getIdToken();
+//     localStorage.setItem("token", idToken);
+//     localStorage.setItem("isLoggedIn", "true");
+
+//     showUserModal("You’ve successfully logged in.", "profile.html");
+//   } catch (error) {
+//     console.error("Login error:", error);
+//     showUserModal("Login failed: " + error.message, null, 3000);
+//     loginButton.textContent = "Login";
+//   }
+// });

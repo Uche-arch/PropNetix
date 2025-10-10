@@ -29,8 +29,11 @@
 /* On hover */
 
 body {
-  background: #000;
-  color: #fff;
+  /* background: #000;
+  color: #fff; */ 
+  /* Dark mode */
+  background: #f9f9f9;
+  color: #111;
 }
 
 /* Smooth transition for theme change */
@@ -41,11 +44,15 @@ body.enable-transition * {
 
 header {
   width: 100%;
-  background-color: #000;
+  /* background-color: #000; */
+  background-color: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   padding: 22px 0;
   position: fixed;
   top: 0;
-  color: white;
+  /* color: white; */
+  color: #000;
+
   z-index: 222222222;
 }
 
@@ -64,7 +71,9 @@ nav {
 }
 
 .logo a {
-  color: white;
+  /* color: white; */
+  color: #111;
+
   text-decoration: none;
   font-size: 30px;
   font-family: "Inter", sans-serif;
@@ -81,7 +90,9 @@ nav {
 .nav_links a,
 #home {
   text-decoration: none;
-  color: white;
+  /* color: white; */
+  color: #111;
+
   padding: 8px 15px;
   border-radius: 50px;
   transition: background-color 0.2s ease;
@@ -90,7 +101,9 @@ nav {
 
 .nav_links a:hover,
 #home:hover {
-  background-color: rgb(36, 33, 33);
+  /* background-color: rgb(36, 33, 33); */
+  background-color: #eeeeee;
+
 }
 
 #home {
@@ -109,7 +122,9 @@ nav {
   padding: 8px 20px;
   background: transparent;
   border: 0;
-  color: white;
+  /* color: white; */
+  color: #111;
+
   font-family: "Inter", sans-serif;
   font-weight: 500;
   font-size: 0.89rem;
@@ -117,17 +132,23 @@ nav {
 }
 
 .nav_buttons #signupButton {
-  color: #262626;
-  background: #fff;
+  /* color: #262626;
+  background: #fff; */
+   background: #111;
+  color: white;
   border-radius: 10px;
 }
 
 .nav_buttons #signupButton:hover {
-  background: #dfdddd;
+  /* background: #dfdddd; */
+  background: #262626;
+
 }
 
 #profileButton {
-  border: 1px solid #fff;
+  /* border: 1px solid #fff; */
+  border-color: #333;
+
   border-radius: 50px;
   padding: 12px 15px;
 }
@@ -146,11 +167,15 @@ nav {
 }
 
 .active {
-  background-color: rgb(83, 81, 81);
+  /* background-color: rgb(83, 81, 81); */
+  background-color: #dcdcdc;
+
 }
 
 .activeUser {
-  color: rgb(36, 34, 34);
+  /* color: rgb(36, 34, 34); */
+  color: #111;
+
 }
 
 /* Theme Toggle Button Styling */
@@ -211,11 +236,11 @@ nav {
     bottom: 0;
     left: 0;
     width: 100%;
-    background-color: #0c0c0c;
+    /* background-color: #0c0c0c; */
     display: flex;
     justify-content: space-between;
     padding: 7px 14px;
-    border-top: 2px solid black;
+    /* border-top: 2px solid black; */
     z-index: 1000;
   }
 
@@ -255,50 +280,65 @@ body.light #theme-toggle {
 }
 
 body.light #theme-toggle:hover {
-  background-color: #333;
+  background-color: #cac7c7;
 }
 
 /* 🌞 LIGHT MODE OVERRIDES */
 body.light {
-  background: #f9f9f9;
-  color: #111;
+  /* background: #f9f9f9;
+  color: #111; */
+  background: #000;
+  color: #fff; 
 }
 
 body.light header {
-  background-color: #ffffff;
-  color: #000;
+  /* background-color: #ffffff; */
+  background-color: #000;
+  /* color: #000; */
+  color: white;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
 body.light .logo a {
-  color: #111;
+  /* color: #111; */
+  color: white;
 }
+
+
 
 body.light .nav_links a,
 body.light #home {
-  color: #111;
+  /* color: #111;
+   */
+   color: white;
 }
 
 body.light .nav_links a:hover,
 body.light #home:hover {
-  background-color: #eeeeee;
+  /* background-color: #eeeeee; */
+  background-color: rgb(36, 33, 33);
 }
 
 body.light .nav_buttons button {
-  color: #111;
-}
-
-body.light .nav_buttons #signupButton {
-  background: #111;
+  /* color: #111; */
   color: white;
 }
 
+body.light .nav_buttons #signupButton {
+  /* background: #111;
+  color: white; */
+   color: #262626;
+  background: #fff;
+}
+
 body.light .nav_buttons #signupButton:hover {
-  background: #262626;
+  /* background: #262626; */
+  background: #dfdddd;
 }
 
 body.light #profileButton {
-  border-color: #333;
+  /* border-color: #333; */
+  border: 1px solid #fff;
 }
 
 body.light .delete-button {
@@ -307,20 +347,22 @@ body.light .delete-button {
 }
 
 body.light .active {
-  background-color: #dcdcdc;
+  /* background-color: #dcdcdc; */
+  background-color: rgb(83, 81, 81);
 }
 
 body.light .activeUser {
-  color: #111;
+  /* color: #111; */
+  color: rgb(36, 34, 34);
 }
 
 @media (max-width: 992px) {
   body.light .nav_links {
-    background-color: #ffffff;
-    border-top: 2px solid #ddd;
+    background-color: transparent;
+    /* border-top: 2px solid #ddd; */
   }
 
   body.light .nav_links a {
-    color: #111;
+    color: #fff;
   }
 }

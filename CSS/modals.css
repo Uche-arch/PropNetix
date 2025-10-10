@@ -12,14 +12,16 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(0, 0, 0, 0.35);
+  /* background: rgba(0, 0, 0, 0.35); */
   display: none;
   z-index: 9999;
   backdrop-filter: blur(5px);
   padding: 20px;
   transition: opacity 0.3s ease;
   font-family: "Inter", sans-serif;
-  color: #111;
+  /* color: #111; */
+    background: rgba(255, 255, 255, 0.5);
+  color: #222;
   font-weight: 400;
 }
 
@@ -27,7 +29,8 @@
 .modal-content,
 .modal-content2 {
   text-align: center;
-  background: #1a1a1a;
+  background: #f2f2f2;
+  /* background: #1a1a1a; */
   padding: 20px;
   border-radius: 8px;
   width: 90%;
@@ -37,10 +40,11 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+  /* box-shadow: 0 0 20px rgba(255, 255, 255, 0.05); */
+  /* box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); */
   animation: slideIn 0.3s ease-out;
   font-family: "Inter", sans-serif;
-  color: #fff;
+  color: #222;
   font-size: 18px;
 }
 
@@ -48,6 +52,8 @@
 .modal-content2 h2 {
   font-weight: 400;
   font-size: 21px;
+  color: #222;
+
 }
 
 .modal-content i {
@@ -78,9 +84,12 @@
   padding: 10px 12px;
   border: 2px solid;
   border-radius: 8px;
-  background-color: rgba(255, 255, 255, 0.9);
+  /* background-color: rgba(255, 255, 255, 0.9); */
   font-size: 16px;
-  color: #333;
+  /* color: #333; */
+  background-color: #ffffff;
+  border-color: #ccc;
+  color: #222;
   outline: none;
   margin-top: 10px;
   width: 100%;
@@ -108,7 +117,8 @@
   right: 15px;
   font-size: 20px;
   font-weight: bold;
-  color: #888;
+  /* color: #888; */
+  color: #555;
   background: none;
   border: none;
   cursor: pointer;
@@ -180,27 +190,41 @@
 
 /* 🌞 LIGHT MODE OVERRIDES */
 body.light .modal {
-  background: rgba(255, 255, 255, 0.5);
-  color: #222;
+  /* background: rgba(255, 255, 255, 0.5); */
+  background: rgba(0, 0, 0, 0.35);
+  /* color: #222; */
+  color: #ffffff;
 }
 
 body.light .modal-content,
 body.light .modal-content2 {
-  background: #ffffff;
-  color: #222;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  /* background: #ffffff; */
+  background: #1a1a1a;
+  /* color: #222; */
+  color: #ffffff;
+
+  /* color: #ffffff; */
+
+  /* box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); */
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
 }
 
 body.light .modal-content > h2,
 body.light .modal-content2 h2 {
-  color: #222;
+  /* color: #222; */
+  color: #ffffff;
+
 }
 
 body.light .modal-content2 input,
 body.light .modal-content input {
-  background-color: #ffffff;
-  border-color: #ccc;
+  /* background-color: #ffffff; */
+  background-color: rgba(255, 255, 255, 0.9);
+  /* border-color: #ccc; */
   color: #222;
+  /* color: #333; */
+  /* color: #ffffff; */
+
 }
 
 body.light .modal-content2 button,
@@ -210,7 +234,8 @@ body.light .modal-content button {
 }
 
 body.light .modal .close {
-  color: #555;
+  /* color: #555; */
+  color: #888;
 }
 
 body.light #auth-overlay {

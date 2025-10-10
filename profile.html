@@ -60,6 +60,10 @@
     <link rel="shortcut icon" href="./img/newLogo.png" type="image/x-icon" />
 
     <title>PropNetix | Your Profile</title>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+    <script src="./JS(📢out of bounds)/configuration.js"></script>
+    <script src="./JS(📢out of bounds)/authCheck.js" defer></script>
   </head>
   <body>
     <header>
@@ -148,8 +152,7 @@
               <option value="apartments">Apartments</option>
               <option value="shops">Shops</option>
               <option value="land">Land</option>
-              <!-- <option value="others">Others</option> -->
-              </select
+              <!-- <option value="others">Others</option> --></select
             ><br />
 
             <!-- Land Measurement Input (Initially hidden) -->
@@ -206,6 +209,10 @@
               >
               <input type="file" id="images" multiple />
               <span id="fileUploadLabel">No image chosen</span>
+              <p
+                id="uploadError"
+                style="color: red; font-size: 13px; margin-top: 4px"
+              ></p>
             </div>
 
             <button type="submit">Submit</button>
@@ -261,6 +268,7 @@
       </div>
     </div>
 
+    <!-- <script src="./JS(📢out of bounds)/authCheck.js"></script> -->
     <script src="./JS(📢out of bounds)/profileForm.js"></script>
     <script src="./JS(📢out of bounds)/profile.js"></script>
     <script src="./JS(📢out of bounds)/feedbackBtn.js"></script>

@@ -212,14 +212,8 @@ document.addEventListener("DOMContentLoaded", async function () {
 </p>
 
           <div class="post-meta-top">
-            <span class="post-price">
-              <span class="icon-circle"><i class="fas fa-money-bill"></i></span>
-              ₦${post.price.toLocaleString()}
-            </span>
-            <span class="post-price">
-              <span class="post-location">Negotiable? </span>
-              <span style="color: #4aa3f0;">${post.negotiable}</span>
-            </span>
+      
+           
           </div>
 
           ${
@@ -235,8 +229,8 @@ document.addEventListener("DOMContentLoaded", async function () {
             <span class="icon-circle"><i class="fas fa-map-marker-alt"></i></span>
             ${locationText}
           </p>
-
-          <p class="post-phone">
+          <div style="display: flex; align-items: center; justify-content: space-between;">
+          <p class="post-phone" >
   <span class="icon-circle-phone">
     <a href="tel:${post.phone}">
       <i class="fas fa-phone"></i>
@@ -245,12 +239,21 @@ document.addEventListener("DOMContentLoaded", async function () {
   <a href="tel:${post.phone}" class="phone-number">
     ${post.phone}
   </a>
-</p>
+  </p>
+  <div> <span>
+              <span class="post-location">Negotiable? </span>
+              <span style="color: #4aa3f0;">${post.negotiable}</span>
+            </span></div>
+</div>
 
           <div class="post-meta-bottom">
-            <span class="post-username">_</span>
+            <span class="post-price">₦${post.price.toLocaleString()}</span>
             <span class="post-time">${timeAgo}</span>
           </div>
+          <div class="post-user">
+  <i class="fas fa-user-circle"></i>
+  <span class="username-text">${username}</span>
+</div>
         </div>
       `;
 

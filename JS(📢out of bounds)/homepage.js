@@ -275,10 +275,7 @@ document.addEventListener("DOMContentLoaded", async function () {
               <span class="icon-circle"><i class="fas fa-tags"></i></span>
               ${post.category}
             </span>
-            <span class="post-price">
-              <span class="icon-circle"><i class="fas fa-money-bill"></i></span>
-              ₦${post.price.toLocaleString()}
-            </span>
+            
             
           </div>
 
@@ -311,16 +308,21 @@ document.addEventListener("DOMContentLoaded", async function () {
   </a>
 </p>
 
-<span class="post-price">
+<span>
               <span class="post-location">Negotiable? </span>
               <span style="color: #4aa3f0;">${post.negotiable}</span>
             </span>
           </div>
 
           <div class="post-meta-bottom">
-            <span class="post-username">_</span>
+            <span class="post-price">₦${post.price.toLocaleString()}</span>
             <span class="post-time">${timeAgo}</span>
           </div>
+          <div class="post-user">
+  <i class="fas fa-user-circle"></i>
+  <span class="username-text">${username}</span>
+</div>
+
         </div>
       `;
 

@@ -12,20 +12,28 @@
   width: 100%;
   max-width: 500px;
   padding: 10px 16px;
-  border: 1px solid #ccc;
+  /* border: 1px solid #ccc; */
   border-radius: 6px;
   font-size: 16px;
   outline: none;
   transition: border-color 0.3s ease, box-shadow 0.2s ease;
   background-color: transparent;
-  color: white;
+  /* color: white; */
+   background-color: #f5f5f5;
+  color: #111;
+  border: 1px solid #ccc;
 }
 .search_index input::placeholder {
   font-family: 'Inter', sans-serif;
+  color: #555; 
+  /* Color I added */
+
 }
 .search_index input:focus {
-  border-color: #4a90e2;
-  box-shadow: 0 0 5px rgba(74, 144, 226, 0.4);
+  /* border-color: #4a90e2;
+  box-shadow: 0 0 5px rgba(74, 144, 226, 0.4); */
+  border-color: #0066cc;
+  box-shadow: 0 0 5px rgba(0, 102, 204, 0.4);
 }
 
 @media screen and (max-width: 992px) {
@@ -58,14 +66,19 @@
 
 /* LIGHT MODE STYLES */
 body.light .search_index input {
-  background-color: #f5f5f5;
-  color: #111;
+  /* background-color: #f5f5f5; */
+  /* color: #111; */
+  color: white;
+  background: transparent;
+
   border: 1px solid #ccc;
 }
 body.light .search_index input::placeholder {
   color: #555;
 }
 body.light .search_index input:focus {
-  border-color: #0066cc;
-  box-shadow: 0 0 5px rgba(0, 102, 204, 0.4);
+  /* border-color: #0066cc;
+  box-shadow: 0 0 5px rgba(0, 102, 204, 0.4); */
+   border-color: #4a90e2;
+  box-shadow: 0 0 5px rgba(74, 144, 226, 0.4);
 }

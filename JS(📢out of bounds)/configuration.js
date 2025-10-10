@@ -8,3 +8,5 @@ const firebaseConfig = {
 
 // 🔌 Initialize Firebase (compat)
 firebase.initializeApp(firebaseConfig);
+const auth = firebase.auth();
+auth.setPersistence(firebase.auth.Auth.Persistence.LOCAL); // 🔹 Persist login across sessions

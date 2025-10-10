@@ -26,13 +26,27 @@ const fileLabel = document.getElementById("fileUploadLabel");
 imageInput.addEventListener("change", function () {
   const files = Array.from(this.files);
 
+  // --- Check for videos ---
+  const hasVideo = files.some((file) => file.type.startsWith("video/"));
+ if (hasVideo) {
+   uploadError.textContent =
+     " Videos are not allowed. Please upload only images.";
+   this.value = "";
+   fileLabel.textContent = "No image chosen";
+   return;
+ } else {
+   uploadError.textContent = ""; // clear old message
+ }
+
+  // --- Check for image count limit ---
   if (files.length > 5) {
-    alert("You can upload a maximum of 5 images.");
+    uploadError.textContent = " You can upload a maximum of 5 images.";
     this.value = ""; // Clear selection
     fileLabel.textContent = "No image chosen";
-    return;
+    return; 
   }
 
+  // --- Update label ---
   if (files.length === 0) {
     fileLabel.textContent = "No image chosen";
   } else {

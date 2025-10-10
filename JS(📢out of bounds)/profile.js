@@ -1,7 +1,9 @@
 document.addEventListener("DOMContentLoaded", async function () {
-const modalOverlay = document.getElementById("postModalOverlay");
+  // Show the loading modal immediately
+  showLoadingModal();
+  const modalOverlay = document.getElementById("postModalOverlay");
 
-const noPostMessage = document.getElementById("noPostMessage");
+  const noPostMessage = document.getElementById("noPostMessage");
 
   // Check if a user is logged in (i.e., check if there's a JWT in localStorage)
   const token = localStorage.getItem("token");
@@ -29,7 +31,7 @@ const noPostMessage = document.getElementById("noPostMessage");
   logoutButton.addEventListener("click", function () {
     localStorage.removeItem("token"); // Remove the token from localStorage
     localStorage.removeItem("isLoggedIn", "false");
-    window.location.href = "index.html"; // or 'login.html'
+    window.location.href = "all.html"; // or 'login.html'
   });
 
   // Get the token from localStorage to authenticate the user
@@ -370,7 +372,7 @@ ${
   </div>
     <button class="delete-button" data-post-id="${
       post._id
-    }"><i class="fa-solid fa-trash"></i>
+    }">
 Delete</button>
   `;
 

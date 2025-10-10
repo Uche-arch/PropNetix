@@ -23,14 +23,21 @@ body {
 
 .post {
   padding: 10px;
-  background-color: #0a0a0a;
+  /* background-color: #0a0a0a; */
+  background-color: #f2f2f2;
+  color: #222;
+  
   border-radius: 5px;
   width: 100%;
   overflow: hidden;
-  box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.4);
+  /* box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.4); */
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.05);
+
   transition: transform 0.3s ease;
   position: relative;
-  border: 0.5px solid rgba(255, 255, 255, 0.06);
+  /* border: 0.5px solid rgba(255, 255, 255, 0.06); */
+  border: 0.5px solid rgba(0, 0, 0, 0.06);
+
   display: flex;
   flex-direction: column;
 }
@@ -39,10 +46,12 @@ body {
   position: absolute;
   top: 15px;
   right: 15px;
-  background-color: #242323;
+  /* background-color: #242323;
+  color: #fff; */
+  background-color: #dddddd;
+  color: #222;
   border-radius: 50%;
   border: none;
-  color: #fff;
   font-size: 1rem;
   cursor: pointer;
   transition: color 0.3s ease, transform 0.2s ease;
@@ -54,17 +63,25 @@ body {
 }
 
 .like-btn.liked {
-  color: #ff4d4d;
+  /* color: #ff4d4d; */
+  color: #e60000;
+
 }
 
 .post-card {
   max-width: 400px;
-  background: #1e1e1e;
-  color: #e0e0e0;
+  /* background: #1e1e1e; */
+  background: #ffffff;
+
+  /* color: #e0e0e0; */
+  color: #222;
+
   font-family: "Inter", sans-serif;
   border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
+  /* box-shadow: 0 0 12px rgba(0, 0, 0, 0.3); */
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.08);
+
   margin: 20px auto;
 }
 
@@ -110,10 +127,12 @@ body {
   width: 22px;
   height: 22px;
   border-radius: 50%;
-  background-color: #4e4b4b;
-  color: white;
+  /* background-color: #4e4b4b;
+  color: white; */
+   background-color: transparent;
+  color: #222;
   font-size: 12px;
-  margin-right: 6px;
+  margin-right: 0px;
 }
 
 .icon-circle-phone {
@@ -123,19 +142,25 @@ body {
   width: 22px;
   height: 22px;
   border-radius: 50%;
-  background-color: #4e4b4b;
+  /* background-color: #4e4b4b; */
+  background-color: transparent;
+
   font-size: 12px;
-  margin-right: 6px;
+  margin-right: 0px;
   text-decoration: none;
 }
 
 .icon-circle-phone a {
-  color: white;
+  /* color: white; */
+  color: #333;
+
 }
 
 
 .phone-number {
-  color: #ccc;
+  /* color: #ccc; */
+  color: #333;
+
   text-decoration: none;
 }
 
@@ -149,16 +174,20 @@ body {
 
 .post-title {
   font-size: 1.1rem;
-  text-align: center;
-  margin-bottom: 6px;
-  color: #ffffff;
+  /* text-align: center; */
+  margin-bottom: 8px;
+  /* color: #ffffff; */
+  color: #222222;
+
 }
 
 .post-description {
-  color: #e0e0e0;
+  /* color: #e0e0e0; */
+  color: #333;
+
   line-height: 1.2;
-  margin-bottom: 10px;
-  white-space: pre-wrap;
+  margin-bottom: 2px;
+  /* white-space: pre-wrap; */
 }
 
 .more-text {
@@ -166,7 +195,9 @@ body {
 }
 
 .toggle-desc {
-  color: #4aa3f0;
+  /* color: #4aa3f0; */
+  color: #007bff;
+
   font-weight: 500;
   cursor: pointer;
   margin-left: 5px;
@@ -176,20 +207,26 @@ body {
 .post-measurement,
 .post-location,
 .post-phone {
-  color: #cccccc;
+  /* color: #cccccc; */
+  color: #333;
+
   font-size: 13px;
   margin: 4px 0;
 }
 
 .post-price {
-  color: #7ed957;
+  /* color: #7ed957; */
+  color: #111;
+
   font-weight: 600;
-  font-size: 13px;
+  font-size: 18px;
 }
 
 .post-username,
 .post-time {
-  color: #999999;
+  /* color: #999999; */
+  color: #333;
+
   font-size: 11px;
 }
 
@@ -199,8 +236,10 @@ body {
   justify-content: space-between;
   align-items: center;
   font-size: 11px;
-  margin-top: 15px;
-  color: #999;
+  margin-top:10px;
+  /* color: #999; */
+  color: #333;
+
 }
 .post-top {
   display: flex;
@@ -211,6 +250,29 @@ body {
 .post-meta-bottom {
   margin-top: auto;
   padding: 10px 0 0px 0;
+}
+
+/* User Profile name */
+.post-user {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 8px;
+  padding-top: 10px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #333;
+  justify-content: right;
+   border-top: 0.5px solid rgba(0, 0, 0, 0.1); /* 👈 thin subtle line */
+}
+
+.post-user i {
+  font-size: 18px;
+  color: #4aa3f0;
+}
+
+.post-user .username-text {
+  color: #333;
 }
 
 @keyframes zoomInFade {
@@ -274,24 +336,33 @@ body {
 
 /* 🌞 LIGHT MODE OVERRIDES */
 body.light .post {
-  background-color: #f2f2f2;
+  /* background-color: #f2f2f2;
   color: #222;
   border: 0.5px solid rgba(0, 0, 0, 0.06);
-  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.05);
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.05); */
+  background-color: #0a0a0a;
+  box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.4);
+  border: 0.5px solid rgba(255, 255, 255, 0.06);
+
 }
 
 body.light .post-card {
-  background: #ffffff;
+  /* background: #ffffff;
   color: #222;
-  box-shadow: 0 0 12px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.08); */
+  background: #1e1e1e;
+  color: #e0e0e0;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
 }
 
 body.light .post-title {
-  color: #222222;
+  /* color: #222222; */
+  color: #ffffff;
 }
 
 body.light .post-description {
-  color: #333;
+  /* color: #333; */
+  color: #e0e0e0;
 }
 
 body.light .post-category,
@@ -302,38 +373,49 @@ body.light .post-username,
 body.light .post-time,
 body.light .post-meta-bottom,
 body.light .post-meta-top {
-  color: #333;
+  /* color: #333; */
+  color: #cccccc;
 }
 
 body.light .icon-circle-phone {
-  background-color: #dddddd;
+  /* background-color: #dddddd; */
+  background-color: #4e4b4b;
 }
 body.light .icon-circle-phone a {
-  color: #333;
+  /* color: #333; */
+  color: white;
 }
 
 body.light .phone-number {
-  color: #333;
+  /* color: #333; */
+  color: #ccc;
 }
 
 body.light .post-price {
-  color: #20b2aa;
+  /* color: #20b2aa; */
+  color: white;
 }
 
 body.light .icon-circle {
-  background-color: #dddddd;
-  color: #222;
+  /* background-color: #dddddd;
+  color: #222; */
+   background-color: #4e4b4b;
+  color: white;
 }
 
 body.light .like-btn {
-  background-color: #dddddd;
-  color: #222;
+  /* background-color: #dddddd;
+  color: #222; */
+  background-color: #242323;
+  color: #fff;
 }
 
 body.light .like-btn.liked {
-  color: #e60000;
+  /* color: #e60000; */
+  color: #ff4d4d;
 }
 
 body.light .toggle-desc {
-  color: #007bff;
+  /* color: #007bff; */
+  color: #4aa3f0;
 }
