@@ -30,6 +30,7 @@
   justify-content: center;
   z-index: 222222222222222;
   animation: fadeInOverlay 0.3s ease forwards;
+  overflow-y: scroll;
 }
 
 @keyframes fadeInOverlay {
