@@ -65,6 +65,7 @@ document.getElementById("loginForm").addEventListener("submit", async (e) => {
 
     if (!user.emailVerified) {
       showUserModal("⚠️ Email not verified. Please check your inbox/spam.");
+      loginButton.textContent = "Login";
       await auth.signOut();
       resendVerificationBtn.style.display = "block";
       window.tempUserForResend = user;
@@ -76,6 +77,7 @@ document.getElementById("loginForm").addEventListener("submit", async (e) => {
     localStorage.setItem("isLoggedIn", "true");
 
     showUserModal("You’ve successfully logged in.", "profile.html");
+    loginButton.textContent = "Login";
   } catch (error) {
     console.error("Login error:", error);
     showUserModal("Login failed: " + error.message, null, 3000);

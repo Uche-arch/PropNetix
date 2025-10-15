@@ -10,7 +10,8 @@
 body {
   /* background: black;
   height: 100vh; */
-  background: #b8b4b4;
+  /* background: #b8b4b4; */
+  background: #eeeeee;
   color: #111;
 }
 /* Smooth transition for theme change */

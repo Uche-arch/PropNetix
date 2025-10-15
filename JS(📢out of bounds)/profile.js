@@ -1,21 +1,20 @@
 document.addEventListener("DOMContentLoaded", async function () {
-  // Show the loading modal immediately
+  // Show loading modal immediately
   showLoadingModal();
-  const modalOverlay = document.getElementById("postModalOverlay");
 
+  const modalOverlay = document.getElementById("postModalOverlay");
   const noPostMessage = document.getElementById("noPostMessage");
 
-  // Check if a user is logged in (i.e., check if there's a JWT in localStorage)
-  const token = localStorage.getItem("token");
-
-  // Get the buttons by their IDs
+  // Navbar buttons
   const signupButton = document.getElementById("signupButton");
   const loginButton = document.getElementById("LoginButton");
   const profileButton = document.getElementById("profileButton");
   const logoutButton = document.getElementById("logoutButton");
 
-  // If the token exists, the user is logged in
-  if (token) {
+  // Check local token just for UI toggle
+  const hasToken = localStorage.getItem("token");
+
+  if (hasToken) {
     signupButton.style.display = "none";
     loginButton.style.display = "none";
     profileButton.style.display = "inline-block";
@@ -27,30 +26,45 @@ document.addEventListener("DOMContentLoaded", async function () {
     logoutButton.style.display = "none";
   }
 
-  // Handle Log Out functionality
-  logoutButton.addEventListener("click", function () {
-    localStorage.removeItem("token"); // Remove the token from localStorage
-    localStorage.removeItem("isLoggedIn", "false");
-    window.location.href = "all.html"; // or 'login.html'
+  // 🔒 Logout handler
+  logoutButton.addEventListener("click", async function () {
+    await firebase.auth().signOut(); // sign out of Firebase
+    localStorage.removeItem("token");
+    localStorage.removeItem("isLoggedIn");
+    window.location.href = "all.html";
   });
 
-  // Get the token from localStorage to authenticate the user
-  // const token = localStorage.getItem("token");
+  // 🔥 Firebase state listener (always fires when user logs in/out)
+  firebase.auth().onAuthStateChanged(async (user) => {
+    if (!user) {
+      hideLoadingModal();
+      alert("Please log in to view your posts.");
+      return;
+    }
 
-  if (!token) {
-    alert("Please log in to view your posts.");
-    return;
-  }
+    try {
+      // Force refresh token every time page loads
+      const idToken = await user.getIdToken(true);
+      localStorage.setItem("token", idToken);
 
-  // Fetch user data to get username
-  await fetchUserData(token);
+      // Fetch profile + posts
+      await fetchUserData(idToken);
+      await fetchUserPosts(idToken);
 
-  await fetchUserPosts(token);
+      hideLoadingModal();
+    } catch (err) {
+      console.error("Error refreshing token:", err);
+      hideLoadingModal();
+      alert("Failed to load your profile. Please try again.");
+    }
+  });
 
-  // Listen for changes to the category dropdown to show the land measurement input
+  // Category change listener (for land measurement field)
   const categoryDropdown = document.getElementById("category");
-  categoryDropdown.addEventListener("change", toggleLandMeasurement);
-  toggleLandMeasurement(); // Initial check for category selection
+  if (categoryDropdown) {
+    categoryDropdown.addEventListener("change", toggleLandMeasurement);
+    toggleLandMeasurement(); // Initial call
+  }
 });
 
 // Fetch user data to get the username
@@ -81,8 +95,8 @@ async function fetchUserData(token) {
 const postForm = document.getElementById("postForm");
 postForm.addEventListener("submit", async (e) => {
   e.preventDefault();
-  modalOverlay.style.display= "none"
-  showPostingModal()
+  modalOverlay.style.display = "none";
+  showPostingModal();
 
   // function showTemporaryModal(modalId, duration = 2000) {
   //   const modal = document.getElementById(modalId);
@@ -168,7 +182,7 @@ postForm.addEventListener("submit", async (e) => {
     if (data.message === "Post created") {
       // hideLoadingModal();
       // alert("Post created successfully!");
-      hidePostingModal()
+      hidePostingModal();
       showTemporaryModal("postedModal", 2000, true);
       postForm.reset();
       appendPostToFeed(data.post, "postFeed");
@@ -264,7 +278,6 @@ async function fetchUserPosts(token) {
   }
 }
 
-
 // Function to calculate and return time ago format (e.g., "1 minute ago")
 function getTimeAgo(date) {
   const now = new Date();
@@ -295,7 +308,6 @@ function appendPostToFeed(post, feedId) {
   const postedDate = new Date(post.createdAt); // Assuming the backend returns a valid date
   const timeAgo = getTimeAgo(postedDate); // Get time ago format
 
-
   // Description logic
   let desc = post.description;
   let maxLength = 80;
@@ -306,7 +318,6 @@ function appendPostToFeed(post, feedId) {
 
   let shortText = desc.slice(0, cutoff); // ends at last full word
   let restText = desc.slice(cutoff); // starts with space before next word
-
 
   postDiv.innerHTML = `
    <div id="post-images">
@@ -334,7 +345,7 @@ function appendPostToFeed(post, feedId) {
     ${post.category}
   </span>
   <span class="post-price">
-    <span class="icon-circle"><i class="fas fa-money-bill"></i></span>
+    <span class="icon-circle"></span>
     ₦${post.price.toLocaleString()}
   </span>
 </div>
@@ -370,9 +381,7 @@ ${
       <span class="post-time">${timeAgo}</span>
     </div>
   </div>
-    <button class="delete-button" data-post-id="${
-      post._id
-    }">
+    <button class="delete-button" data-post-id="${post._id}">
 Delete</button>
   `;
 
