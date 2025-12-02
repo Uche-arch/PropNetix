@@ -86,7 +86,7 @@ nav {
   gap: 1rem;
   font-family: "Inter", sans-serif;
   font-weight: 500;
-  /* background: #ffffff; */
+  background: #ffffff;
 }
 
 .nav_links a,
@@ -275,9 +275,9 @@ body.light #theme-toggle {
   color: #fff;
 }
 
-body.light #theme-toggle:hover {
+/* body.light #theme-toggle:hover {
   background-color: #cac7c7;
-}
+} */
 
 /* 🌞 LIGHT MODE OVERRIDES */
 body.light {
